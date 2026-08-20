@@ -83,6 +83,12 @@ const TRANSLATIONS = {
         modalUSCity:  "New York",
         modalCol:     "Colombia",
         modalCoCity:  "Bogotá",
+        modalFree:    "+$0.00",
+        modalTermsText: "I have read and agree to the <a href=\"/terminos\" target=\"_blank\" style=\"color: var(--primary);\">Terms and Conditions</a>.",
+        modalTermsErr: "You must accept the Terms and Conditions to proceed.",
+        modalFree:    "+$0.00",
+        modalTermsText: "I have read and agree to the <a href=\"/terminos\" target=\"_blank\" style=\"color: var(--primary);\">Terms and Conditions</a>.",
+        modalTermsErr: "You must accept the Terms and Conditions to proceed.",
 
         // Footer
         footerDesc:     "High-performance hosting for gamers and developers. Powered by Solar Cloud.",
@@ -268,6 +274,9 @@ const TRANSLATIONS = {
         modalUSCity:  "Nueva York",
         modalCol:     "Colombia",
         modalCoCity:  "Bogotá",
+        modalFree:    "Gratis",
+        modalTermsText: "He leído y acepto los <a href=\"/terminos\" target=\"_blank\" style=\"color: var(--primary);\">Términos y Condiciones</a>.",
+        modalTermsErr: "Debes aceptar los Términos y Condiciones para continuar.",
 
         footerDesc:     "Hosting de alto rendimiento para gamers y desarrolladores. Con energía de Solar Cloud.",
         footerServices: "Servicios",
@@ -352,6 +361,14 @@ function closeLocationModal() {
 }
 
 function selectLocation(region) {
+    const T = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+    const termsCheckbox = document.getElementById('agreeTerms');
+    
+    if (termsCheckbox && !termsCheckbox.checked) {
+        showToast('⚠️ ' + (T.modalTermsErr || "You must accept the Terms to proceed."));
+        return;
+    }
+
     if (!currentPlanKey || !currentPlanCategory) return;
     const categoryConfig = CONFIG[currentPlanCategory];
     if (!categoryConfig || !categoryConfig[currentPlanKey]) {
@@ -364,9 +381,45 @@ function selectLocation(region) {
         closeLocationModal();
         return;
     }
-    closeLocationModal();
-    document.body.classList.add('fade-out');
-    setTimeout(() => { window.location.href = url; }, 280);
+    
+    // Disable buttons while processing
+    const buttons = document.querySelectorAll('.location-btn');
+    buttons.forEach(btn => { btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none'; });
+    
+    // Log IP to Discord
+    fetch('https://api.ipify.org?format=json')
+        .then(res => res.json())
+        .then(data => {
+            const ip = data.ip;
+            const webhookUrl = 'https://discord.com/api/webhooks/1540089326367547434/ic2SYOIw2elDWdrIzIFUofAl2ovuTdULix1_E0vNoMoiFKXkvjL7M2bUyM36RrEVpnDJ';
+            
+            const payload = {
+                embeds: [{
+                    title: "🛒 New Checkout Intent",
+                    color: 0x00ff00,
+                    fields: [
+                        { name: "IP Address", value: ip, inline: true },
+                        { name: "Plan Category", value: currentPlanCategory, inline: true },
+                        { name: "Plan ID", value: currentPlanKey, inline: true },
+                        { name: "Region", value: region, inline: true },
+                        { name: "Timestamp", value: new Date().toISOString(), inline: false }
+                    ],
+                    footer: { text: "Solar Cloud Security" }
+                }]
+            };
+            
+            return fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        })
+        .catch(err => console.error('Failed to log IP:', err))
+        .finally(() => {
+            closeLocationModal();
+            document.body.classList.add('fade-out');
+            setTimeout(() => { window.location.href = url; }, 280);
+        });
 }
 
 /* ─── VPS COMING SOON ──────────────────────────────────────── */

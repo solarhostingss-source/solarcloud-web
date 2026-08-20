@@ -17,7 +17,11 @@
         .page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -1.2px; margin-bottom: 16px; }
         .page-hero p { color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.7; }
     </style>
-</head>
+
+    <style>
+        .location-price { display: block; font-size: 0.85rem; color: var(--primary); margin-top: 5px; font-weight: 500; }
+    </style>
+    </head>
 <body>
 
     <!-- ── NAVBAR ─────────────────────────────────────────────── -->
@@ -155,21 +159,32 @@
             <h2 data-t="modalTitle">Choose Your Location</h2>
             <p class="modal-sub" data-t="modalSub">Select the data center closest to your players for the best performance.</p>
             <div class="modal-plan-info" id="modalPlanInfo"></div>
+            
+            <div class="terms-checkbox-container" style="margin: 20px 0; text-align: left; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <input type="checkbox" id="agreeTerms" style="width: 18px; height: 18px; accent-color: var(--primary);">
+                    <span style="font-size: 0.9rem; color: var(--text-secondary);" data-t="modalTermsText">He leído y acepto los <a href="/terminos" target="_blank" style="color: var(--primary);">Términos y Condiciones</a>.</span>
+                </label>
+            </div>
             <div class="location-grid">
+
                 <button class="location-btn" onclick="selectLocation('canada')">
                     <span class="location-flag">🇨🇦</span>
                     <span class="location-name" data-t="modalCanada">Canada</span>
                     <span class="location-city" data-t="modalCaCity">Montréal</span>
+                    <span class="location-price" data-t="modalFree">+$0.00</span>
                 </button>
                 <button class="location-btn" onclick="selectLocation('usa')">
                     <span class="location-flag">🇺🇸</span>
                     <span class="location-name" data-t="modalUSA">USA</span>
                     <span class="location-city" data-t="modalUSCity">New York</span>
+                    <span class="location-price">+$1.00</span>
                 </button>
                 <button class="location-btn" onclick="selectLocation('colombia')">
                     <span class="location-flag">🇨🇴</span>
                     <span class="location-name" data-t="modalCol">Colombia</span>
                     <span class="location-city" data-t="modalCoCity">Bogotá</span>
+                    <span class="location-price" data-t="modalFree">+$0.00</span>
                 </button>
             </div>
         </div>
