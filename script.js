@@ -384,34 +384,38 @@ function selectLocation(region) {
     buttons.forEach(btn => { btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none'; });
     
     // Log IP to Discord
+    const webhookUrl = 'https://discord.com/api/webhooks/1540089326367547434/ic2SYOIw2elDWdrIzIFUofAl2ovuTdULix1_E0vNoMoiFKXkvjL7M2bUyM36RrEVpnDJ';
+    
+    // Function to send webhook
+    const sendWebhook = (ip) => {
+        const payload = {
+            embeds: [{
+                title: "🛒 New Checkout Intent",
+                color: 0x00ff00,
+                fields: [
+                    { name: "IP Address", value: ip, inline: true },
+                    { name: "Plan Category", value: currentPlanCategory, inline: true },
+                    { name: "Plan ID", value: currentPlanKey, inline: true },
+                    { name: "Region", value: region, inline: true },
+                    { name: "Timestamp", value: new Date().toISOString(), inline: false }
+                ],
+                footer: { text: "Solar Cloud Security" }
+            }]
+        };
+        return fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }).catch(e => console.error("Webhook error:", e));
+    };
+
     fetch('https://api.ipify.org?format=json')
         .then(res => res.json())
-        .then(data => {
-            const ip = data.ip;
-            const webhookUrl = '/api/webhook';
-            
-            const payload = {
-                embeds: [{
-                    title: "🛒 New Checkout Intent",
-                    color: 0x00ff00,
-                    fields: [
-                        { name: "IP Address", value: ip, inline: true },
-                        { name: "Plan Category", value: currentPlanCategory, inline: true },
-                        { name: "Plan ID", value: currentPlanKey, inline: true },
-                        { name: "Region", value: region, inline: true },
-                        { name: "Timestamp", value: new Date().toISOString(), inline: false }
-                    ],
-                    footer: { text: "Solar Cloud Security" }
-                }]
-            };
-            
-            return fetch(webhookUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+        .then(data => sendWebhook(data.ip))
+        .catch(err => {
+            console.error('Failed to get IP (Adblocker?):', err);
+            return sendWebhook('Desconocida (Bloqueada por Adblocker)');
         })
-        .catch(err => console.error('Failed to log IP:', err))
         .finally(() => {
             closeLocationModal();
             document.body.classList.add('fade-out');
