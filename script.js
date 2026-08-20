@@ -117,7 +117,7 @@ const TRANSLATIONS = {
         ref_h4: "4. Changes to This Policy",
         ref_p7: "Solar Cloud reserves the right to modify this Refund Policy at any time. It is your responsibility to review this policy periodically. Continued use of our services constitutes agreement to the updated policy.",
         ref_h9: "9. Contact",
-        ref_p8: "For any refund-related inquiries, please reach out to us at: <strong>solarhostingss@gmail.com</strong>",
+        ref_p8: "For any refund-related inquiries, please reach out to us at: <strong>support@solarcloud.lat</strong>",
         term_h1: "1. Acceptance of Terms",
         term_p1: "By accessing or using any service provided by <strong>Solar Cloud</strong> (\"we,\" \"us,\" or \"the Company\"), you agree to be bound by these Terms of Service (\"Terms\"). If you do not agree with any part of these Terms, you may not use our services.",
         term_h2: "2. Description of Services",
@@ -150,7 +150,7 @@ const TRANSLATIONS = {
         term_h10: "10. Governing Law",
         term_p14: "These Terms shall be governed by and construed in accordance with applicable international law. Disputes shall be resolved through good-faith negotiation before any legal action is taken.",
         term_h11: "11. Contact",
-        term_p15: "For questions regarding these Terms, please contact us at: <strong>solarhostingss@gmail.com</strong>",
+        term_p15: "For questions regarding these Terms, please contact us at: <strong>support@solarcloud.lat</strong>",
     },
 
     es: {
@@ -169,7 +169,7 @@ const TRANSLATIONS = {
         ref_h4: "4. Cambios en Esta Política",
         ref_p7: "Solar Cloud se reserva el derecho de modificar esta Política de Reembolsos en cualquier momento. Es su responsabilidad revisar esta política periódicamente. El uso continuo de nuestros servicios constituye su acuerdo con la política actualizada.",
         ref_h9: "9. Contacto",
-        ref_p8: "Para cualquier consulta relacionada con reembolsos, contáctenos en: <strong>solarhostingss@gmail.com</strong>",
+        ref_p8: "Para cualquier consulta relacionada con reembolsos, contáctenos en: <strong>support@solarcloud.lat</strong>",
         term_h1: "1. Aceptación de los Términos",
         term_p1: "Al acceder o usar cualquier servicio proporcionado por <strong>Solar Cloud</strong> (\"nosotros\", \"la Compañía\"), usted acepta estar sujeto a estos Términos de Servicio (\"Términos\"). Si no está de acuerdo con alguna parte de estos Términos, no puede utilizar nuestros servicios.",
         term_h2: "2. Descripción de los Servicios",
@@ -202,7 +202,7 @@ const TRANSLATIONS = {
         term_h10: "10. Ley Aplicable",
         term_p14: "Estos Términos se regirán e interpretarán de acuerdo con el derecho internacional aplicable. Las disputas se resolverán a través de negociaciones de buena fe antes de emprender cualquier acción legal.",
         term_h11: "11. Contacto",
-        term_p15: "Si tiene preguntas sobre estos Términos, contáctenos en: <strong>solarhostingss@gmail.com</strong>",
+        term_p15: "Si tiene preguntas sobre estos Términos, contáctenos en: <strong>support@solarcloud.lat</strong>",
 
         navHome:       "Inicio",
         navMinecraft:  "Minecraft",
@@ -376,11 +376,8 @@ function selectLocation(region) {
         return;
     }
     const url = categoryConfig[currentPlanKey][region];
-    if (!url || url.includes('paymenter.tusitio.com')) {
-        showToast('⚠️ Link not configured yet. Edit config.js');
-        closeLocationModal();
-        return;
-    }
+    // Permitiendo redirección incluso sin configurar por pedido del usuario
+    if (!url) { closeLocationModal(); return; }
     
     // Disable buttons while processing
     const buttons = document.querySelectorAll('.location-btn');
@@ -391,7 +388,7 @@ function selectLocation(region) {
         .then(res => res.json())
         .then(data => {
             const ip = data.ip;
-            const webhookUrl = 'https://discord.com/api/webhooks/1540089326367547434/ic2SYOIw2elDWdrIzIFUofAl2ovuTdULix1_E0vNoMoiFKXkvjL7M2bUyM36RrEVpnDJ';
+            const webhookUrl = '/api/webhook';
             
             const payload = {
                 embeds: [{
