@@ -10,6 +10,7 @@ const TRANSLATIONS = {
         navHome:       "Home",
         navMinecraft:  "Minecraft",
         navBots:       "Bots & Web",
+        navVPS:        "VPS",
         navPrivacy:    "Privacy Policy",
         navRefunds:    "Refund Policy",
         navTerms:      "Terms of Service",
@@ -25,7 +26,7 @@ const TRANSLATIONS = {
         statUptime:    "Uptime",
         statSupport:   "Support",
 
-        // Features
+        // Features section
         featOverline:  "Why Choose Us",
         featTitle:     "Everything you need, nothing you don't",
         featDesc:      "We built Solar Cloud for game server admins and developers who demand reliability without breaking the bank.",
@@ -35,6 +36,17 @@ const TRANSLATIONS = {
         f4Title: "Optimized Routing",        f4Desc: "Our network is configured to guarantee the lowest possible latency for players across North America and Latin America.",
         f5Title: "Wallet Friendly",          f5Desc: "Premium quality hosting at prices that make sense. We believe great infrastructure shouldn't cost a fortune.",
         f6Title: "Highly Scalable",          f6Desc: "Start small and upgrade any time. Our plans grow with your community without complicated migrations.",
+
+        // Plan feature list items (translatable)
+        liUnlimitedBW:     "Unlimited Bandwidth",
+        liDDoS:            "DDoS Protection",
+        liInstantSetup:    "Instant Setup",
+        liPanel:           "Panel Access (Pterodactyl)",
+        liCustomDomain:    "Custom Domain",
+        liPrioritySupport: "Priority Support",
+        liMultipleBots:    "Multiple Bots",
+        li247Uptime:       "24/7 Uptime",
+        liWebPanel:        "Web Control Panel",
 
         // Pricing (MC)
         mcOverline:  "Minecraft Hosting",
@@ -48,6 +60,15 @@ const TRANSLATIONS = {
         botDesc:     "Keep your Discord bot online 24/7 with our reliable and affordable hosting solutions.",
         botBuyBtn:   "Buy Now",
 
+        // VPS
+        vpsOverline:    "VPS Hosting",
+        vpsTitle:       "Virtual Private Servers",
+        vpsDesc:        "Full root access, dedicated resources, and enterprise-grade hardware. Coming soon.",
+        vpsComingBadge: "🚀 Coming Soon",
+        vpsComingTitle: "VPS Hosting is on its way",
+        vpsComingDesc:  "We're working hard to bring you powerful, affordable Virtual Private Servers. Be the first to know when we launch.",
+        vpsBuyBtn:      "Coming Soon",
+
         // Modal
         modalTitle:   "Choose Your Location",
         modalSub:     "Select the data center closest to your players for the best performance.",
@@ -59,11 +80,11 @@ const TRANSLATIONS = {
         modalCoCity:  "Bogotá",
 
         // Footer
-        footerDesc:   "High-performance hosting for gamers and developers. Powered by Solar Cloud.",
+        footerDesc:     "High-performance hosting for gamers and developers. Powered by Solar Cloud.",
         footerServices: "Services",
-        footerLegal:  "Legal",
-        footerContact:"Contact",
-        footerCopy:   "© 2025 Solar Cloud. All rights reserved.",
+        footerLegal:    "Legal",
+        footerContact:  "Contact",
+        footerCopy:     "© 2025 Solar Cloud. All rights reserved.",
 
         // Legal pages titles
         privacyTitle:  "Privacy Policy",
@@ -75,6 +96,7 @@ const TRANSLATIONS = {
         navHome:       "Inicio",
         navMinecraft:  "Minecraft",
         navBots:       "Bots y Web",
+        navVPS:        "VPS",
         navPrivacy:    "Privacidad",
         navRefunds:    "Reembolsos",
         navTerms:      "Términos",
@@ -99,6 +121,17 @@ const TRANSLATIONS = {
         f5Title: "Precios Accesibles",        f5Desc: "Hosting premium a precios que tienen sentido. Creemos que una gran infraestructura no debería costar una fortuna.",
         f6Title: "Altamente Escalable",       f6Desc: "Comienza pequeño y actualiza cuando quieras. Nuestros planes crecen con tu comunidad.",
 
+        // Plan feature list items (translatable)
+        liUnlimitedBW:     "Ancho de banda ilimitado",
+        liDDoS:            "Protección Anti-DDoS",
+        liInstantSetup:    "Configuración instantánea",
+        liPanel:           "Panel de control (Pterodactyl)",
+        liCustomDomain:    "Dominio personalizado",
+        liPrioritySupport: "Soporte prioritario",
+        liMultipleBots:    "Múltiples bots",
+        li247Uptime:       "Disponibilidad 24/7",
+        liWebPanel:        "Panel de control web",
+
         mcOverline:  "Hosting de Minecraft",
         mcTitle:     "Elige tu plan",
         mcDesc:      "Todos los planes incluyen acceso completo al panel de control, configuración instantánea y garantía de 99.9% de disponibilidad.",
@@ -109,20 +142,28 @@ const TRANSLATIONS = {
         botDesc:     "Mantén tu bot de Discord activo 24/7 con nuestras soluciones de hosting confiables y asequibles.",
         botBuyBtn:   "Comprar",
 
-        modalTitle:  "Elige tu Ubicación",
-        modalSub:    "Selecciona el centro de datos más cercano a tus jugadores para el mejor rendimiento.",
-        modalCanada: "Canadá",
-        modalCaCity: "Montréal",
-        modalUSA:    "EE.UU.",
-        modalUSCity: "Nueva York",
-        modalCol:    "Colombia",
-        modalCoCity: "Bogotá",
+        vpsOverline:    "VPS Hosting",
+        vpsTitle:       "Servidores Privados Virtuales",
+        vpsDesc:        "Acceso root completo, recursos dedicados y hardware empresarial. Próximamente.",
+        vpsComingBadge: "🚀 Próximamente",
+        vpsComingTitle: "VPS Hosting está en camino",
+        vpsComingDesc:  "Estamos trabajando para traerte Servidores Privados Virtuales potentes y asequibles. Sé el primero en saber cuando lancemos.",
+        vpsBuyBtn:      "Próximamente",
 
-        footerDesc:    "Hosting de alto rendimiento para gamers y desarrolladores. Con energía de Solar Cloud.",
-        footerServices:"Servicios",
-        footerLegal:   "Legal",
-        footerContact: "Contacto",
-        footerCopy:    "© 2025 Solar Cloud. Todos los derechos reservados.",
+        modalTitle:   "Elige tu Ubicación",
+        modalSub:     "Selecciona el centro de datos más cercano a tus jugadores para el mejor rendimiento.",
+        modalCanada:  "Canadá",
+        modalCaCity:  "Montréal",
+        modalUSA:     "EE.UU.",
+        modalUSCity:  "Nueva York",
+        modalCol:     "Colombia",
+        modalCoCity:  "Bogotá",
+
+        footerDesc:     "Hosting de alto rendimiento para gamers y desarrolladores. Con energía de Solar Cloud.",
+        footerServices: "Servicios",
+        footerLegal:    "Legal",
+        footerContact:  "Contacto",
+        footerCopy:     "© 2025 Solar Cloud. Todos los derechos reservados.",
 
         privacyTitle:  "Política de Privacidad",
         refundTitle:   "Política de Reembolsos",
@@ -202,24 +243,26 @@ function closeLocationModal() {
 
 function selectLocation(region) {
     if (!currentPlanKey || !currentPlanCategory) return;
-
     const categoryConfig = CONFIG[currentPlanCategory];
     if (!categoryConfig || !categoryConfig[currentPlanKey]) {
-        console.warn('No config found for', currentPlanCategory, currentPlanKey);
         closeLocationModal();
         return;
     }
-
     const url = categoryConfig[currentPlanKey][region];
     if (!url || url.includes('paymenter.tusitio.com')) {
         showToast('⚠️ Link not configured yet. Edit config.js');
         closeLocationModal();
         return;
     }
-
     closeLocationModal();
     document.body.classList.add('fade-out');
     setTimeout(() => { window.location.href = url; }, 280);
+}
+
+/* ─── VPS COMING SOON ──────────────────────────────────────── */
+function showComingSoon() {
+    const T = TRANSLATIONS[currentLang];
+    showToast('🚀 ' + (T.vpsComingBadge || 'Coming Soon!'));
 }
 
 /* ─── CLOSE MODAL ON OVERLAY CLICK ────────────────────────── */
@@ -252,8 +295,8 @@ function initScrollReveal() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity    = '1';
-                entry.target.style.transform  = 'translateY(0)';
+                entry.target.style.opacity   = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
         });
     }, { threshold: 0.1 });

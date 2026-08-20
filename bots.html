@@ -30,6 +30,7 @@
             <a href="/" data-t="navHome">Home</a>
             <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
             <a href="/bots" class="active" data-t="navBots">Bots & Web</a>
+            <a href="/vps" data-t="navVPS">VPS</a>
             <a href="/terminos" data-t="navTerms">Terms of Service</a>
             <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
             <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
@@ -48,7 +49,8 @@
 
     <!-- ── PRICING ────────────────────────────────────────────── -->
     <section id="bots-pricing" style="background: var(--bg-main);">
-        <div class="pricing-grid" style="max-width: 700px; margin: 0 auto;">
+        <div class="pricing-grid" style="max-width: 1000px; margin: 0 auto;">
+
             <!-- Basic -->
             <div class="plan-card">
                 <p class="plan-name">Basic</p>
@@ -59,10 +61,10 @@
                     <li>1 vCPU</li>
                     <li>5 GB SSD Storage</li>
                     <li>Node.js / Python / Java</li>
-                    <li>24/7 Uptime</li>
-                    <li>DDoS Protection</li>
-                    <li class="unavailable">Multiple Bots</li>
-                    <li class="unavailable">Priority Support</li>
+                    <li data-t="li247Uptime">24/7 Uptime</li>
+                    <li data-t="liDDoS">DDoS Protection</li>
+                    <li class="unavailable" data-t="liMultipleBots">Multiple Bots</li>
+                    <li class="unavailable" data-t="liPrioritySupport">Priority Support</li>
                 </ul>
                 <button class="btn-plan btn-plan-outline" onclick="openLocationModal('bots','basic','Bot Basic — $2.00/mo')" data-t="botBuyBtn">Buy Now</button>
             </div>
@@ -71,20 +73,39 @@
             <div class="plan-card popular">
                 <span class="popular-badge">⭐ Popular</span>
                 <p class="plan-name">Advanced</p>
-                <div class="plan-price">$5.00<span>/mo</span></div>
+                <div class="plan-price">$2.50<span>/mo</span></div>
                 <p class="plan-desc">Run multiple bots or a full-stack web application.</p>
                 <ul class="plan-features">
                     <li>2 GB RAM</li>
                     <li>2 vCPU</li>
                     <li>20 GB SSD Storage</li>
                     <li>Node.js / Python / Java</li>
-                    <li>24/7 Uptime</li>
-                    <li>DDoS Protection</li>
-                    <li>Multiple Bots</li>
-                    <li>Priority Support</li>
+                    <li data-t="li247Uptime">24/7 Uptime</li>
+                    <li data-t="liDDoS">DDoS Protection</li>
+                    <li data-t="liMultipleBots">Multiple Bots</li>
+                    <li data-t="liPrioritySupport">Priority Support</li>
                 </ul>
-                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('bots','advanced','Bot Advanced — $5.00/mo')" data-t="botBuyBtn">Buy Now</button>
+                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('bots','advanced','Bot Advanced — $2.50/mo')" data-t="botBuyBtn">Buy Now</button>
             </div>
+
+            <!-- Nginx -->
+            <div class="plan-card">
+                <p class="plan-name">Nginx</p>
+                <div class="plan-price">$3.00<span>/mo</span></div>
+                <p class="plan-desc">Perfect for static websites, landing pages, and web apps.</p>
+                <ul class="plan-features">
+                    <li>3 GB RAM</li>
+                    <li>2 vCPU</li>
+                    <li>10 GB SSD Storage</li>
+                    <li>Nginx / Apache</li>
+                    <li data-t="li247Uptime">24/7 Uptime</li>
+                    <li data-t="liDDoS">DDoS Protection</li>
+                    <li data-t="liCustomDomain">Custom Domain</li>
+                    <li data-t="liWebPanel">Web Control Panel</li>
+                </ul>
+                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('bots','nginx','Nginx — $3.00/mo')" data-t="botBuyBtn">Buy Now</button>
+            </div>
+
         </div>
     </section>
 
@@ -102,6 +123,7 @@
                 <h5 data-t="footerServices">Services</h5>
                 <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
                 <a href="/bots" data-t="navBots">Bots & Web</a>
+                <a href="/vps" data-t="navVPS">VPS</a>
             </div>
             <div class="footer-col">
                 <h5 data-t="footerLegal">Legal</h5>

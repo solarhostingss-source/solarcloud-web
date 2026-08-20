@@ -45,6 +45,11 @@ const CONFIG = {
             canada:   "https://paymenter.tusitio.com/checkout/bot-advanced-canada",
             usa:      "https://paymenter.tusitio.com/checkout/bot-advanced-usa",
             colombia: "https://paymenter.tusitio.com/checkout/bot-advanced-colombia"
+        },
+        nginx: {
+            canada:   "https://paymenter.tusitio.com/checkout/nginx-canada",
+            usa:      "https://paymenter.tusitio.com/checkout/nginx-usa",
+            colombia: "https://paymenter.tusitio.com/checkout/nginx-colombia"
         }
     }
 
