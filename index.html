@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Cloud | High-Performance Hosting</title>
+    <meta name="description" content="Solar Cloud offers enterprise-grade Minecraft server hosting and bot hosting starting at $2.50/mo. Locations in Canada, USA, and Colombia.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+    <nav class="navbar">
+        <a href="/" class="nav-logo">
+            <div class="nav-logo-icon">☀️</div>
+            <span class="nav-logo-text">Solar Cloud</span>
+        </a>
+        <div class="nav-links">
+            <a href="/" class="active" data-t="navHome">Home</a>
+            <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+            <a href="/bots" data-t="navBots">Bots & Web</a>
+            <a href="/terminos" data-t="navTerms">Terms of Service</a>
+            <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+            <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+        </div>
+        <div class="nav-right">
+            <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">🌐 ES</button>
+        </div>
+    </nav>
+
+    <!-- ── HERO ───────────────────────────────────────────────── -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge" data-t="heroBadge">⚡ High-Performance Hosting</div>
+            <h1 data-t="heroTitle">Power Your Server with <span class="gradient-text">Solar Cloud</span></h1>
+            <p class="hero-sub" data-t="heroSub">Enterprise-grade hosting for Minecraft servers and Discord bots, starting at <span class="price-highlight">$2.50/mo</span>. Canada, USA and Colombia locations available.</p>
+            <div class="hero-buttons">
+                <a href="/minecraft" class="btn-primary" data-t="heroBtn1">Get Started</a>
+                <a href="#pricing" class="btn-secondary" data-t="heroBtn2">View Plans</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">500+</span>
+                    <span class="stat-label" data-t="statServers">Active Servers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">99.9%</span>
+                    <span class="stat-label" data-t="statUptime">Uptime</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">24/7</span>
+                    <span class="stat-label" data-t="statSupport">Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FEATURES ───────────────────────────────────────────── -->
+    <section id="features">
+        <div class="section-header">
+            <p class="section-overline" data-t="featOverline">Why Choose Us</p>
+            <h2 class="section-title" data-t="featTitle">Everything you need, nothing you don't</h2>
+            <p class="section-desc" data-t="featDesc">We built Solar Cloud for game server admins and developers who demand reliability without breaking the bank.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h4 data-t="f1Title">Solid Infrastructure</h4>
+                <p data-t="f1Desc">We use top-tier data centers in Canada, USA, and Colombia to ensure maximum reliability and zero-downtime experiences.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h4 data-t="f2Title">DDoS Protection</h4>
+                <p data-t="f2Desc">Enterprise-grade mitigation systems keep your server online even during heavy and unexpected cyber attacks.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h4 data-t="f3Title">Instant Deployment</h4>
+                <p data-t="f3Desc">Your server is set up and ready to use within seconds of purchase — fully automated, no waiting.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌎</div>
+                <h4 data-t="f4Title">Optimized Routing</h4>
+                <p data-t="f4Desc">Our network is configured to guarantee the lowest possible latency for players across North America and Latin America.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h4 data-t="f5Title">Wallet Friendly</h4>
+                <p data-t="f5Desc">Premium quality hosting at prices that make sense. We believe great infrastructure shouldn't cost a fortune.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h4 data-t="f6Title">Highly Scalable</h4>
+                <p data-t="f6Desc">Start small and upgrade any time. Our plans grow with your community without complicated migrations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PRICING PREVIEW ────────────────────────────────────── -->
+    <section id="pricing">
+        <div class="section-header">
+            <p class="section-overline" data-t="mcOverline">Minecraft Hosting</p>
+            <h2 class="section-title" data-t="mcTitle">Pick your plan</h2>
+            <p class="section-desc" data-t="mcDesc">All plans include full control panel access, instant setup, and our 99.9% uptime guarantee.</p>
+        </div>
+        <div class="pricing-grid">
+            <!-- Starter -->
+            <div class="plan-card">
+                <p class="plan-name">Starter</p>
+                <div class="plan-price">$2.50<span>/mo</span></div>
+                <p class="plan-desc">Perfect for small friends groups and vanilla servers.</p>
+                <ul class="plan-features">
+                    <li>2 GB RAM</li>
+                    <li>1 vCPU Core</li>
+                    <li>10 GB SSD Storage</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>DDoS Protection</li>
+                    <li class="unavailable">Custom Domain</li>
+                </ul>
+                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('minecraft','starter','Starter — $2.50/mo')" data-t="mcBuyBtn">Buy Now</button>
+            </div>
+            <!-- Pro -->
+            <div class="plan-card popular">
+                <span class="popular-badge">⭐ Popular</span>
+                <p class="plan-name">Pro</p>
+                <div class="plan-price">$5.00<span>/mo</span></div>
+                <p class="plan-desc">Great for medium communities with plugins and mods.</p>
+                <ul class="plan-features">
+                    <li>4 GB RAM</li>
+                    <li>2 vCPU Cores</li>
+                    <li>25 GB SSD Storage</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>DDoS Protection</li>
+                    <li>Custom Domain</li>
+                </ul>
+                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('minecraft','pro','Pro — $5.00/mo')" data-t="mcBuyBtn">Buy Now</button>
+            </div>
+            <!-- Elite -->
+            <div class="plan-card">
+                <p class="plan-name">Elite</p>
+                <div class="plan-price">$9.00<span>/mo</span></div>
+                <p class="plan-desc">For large communities and heavy modpacks.</p>
+                <ul class="plan-features">
+                    <li>8 GB RAM</li>
+                    <li>3 vCPU Cores</li>
+                    <li>50 GB SSD Storage</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>DDoS Protection</li>
+                    <li>Custom Domain</li>
+                </ul>
+                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('minecraft','elite','Elite — $9.00/mo')" data-t="mcBuyBtn">Buy Now</button>
+            </div>
+            <!-- Ultra -->
+            <div class="plan-card">
+                <p class="plan-name">Ultra</p>
+                <div class="plan-price">$15.00<span>/mo</span></div>
+                <p class="plan-desc">Maximum power for networks and large-scale servers.</p>
+                <ul class="plan-features">
+                    <li>16 GB RAM</li>
+                    <li>4 vCPU Cores</li>
+                    <li>100 GB SSD Storage</li>
+                    <li>Unlimited Bandwidth</li>
+                    <li>DDoS Protection</li>
+                    <li>Custom Domain</li>
+                </ul>
+                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('minecraft','ultra','Ultra — $15.00/mo')" data-t="mcBuyBtn">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ──────────────────────────────────────────────── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <div class="nav-logo-icon">☀️</div>
+                    <span class="nav-logo-text">Solar Cloud</span>
+                </a>
+                <p data-t="footerDesc">High-performance hosting for gamers and developers. Powered by Solar Cloud.</p>
+            </div>
+            <div class="footer-col">
+                <h5 data-t="footerServices">Services</h5>
+                <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+                <a href="/bots" data-t="navBots">Bots & Web</a>
+            </div>
+            <div class="footer-col">
+                <h5 data-t="footerLegal">Legal</h5>
+                <a href="/terminos" data-t="navTerms">Terms of Service</a>
+                <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+                <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+            </div>
+            <div class="footer-col">
+                <h5 data-t="footerContact">Contact</h5>
+                <a href="mailto:support@solarcloud.lat">support@solarcloud.lat</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span data-t="footerCopy">© 2025 Solar Cloud. All rights reserved.</span>
+            <span>Made with ☀️ by Solar Cloud</span>
+        </div>
+    </footer>
+
+    <!-- ── LOCATION MODAL ─────────────────────────────────────── -->
+    <div class="modal-overlay" id="locationModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeLocationModal()">✕</button>
+            <div class="modal-icon">🌍</div>
+            <h2 data-t="modalTitle">Choose Your Location</h2>
+            <p class="modal-sub" data-t="modalSub">Select the data center closest to your players for the best performance.</p>
+            <div class="modal-plan-info" id="modalPlanInfo"></div>
+            <div class="location-grid">
+                <button class="location-btn" onclick="selectLocation('canada')">
+                    <span class="location-flag">🇨🇦</span>
+                    <span class="location-name" data-t="modalCanada">Canada</span>
+                    <span class="location-city" data-t="modalCaCity">Montréal</span>
+                </button>
+                <button class="location-btn" onclick="selectLocation('usa')">
+                    <span class="location-flag">🇺🇸</span>
+                    <span class="location-name" data-t="modalUSA">USA</span>
+                    <span class="location-city" data-t="modalUSCity">New York</span>
+                </button>
+                <button class="location-btn" onclick="selectLocation('colombia')">
+                    <span class="location-flag">🇨🇴</span>
+                    <span class="location-name" data-t="modalCol">Colombia</span>
+                    <span class="location-city" data-t="modalCoCity">Bogotá</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

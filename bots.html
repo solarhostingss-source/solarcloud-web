@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Cloud | Bot & Web Hosting</title>
+    <meta name="description" content="Solar Cloud Discord bot and web hosting plans. Keep your bot online 24/7. Choose Canada, USA or Colombia.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-hero {
+            padding: 130px 5% 70px;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(124,58,237,0.08) 0%, transparent 60%);
+            border-bottom: 1px solid var(--border);
+        }
+        .page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -1.2px; margin-bottom: 16px; }
+        .page-hero p { color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+    </style>
+</head>
+<body>
+
+    <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+    <nav class="navbar">
+        <a href="/" class="nav-logo">
+            <div class="nav-logo-icon">☀️</div>
+            <span class="nav-logo-text">Solar Cloud</span>
+        </a>
+        <div class="nav-links">
+            <a href="/" data-t="navHome">Home</a>
+            <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+            <a href="/bots" class="active" data-t="navBots">Bots & Web</a>
+            <a href="/terminos" data-t="navTerms">Terms of Service</a>
+            <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+            <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+        </div>
+        <div class="nav-right">
+            <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">🌐 ES</button>
+        </div>
+    </nav>
+
+    <!-- ── PAGE HERO ──────────────────────────────────────────── -->
+    <div class="page-hero">
+        <p class="section-overline" data-t="botOverline">Bots & Web Hosting</p>
+        <h1 data-t="botTitle">Always-on Bot Hosting</h1>
+        <p data-t="botDesc">Keep your Discord bot online 24/7 with our reliable and affordable hosting solutions.</p>
+    </div>
+
+    <!-- ── PRICING ────────────────────────────────────────────── -->
+    <section id="bots-pricing" style="background: var(--bg-main);">
+        <div class="pricing-grid" style="max-width: 700px; margin: 0 auto;">
+            <!-- Basic -->
+            <div class="plan-card">
+                <p class="plan-name">Basic</p>
+                <div class="plan-price">$2.00<span>/mo</span></div>
+                <p class="plan-desc">Ideal for a single Discord bot or small web project.</p>
+                <ul class="plan-features">
+                    <li>512 MB RAM</li>
+                    <li>1 vCPU</li>
+                    <li>5 GB SSD Storage</li>
+                    <li>Node.js / Python / Java</li>
+                    <li>24/7 Uptime</li>
+                    <li>DDoS Protection</li>
+                    <li class="unavailable">Multiple Bots</li>
+                    <li class="unavailable">Priority Support</li>
+                </ul>
+                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('bots','basic','Bot Basic — $2.00/mo')" data-t="botBuyBtn">Buy Now</button>
+            </div>
+
+            <!-- Advanced -->
+            <div class="plan-card popular">
+                <span class="popular-badge">⭐ Popular</span>
+                <p class="plan-name">Advanced</p>
+                <div class="plan-price">$5.00<span>/mo</span></div>
+                <p class="plan-desc">Run multiple bots or a full-stack web application.</p>
+                <ul class="plan-features">
+                    <li>2 GB RAM</li>
+                    <li>2 vCPU</li>
+                    <li>20 GB SSD Storage</li>
+                    <li>Node.js / Python / Java</li>
+                    <li>24/7 Uptime</li>
+                    <li>DDoS Protection</li>
+                    <li>Multiple Bots</li>
+                    <li>Priority Support</li>
+                </ul>
+                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('bots','advanced','Bot Advanced — $5.00/mo')" data-t="botBuyBtn">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ──────────────────────────────────────────────── -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="nav-logo">
+                    <div class="nav-logo-icon">☀️</div>
+                    <span class="nav-logo-text">Solar Cloud</span>
+                </a>
+                <p data-t="footerDesc">High-performance hosting for gamers and developers. Powered by Solar Cloud.</p>
+            </div>
+            <div class="footer-col">
+                <h5 data-t="footerServices">Services</h5>
+                <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+                <a href="/bots" data-t="navBots">Bots & Web</a>
+            </div>
+            <div class="footer-col">
+                <h5 data-t="footerLegal">Legal</h5>
+                <a href="/terminos" data-t="navTerms">Terms of Service</a>
+                <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+                <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+            </div>
+            <div class="footer-col">
+                <h5 data-t="footerContact">Contact</h5>
+                <a href="mailto:support@solarcloud.lat">support@solarcloud.lat</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span data-t="footerCopy">© 2025 Solar Cloud. All rights reserved.</span>
+            <span>Made with ☀️ by Solar Cloud</span>
+        </div>
+    </footer>
+
+    <!-- ── LOCATION MODAL ─────────────────────────────────────── -->
+    <div class="modal-overlay" id="locationModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeLocationModal()">✕</button>
+            <div class="modal-icon">🌍</div>
+            <h2 data-t="modalTitle">Choose Your Location</h2>
+            <p class="modal-sub" data-t="modalSub">Select the data center closest to your players for the best performance.</p>
+            <div class="modal-plan-info" id="modalPlanInfo"></div>
+            <div class="location-grid">
+                <button class="location-btn" onclick="selectLocation('canada')">
+                    <span class="location-flag">🇨🇦</span>
+                    <span class="location-name" data-t="modalCanada">Canada</span>
+                    <span class="location-city" data-t="modalCaCity">Montréal</span>
+                </button>
+                <button class="location-btn" onclick="selectLocation('usa')">
+                    <span class="location-flag">🇺🇸</span>
+                    <span class="location-name" data-t="modalUSA">USA</span>
+                    <span class="location-city" data-t="modalUSCity">New York</span>
+                </button>
+                <button class="location-btn" onclick="selectLocation('colombia')">
+                    <span class="location-flag">🇨🇴</span>
+                    <span class="location-name" data-t="modalCol">Colombia</span>
+                    <span class="location-city" data-t="modalCoCity">Bogotá</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
