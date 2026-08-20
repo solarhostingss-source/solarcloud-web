@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Cloud | VPS Hosting — Coming Soon</title>
+    <title>Solar Cloud | Custom Plans</title>
     <meta name="description" content="Solar Cloud VPS Hosting — Powerful Virtual Private Servers. Coming Soon.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
     <link rel="stylesheet" href="styles.css">
@@ -109,8 +109,8 @@
             <a href="/" data-t="navHome">Home</a>
             <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
             <a href="/bots" data-t="navBots">Bots & Web</a>
-            <a href="/vps" class="active" data-t="navVPS">VPS</a>
-            <a href="/custom" data-t="navCustom">Custom Plans</a>
+            <a href="/vps"  data-t="navVPS">VPS</a>
+            <a href="/custom" class="active" data-t="navCustom">Custom Plans</a>
             <a href="/terminos" data-t="navTerms">Terms of Service</a>
             <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
             <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
@@ -120,83 +120,18 @@
         </div>
     </nav>
 
-    <!-- ── COMING SOON BANNER ─────────────────────────────────── -->
-    <div class="vps-coming-banner">
-        <div class="coming-badge" data-t="vpsComingBadge">🚀 Coming Soon</div>
-        <h1 data-t="vpsComingTitle">VPS Hosting is on its way</h1>
-        <p data-t="vpsComingDesc">We're working hard to bring you powerful, affordable Virtual Private Servers. Be the first to know when we launch.</p>
+    <!-- ── CUSTOM PLANS HERO ─────────────────────────────────── -->
+    <div class="legal-hero" style="text-align: center; padding: 100px 5%;">
+        <p class="section-overline" data-t="customOverline">Custom Plans</p>
+        <h1 data-t="customTitle">Necesitas algo a medida?</h1>
+        <p data-t="customDesc" style="max-width: 600px; margin: 20px auto; color: var(--text-secondary); font-size: 1.1rem;">Arma tu servidor con la cantidad exacta de RAM, CPU y almacenamiento que necesitas. Soporte prioritario y configuración VIP.</p>
+        
+        <div style="margin-top: 40px;">
+            <a href="https://discord.gg/yourdiscord" target="_blank" class="btn-primary" style="font-size: 1.2rem; padding: 16px 40px; display: inline-block; text-decoration: none;" data-t="customBtn">
+                💬 Solicitar Plan Custom
+            </a>
+        </div>
     </div>
-
-    <!-- ── VPS PLANS (preview) ───────────────────────────────── -->
-    <section class="vps-plans-section" style="padding: 70px 5%;">
-        <div class="section-header" style="margin-bottom: 24px;">
-            <p class="section-overline" data-t="vpsOverline">VPS Hosting</p>
-            <h2 class="section-title" data-t="vpsTitle">Virtual Private Servers</h2>
-            <p class="section-desc" data-t="vpsDesc">Full root access, dedicated resources, and enterprise-grade hardware. Coming soon.</p>
-        </div>
-        <div class="vps-section-note" data-t="vpsComingBadge">🚀 Coming Soon — Plans are subject to change before launch.</div>
-        <div class="pricing-grid" style="max-width: 1100px; margin: 0 auto;">
-
-            <!-- VPS Starter -->
-            <div class="plan-card" style="opacity: 0.75;">
-                <img src="vps-plan.png" alt="VPS-1 Plan" style="width: 110px; height: auto; margin: 0 auto 16px; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));">
-                <p class="plan-name">VPS-1</p>
-                <div class="plan-price">$8.00<span>/mo</span></div>
-                <p class="plan-desc">Entry-level VPS for small projects and development.</p>
-                <ul class="plan-features">
-                    <li>8 GB RAM</li>
-                    <li>4 vCPU Cores</li>
-                    <li>100 GB SSD</li>
-                    <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
-                    <li>200 Mbit/s Port</li>
-                    <li>1 Snapshot</li>
-                    <li>Full Root Access</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                </ul>
-                <button class="btn-plan-coming" onclick="showComingSoon()" data-t="vpsBuyBtn">Coming Soon</button>
-            </div>
-
-            <!-- VPS Standard -->
-            <div class="plan-card popular" style="opacity: 0.75;">
-                <span class="popular-badge">⭐ Popular</span>
-                <img src="vps-plan.png" alt="VPS-2 Plan" style="width: 110px; height: auto; margin: 0 auto 16px; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));">
-                <p class="plan-name">VPS-2</p>
-                <div class="plan-price">$12.00<span>/mo</span></div>
-                <p class="plan-desc">Great balance of power and price for most use cases.</p>
-                <ul class="plan-features">
-                    <li>12 GB RAM</li>
-                    <li>6 vCPU Cores</li>
-                    <li>200 GB SSD</li>
-                    <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
-                    <li>300 Mbit/s Port</li>
-                    <li>2 Snapshots</li>
-                    <li>Full Root Access</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                </ul>
-                <button class="btn-plan-coming" onclick="showComingSoon()" data-t="vpsBuyBtn">Coming Soon</button>
-            </div>
-
-            <!-- VPS Pro -->
-            <div class="plan-card" style="opacity: 0.75;">
-                <img src="vps-plan.png" alt="VPS-3 Plan" style="width: 110px; height: auto; margin: 0 auto 16px; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));">
-                <p class="plan-name">VPS-3</p>
-                <div class="plan-price">$22.00<span>/mo</span></div>
-                <p class="plan-desc">High-performance VPS for demanding applications.</p>
-                <ul class="plan-features">
-                    <li>24 GB RAM</li>
-                    <li>8 vCPU Cores</li>
-                    <li>300 GB SSD</li>
-                    <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
-                    <li>600 Mbit/s Port</li>
-                    <li>3 Snapshots</li>
-                    <li>Full Root Access</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                </ul>
-                <button class="btn-plan-coming" onclick="showComingSoon()" data-t="vpsBuyBtn">Coming Soon</button>
-            </div>
-
-        </div>
-    </section>
 
     <!-- ── FOOTER ──────────────────────────────────────────────── -->
     <footer>
@@ -213,7 +148,7 @@
                 <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
                 <a href="/bots" data-t="navBots">Bots & Web</a>
                 <a href="/vps" data-t="navVPS">VPS</a>
-            <a href="/custom" data-t="navCustom">Custom Plans</a>
+            <a href="/custom" class="active" data-t="navCustom">Custom Plans</a>
             </div>
             <div class="footer-col">
                 <h5 data-t="footerLegal">Legal</h5>
