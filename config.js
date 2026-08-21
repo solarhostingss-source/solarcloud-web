@@ -10,46 +10,46 @@ const CONFIG = {
     minecraft: {
         // Plan Starter
         starter: {
-            canada:   "https://paymenter.tusitio.com/checkout/mc-starter-canada",
-            usa:      "https://paymenter.tusitio.com/checkout/mc-starter-usa",
-            colombia: "https://paymenter.tusitio.com/checkout/mc-starter-colombia"
+            canada:   "https://billing.solarcloud.lat/checkout/mc-starter-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/mc-starter-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/mc-starter-colombia"
         },
         // Plan Pro
         pro: {
-            canada:   "https://paymenter.tusitio.com/checkout/mc-pro-canada",
-            usa:      "https://paymenter.tusitio.com/checkout/mc-pro-usa",
-            colombia: "https://paymenter.tusitio.com/checkout/mc-pro-colombia"
+            canada:   "https://billing.solarcloud.lat/checkout/mc-pro-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/mc-pro-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/mc-pro-colombia"
         },
         // Plan Elite
         elite: {
-            canada:   "https://paymenter.tusitio.com/checkout/mc-elite-canada",
-            usa:      "https://paymenter.tusitio.com/checkout/mc-elite-usa",
-            colombia: "https://paymenter.tusitio.com/checkout/mc-elite-colombia"
+            canada:   "https://billing.solarcloud.lat/checkout/mc-elite-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/mc-elite-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/mc-elite-colombia"
         },
         // Plan Ultra
         ultra: {
-            canada:   "https://paymenter.tusitio.com/checkout/mc-ultra-canada",
-            usa:      "https://paymenter.tusitio.com/checkout/mc-ultra-usa",
-            colombia: "https://paymenter.tusitio.com/checkout/mc-ultra-colombia"
+            canada:   "https://billing.solarcloud.lat/checkout/mc-ultra-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/mc-ultra-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/mc-ultra-colombia"
         }
     },
 
     // ─── PLANES DE BOTS / WEB HOSTING ────────────────────────
     bots: {
         basic: {
-            canada:   "https://paymenter.tusitio.com/checkout/bot-basic-canada",
-            usa:      "https://paymenter.tusitio.com/checkout/bot-basic-usa",
-            colombia: "https://paymenter.tusitio.com/checkout/bot-basic-colombia"
+            canada:   "https://billing.solarcloud.lat/checkout/bot-basic-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/bot-basic-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/bot-basic-colombia"
         },
         advanced: {
-            canada:   "https://paymenter.tusitio.com/checkout/bot-advanced-canada",
-            usa:      "https://paymenter.tusitio.com/checkout/bot-advanced-usa",
-            colombia: "https://paymenter.tusitio.com/checkout/bot-advanced-colombia"
+            canada:   "https://billing.solarcloud.lat/checkout/bot-advanced-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/bot-advanced-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/bot-advanced-colombia"
         },
         nginx: {
-            canada:   "https://paymenter.tusitio.com/checkout/nginx-canada",
-            usa:      "https://paymenter.tusitio.com/checkout/nginx-usa",
-            colombia: "https://paymenter.tusitio.com/checkout/nginx-colombia"
+            canada:   "https://billing.solarcloud.lat/checkout/nginx-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/nginx-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/nginx-colombia"
         }
     }
 
