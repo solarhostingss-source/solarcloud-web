@@ -160,7 +160,16 @@
             <p class="modal-sub" data-t="modalSub">Select the data center closest to your players for the best performance.</p>
             <div class="modal-plan-info" id="modalPlanInfo"></div>
             
-            <div class="terms-checkbox-container" style="margin: 20px 0; text-align: left; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+            <div class="checkout-notices" style="margin-bottom: 15px; font-size: 0.85rem; text-align: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                <div style="color: var(--primary); font-weight: bold; margin-bottom: 4px;">
+                    🎉 <span data-t="modalDiscount">Use code <strong>SLC</strong> for 30% OFF at checkout!</span>
+                </div>
+                <div style="color: var(--text-secondary);">
+                    💳 <span data-t="modalPaypal">Currently accepting PayPal only.</span>
+                </div>
+            </div>
+
+            <div class="terms-checkbox-container" style="margin: 0 0 20px 0; text-align: left; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
                 <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
                     <input type="checkbox" id="agreeTerms" style="width: 18px; height: 18px; accent-color: var(--primary);">
                     <span style="font-size: 0.9rem; color: var(--text-secondary);" data-t="modalTermsText">He leído y acepto los <a href="/terminos" target="_blank" style="color: var(--primary);">Términos y Condiciones</a>.</span>
@@ -168,11 +177,11 @@
             </div>
             <div class="location-grid">
 
-                <button class="location-btn" onclick="selectLocation('canada')">
+                <button class="location-btn" onclick="selectLocation('canada')" disabled style="opacity: 0.5; cursor: not-allowed; border-color: rgba(239, 68, 68, 0.3);">
                     <span class="location-flag">🇨🇦</span>
                     <span class="location-name" data-t="modalCanada">Canada</span>
                     <span class="location-city" data-t="modalCaCity">Montréal</span>
-                    <span class="location-price" data-t="modalFree">+$0.00</span>
+                    <span class="location-price" style="color: #ef4444;" data-t="modalSoldOut">Out of Stock</span>
                 </button>
                 <button class="location-btn" onclick="selectLocation('usa')">
                     <span class="location-flag">🇺🇸</span>
@@ -184,7 +193,7 @@
                     <span class="location-flag">🇨🇴</span>
                     <span class="location-name" data-t="modalCol">Colombia</span>
                     <span class="location-city" data-t="modalCoCity">Bogotá</span>
-                    <span class="location-price" data-t="modalFree">+$0.00</span>
+                    <span class="location-price" style="color: #f59e0b;" data-t="modalLowStock">Low Stock</span>
                 </button>
             </div>
         </div>
