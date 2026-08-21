@@ -101,6 +101,7 @@ const TRANSLATIONS = {
         privacyTitle:  "Privacy Policy",
         refundTitle:   "Refund Policy",
         termsTitle:    "Terms of Service",
+        lastUpdate:    "Last updated: August 2026",
 
         ref_h1: "1. Overview and No Refund Policy",
         ref_p1: "<strong>Solar Cloud</strong> operates on a strict <strong>NO REFUNDS</strong> policy. By purchasing any of our services (including but not limited to Minecraft Hosting, Bot Hosting, and VPS), you acknowledge and agree that all sales are final. We do not offer refunds, prorated refunds, or credits under any circumstances, regardless of service usage, downtime, or account termination.",
@@ -287,6 +288,7 @@ const TRANSLATIONS = {
         privacyTitle:  "Política de Privacidad",
         refundTitle:   "Política de Reembolsos",
         termsTitle:    "Términos y Condiciones",
+        lastUpdate:    "Última actualización: Agosto del 2026",
     }
 };
 
