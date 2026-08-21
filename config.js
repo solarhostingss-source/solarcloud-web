@@ -51,6 +51,15 @@ const CONFIG = {
             usa:      "https://billing.solarcloud.lat/checkout/nginx-usa",
             colombia: "https://billing.solarcloud.lat/checkout/nginx-colombia"
         }
+    },
+
+    // ─── PLANES VPS ──────────────────────────────────────────
+    vps: {
+        vps1: {
+            canada:   "https://billing.solarcloud.lat/checkout/vps1-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/vps1-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/vps1-colombia"
+        }
     }
 
 };

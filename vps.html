@@ -8,6 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <style>
+        .location-price { display: block; font-size: 0.85rem; color: var(--primary); margin-top: 5px; font-weight: 500; }
         .vps-coming-banner {
             padding: 130px 5% 60px;
             text-align: center;
@@ -138,7 +139,7 @@
         <div class="pricing-grid" style="max-width: 1100px; margin: 0 auto;">
 
             <!-- VPS Starter -->
-            <div class="plan-card" style="opacity: 0.75;">
+            <div class="plan-card">
                 <img src="vps-plan.png" alt="VPS-1 Plan" style="width: 110px; height: auto; margin: 0 auto 16px; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));">
                 <p class="plan-name">VPS-1</p>
                 <div class="plan-price">$8.00<span>/mo</span></div>
@@ -152,8 +153,9 @@
                     <li>1 Snapshot</li>
                     <li>Full Root Access</li>
                     <li data-t="liDDoS">DDoS Protection</li>
+                    <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
                 </ul>
-                <button class="btn-plan-coming" onclick="showComingSoon()" data-t="vpsBuyBtn">Coming Soon</button>
+                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('vps','vps1','VPS-1 — $8.00/mo')" data-t="mcBuyBtn">Buy Now</button>
             </div>
 
             <!-- VPS Standard -->
@@ -230,6 +232,45 @@
             <span>Made with ☀️ by Solar Cloud</span>
         </div>
     </footer>
+
+    <!-- ── LOCATION MODAL ─────────────────────────────────────── -->
+    <div class="modal-overlay" id="locationModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeLocationModal()">✕</button>
+            <div class="modal-icon">🌍</div>
+            <h2 data-t="modalTitle">Choose Your Location</h2>
+            <p class="modal-sub" data-t="modalSub">Select the data center closest to your players for the best performance.</p>
+            <div class="modal-plan-info" id="modalPlanInfo"></div>
+            
+            <div class="terms-checkbox-container" style="margin: 20px 0; text-align: left; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <input type="checkbox" id="agreeTerms" style="width: 18px; height: 18px; accent-color: var(--primary);">
+                    <span style="font-size: 0.9rem; color: var(--text-secondary);" data-t="modalTermsText">He leído y acepto los <a href="/terminos" target="_blank" style="color: var(--primary);">Términos y Condiciones</a>.</span>
+                </label>
+            </div>
+            <div class="location-grid">
+
+                <button class="location-btn" onclick="selectLocation('canada')">
+                    <span class="location-flag">🇨🇦</span>
+                    <span class="location-name" data-t="modalCanada">Canada</span>
+                    <span class="location-city" data-t="modalCaCity">Montréal</span>
+                    <span class="location-price" data-t="modalFree">+$0.00</span>
+                </button>
+                <button class="location-btn" onclick="selectLocation('usa')">
+                    <span class="location-flag">🇺🇸</span>
+                    <span class="location-name" data-t="modalUSA">USA</span>
+                    <span class="location-city" data-t="modalUSCity">New York</span>
+                    <span class="location-price">+$1.00</span>
+                </button>
+                <button class="location-btn" onclick="selectLocation('colombia')">
+                    <span class="location-flag">🇨🇴</span>
+                    <span class="location-name" data-t="modalCol">Colombia</span>
+                    <span class="location-city" data-t="modalCoCity">Bogotá</span>
+                    <span class="location-price" data-t="modalFree">+$0.00</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="config.js"></script>
     <script src="script.js"></script>
