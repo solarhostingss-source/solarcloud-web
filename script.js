@@ -24,7 +24,7 @@ const TRANSLATIONS = {
         // Hero
         heroBadge:     "⚡ High-Performance Hosting",
         heroTitle:     "Power Your Server with <span class='gradient-text'>Solar Cloud</span>",
-        heroSub:       "Enterprise-grade hosting for Minecraft servers and Discord bots, starting at <span class='price-highlight'>$2.50/mo</span>. Canada, USA and Colombia locations available.",
+        heroSub:       "Enterprise-grade hosting for Minecraft servers and Discord bots, starting at <span class='price-highlight'>$1.00/mo</span>. Canada, USA and Colombia locations available.",
         heroBtn1:      "Get Started",
         heroBtn2:      "View Plans",
         statServers:   "Active Servers",
@@ -226,7 +226,7 @@ const TRANSLATIONS = {
 
         heroBadge:     "⚡ Hosting de Alto Rendimiento",
         heroTitle:     "Potencia tu Servidor con <span class='gradient-text'>Solar Cloud</span>",
-        heroSub:       "Hosting de nivel empresarial para servidores Minecraft y bots de Discord, desde <span class='price-highlight'>$2.50/mes</span>. Ubicaciones en Canadá, EE.UU. y Colombia.",
+        heroSub:       "Hosting de nivel empresarial para servidores Minecraft y bots de Discord, desde <span class='price-highlight'>$1.00/mes</span>. Ubicaciones en Canadá, EE.UU. y Colombia.",
         heroBtn1:      "Comenzar",
         heroBtn2:      "Ver Planes",
         statServers:   "Servidores Activos",
