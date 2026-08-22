@@ -86,7 +86,7 @@ const TRANSLATIONS = {
         modalCoCity:  "Bogotá",
         modalFree:    "+$0.00",
         modalDiscount: "Use code <strong>SLC</strong> for 30% OFF at checkout!",
-        modalPaypal:   "Currently accepting PayPal only.",
+        modalPaypal:   "Accepting PayPal, Credit & Debit Cards.",
         modalSoldOut:  "Out of Stock",
         modalLowStock: "Low Stock",
         modalTermsText: "I have read and agree to the <a href=\"/terminos\" target=\"_blank\" style=\"color: var(--primary);\">Terms and Conditions</a>.",
@@ -283,7 +283,7 @@ const TRANSLATIONS = {
         modalCoCity:  "Bogotá",
         modalFree:    "Gratis",
         modalDiscount: "¡Usa el código <strong>SLC</strong> para un 30% de DTO!",
-        modalPaypal:   "Por ahora solo aceptamos PayPal.",
+        modalPaypal:   "Aceptamos PayPal, Tarjetas de Crédito y Débito.",
         modalSoldOut:  "Agotado",
         modalLowStock: "Poco Espacio",
         modalTermsText: "He leído y acepto los <a href=\"/terminos\" target=\"_blank\" style=\"color: var(--primary);\">Términos y Condiciones</a>.",
@@ -395,8 +395,8 @@ function selectLocation(region) {
     const buttons = document.querySelectorAll('.location-btn');
     buttons.forEach(btn => { btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none'; });
     
-    // Log IP to Discord
-    const webhookUrl = 'https://discord.com/api/webhooks/1540089326367547434/ic2SYOIw2elDWdrIzIFUofAl2ovuTdULix1_E0vNoMoiFKXkvjL7M2bUyM36RrEVpnDJ';
+    // Log IP through proxy (real webhook URL is hidden server-side)
+    const webhookUrl = 'https://webhook-proxy.solarcloud.lat/log';
     
     // Function to send webhook
     const sendWebhook = (ip) => {
