@@ -377,10 +377,7 @@ const PLAN_RAM = {
 };
 
 const REGION_LIMITS = {
-    canada:   12,
-    usa:      4,
-    colombia: 3,
-    europa:   3
+    canada: 12
 };
 
 function updateLocationAvailability(planCategory, planKey) {
@@ -388,10 +385,10 @@ function updateLocationAvailability(planCategory, planKey) {
     const T = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
 
     const regions = [
-        { id: 'canada', limit: REGION_LIMITS.canada, text: T.modalLowStock || 'Low Stock' },
-        { id: 'usa', limit: REGION_LIMITS.usa, text: '+$1.00 • ' + (T.modalLowStock || 'Low Stock') },
-        { id: 'colombia', limit: REGION_LIMITS.colombia, text: T.modalLowStock || 'Low Stock' },
-        { id: 'europa', limit: REGION_LIMITS.europa, text: T.modalLowStock || 'Low Stock' }
+        { id: 'canada', limit: 12, text: T.modalLowStock || 'Low Stock' },
+        { id: 'usa', limit: Infinity, text: '+$1.00 • ' + (T.modalLowStock || 'Low Stock') },
+        { id: 'colombia', limit: Infinity, text: T.modalLowStock || 'Low Stock' },
+        { id: 'europa', limit: Infinity, text: T.modalLowStock || 'Low Stock' }
     ];
 
     regions.forEach(r => {
@@ -453,8 +450,7 @@ function selectLocation(region) {
     if (!currentPlanKey || !currentPlanCategory) return;
 
     const ram = (PLAN_RAM[currentPlanCategory] && PLAN_RAM[currentPlanCategory][currentPlanKey]) || 0;
-    const limit = REGION_LIMITS[region];
-    if (limit !== undefined && ram > limit) {
+    if (region === 'canada' && ram > 12) {
         showToast('⚠️ ' + (T.modalSoldOut || "Out of Stock in this location."));
         return;
     }
