@@ -320,6 +320,9 @@ function applyTranslations() {
             }
         }
     });
+    if (currentPlanKey && currentPlanCategory) {
+        updateLocationAvailability(currentPlanCategory, currentPlanKey);
+    }
     localStorage.setItem('sc-lang', currentLang);
     document.documentElement.lang = currentLang;
 }
@@ -353,6 +356,71 @@ function initPageTransitions() {
     });
 }
 
+/* ─── LOCATION AVAILABILITY & STOCK ───────────────────────── */
+const PLAN_RAM = {
+    minecraft: {
+        starter: 4,
+        pro:     6,
+        elite:   9,
+        ultra:   16
+    },
+    bots: {
+        basic:    0.5,
+        advanced: 2,
+        nginx:    3
+    },
+    vps: {
+        vps1: 8,
+        vps2: 12,
+        vps3: 24
+    }
+};
+
+const REGION_LIMITS = {
+    canada:   12,
+    usa:      4,
+    colombia: 3,
+    europa:   3
+};
+
+function updateLocationAvailability(planCategory, planKey) {
+    const ram = (PLAN_RAM[planCategory] && PLAN_RAM[planCategory][planKey]) || 0;
+    const T = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+
+    const regions = [
+        { id: 'canada', limit: REGION_LIMITS.canada, text: T.modalLowStock || 'Low Stock' },
+        { id: 'usa', limit: REGION_LIMITS.usa, text: '+$1.00 • ' + (T.modalLowStock || 'Low Stock') },
+        { id: 'colombia', limit: REGION_LIMITS.colombia, text: T.modalLowStock || 'Low Stock' },
+        { id: 'europa', limit: REGION_LIMITS.europa, text: T.modalLowStock || 'Low Stock' }
+    ];
+
+    regions.forEach(r => {
+        const btn = document.querySelector(`.location-btn[onclick*="'${r.id}'"]`);
+        if (!btn) return;
+        const priceSpan = btn.querySelector('.location-price');
+
+        if (ram > r.limit) {
+            btn.disabled = true;
+            btn.style.opacity = '0.45';
+            btn.style.cursor = 'not-allowed';
+            btn.style.borderColor = 'rgba(239, 68, 68, 0.3)';
+            if (priceSpan) {
+                priceSpan.style.color = '#ef4444';
+                priceSpan.textContent = T.modalSoldOut || 'Out of Stock';
+            }
+        } else {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            btn.style.cursor = 'pointer';
+            btn.style.borderColor = '';
+            if (priceSpan) {
+                priceSpan.style.color = (r.id === 'usa') ? 'var(--primary)' : '#f59e0b';
+                priceSpan.textContent = r.text;
+            }
+        }
+    });
+}
+
 /* ─── LOCATION MODAL ───────────────────────────────────────── */
 function openLocationModal(planCategory, planKey, planLabel) {
     currentPlanKey      = planKey;
@@ -360,6 +428,7 @@ function openLocationModal(planCategory, planKey, planLabel) {
     const overlay = document.getElementById('locationModal');
     const planInfo = document.getElementById('modalPlanInfo');
     if (planInfo) planInfo.textContent = planLabel;
+    updateLocationAvailability(planCategory, planKey);
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -382,12 +451,20 @@ function selectLocation(region) {
     }
 
     if (!currentPlanKey || !currentPlanCategory) return;
+
+    const ram = (PLAN_RAM[currentPlanCategory] && PLAN_RAM[currentPlanCategory][currentPlanKey]) || 0;
+    const limit = REGION_LIMITS[region];
+    if (limit !== undefined && ram > limit) {
+        showToast('⚠️ ' + (T.modalSoldOut || "Out of Stock in this location."));
+        return;
+    }
+
     const categoryConfig = CONFIG[currentPlanCategory];
     if (!categoryConfig || !categoryConfig[currentPlanKey]) {
         closeLocationModal();
         return;
     }
-    const url = categoryConfig[currentPlanKey][region];
+    const url = categoryConfig[currentPlanKey][region] || categoryConfig[currentPlanKey]['colombia'];
     // Permitiendo redirección incluso sin configurar por pedido del usuario
     if (!url) { closeLocationModal(); return; }
     
