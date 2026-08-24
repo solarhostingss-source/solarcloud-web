@@ -70,6 +70,11 @@ const CONFIG = {
             canada:   "https://billing.solarcloud.lat/checkout/vps2-canada",
             usa:      "https://billing.solarcloud.lat/checkout/vps2-usa",
             colombia: "https://billing.solarcloud.lat/checkout/vps2-colombia"
+        },
+        vps3: {
+            canada:   "https://billing.solarcloud.lat/checkout/vps3-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/vps3-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/vps3-colombia"
         }
     }
 

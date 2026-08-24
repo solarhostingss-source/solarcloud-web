@@ -3,99 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Cloud | VPS Hosting — Coming Soon</title>
-    <meta name="description" content="Solar Cloud VPS Hosting — Powerful Virtual Private Servers. Coming Soon.">
+    <title>Solar Cloud | VPS Hosting</title>
+    <meta name="description" content="Solar Cloud VPS Hosting — High-performance Virtual Private Servers with dedicated resources.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
     <link rel="stylesheet" href="styles.css">
     <style>
         .location-price { display: block; font-size: 0.85rem; color: var(--primary); margin-top: 5px; font-weight: 500; }
-        .vps-coming-banner {
-            padding: 130px 5% 60px;
-            text-align: center;
-            background: radial-gradient(ellipse at top, rgba(124,58,237,0.12) 0%, rgba(59,130,246,0.06) 40%, transparent 70%);
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        .vps-coming-banner::before {
-            content: '';
-            position: absolute;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
-            top: -100px; left: 50%; transform: translateX(-50%);
-            pointer-events: none;
-        }
-        .coming-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(124,58,237,0.12);
-            border: 1px solid rgba(124,58,237,0.3);
-            color: #c4b5fd;
-            padding: 7px 18px;
-            border-radius: 100px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 28px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.3); }
-            50%       { box-shadow: 0 0 0 8px rgba(124,58,237,0); }
-        }
-        .vps-coming-banner h1 {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
-            font-weight: 900;
-            letter-spacing: -1.5px;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .vps-coming-banner p {
-            color: var(--text-muted);
-            max-width: 520px;
-            margin: 0 auto;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        /* Plans dimmed with "coming soon" overlay */
-        .vps-plans-section { background: var(--bg-main); }
-        .vps-section-note {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 40px;
-            padding: 12px 20px;
-            background: rgba(124,58,237,0.06);
-            border: 1px solid rgba(124,58,237,0.15);
-            border-radius: var(--radius-sm);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .btn-plan-coming {
-            display: block;
-            text-align: center;
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: not-allowed;
-            transition: var(--transition);
-            border: 1px solid rgba(124,58,237,0.25);
-            color: #a78bfa;
-            background: rgba(124,58,237,0.08);
-            font-family: 'Inter', sans-serif;
-            opacity: 0.8;
-        }
-        .btn-plan-coming:hover {
-            opacity: 1;
-            background: rgba(124,58,237,0.12);
-        }
     </style>
 </head>
 <body>
@@ -121,28 +34,22 @@
         </div>
     </nav>
 
-    <!-- ── COMING SOON BANNER ─────────────────────────────────── -->
-    <div class="vps-coming-banner">
-        <div class="coming-badge" data-t="vpsComingBadge">🚀 Coming Soon</div>
-        <h1 data-t="vpsComingTitle">VPS Hosting is on its way</h1>
-        <p data-t="vpsComingDesc">We're working hard to bring you powerful, affordable Virtual Private Servers. Be the first to know when we launch.</p>
+    <!-- ── PAGE HERO ──────────────────────────────────────────── -->
+    <div class="mc-hero">
+        <p class="section-overline" data-t="vpsOverline">VPS Hosting</p>
+        <h1 data-t="vpsTitle">Virtual Private Servers</h1>
+        <p data-t="vpsDesc">Full root access, dedicated resources, high-speed ports, and enterprise-grade hardware.</p>
     </div>
 
-    <!-- ── VPS PLANS (preview) ───────────────────────────────── -->
-    <section class="vps-plans-section" style="padding: 70px 5%;">
-        <div class="section-header" style="margin-bottom: 24px;">
-            <p class="section-overline" data-t="vpsOverline">VPS Hosting</p>
-            <h2 class="section-title" data-t="vpsTitle">Virtual Private Servers</h2>
-            <p class="section-desc" data-t="vpsDesc">Full root access, dedicated resources, and enterprise-grade hardware. Coming soon.</p>
-        </div>
-        <div class="vps-section-note" data-t="vpsComingBadge">🚀 Coming Soon — Plans are subject to change before launch.</div>
+    <!-- ── VPS PLANS ─────────────────────────────────────────── -->
+    <section class="vps-plans-section" style="padding: 70px 5%; background: var(--bg-main);">
         <div class="pricing-grid" style="max-width: 1100px; margin: 0 auto;">
 
             <!-- VPS Starter -->
             <div class="plan-card">
                 <img src="vps-plan.png" alt="VPS-1 Plan" class="plan-img">
                 <p class="plan-name">VPS-1</p>
-                <div class="plan-price">$8.00<span>/mo</span></div>
+                <div class="plan-price">$9.00<span>/mo</span></div>
                 <p class="plan-desc">Entry-level VPS for small projects and development.</p>
                 <ul class="plan-features">
                     <li>8 GB RAM</li>
@@ -155,14 +62,15 @@
                     <li data-t="liDDoS">DDoS Protection</li>
                     <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
                 </ul>
-                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('vps','vps1','VPS-1 — $8.00/mo')" data-t="mcBuyBtn">Buy Now</button>
+                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('vps','vps1','VPS-1 — $9.00/mo')" data-t="mcBuyBtn">Buy Now</button>
             </div>
 
-            <!-- VPS Standard -->
-            <div class="plan-card">
+            <!-- VPS Standard (Popular) -->
+            <div class="plan-card popular">
+                <span class="popular-badge">⭐ Popular</span>
                 <img src="vps-plan.png" alt="VPS-2 Plan" class="plan-img">
                 <p class="plan-name">VPS-2</p>
-                <div class="plan-price">$12.00<span>/mo</span></div>
+                <div class="plan-price">$13.00<span>/mo</span></div>
                 <p class="plan-desc">Great balance of power and price for most use cases.</p>
                 <ul class="plan-features">
                     <li>12 GB RAM</li>
@@ -175,14 +83,14 @@
                     <li data-t="liDDoS">DDoS Protection</li>
                     <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
                 </ul>
-                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('vps','vps2','VPS-2 — $12.00/mo')" data-t="mcBuyBtn">Buy Now</button>
+                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('vps','vps2','VPS-2 — $13.00/mo')" data-t="mcBuyBtn">Buy Now</button>
             </div>
 
             <!-- VPS Pro -->
-            <div class="plan-card" style="opacity: 0.75;">
+            <div class="plan-card">
                 <img src="vps-plan.png" alt="VPS-3 Plan" class="plan-img">
                 <p class="plan-name">VPS-3</p>
-                <div class="plan-price">$22.00<span>/mo</span></div>
+                <div class="plan-price">$24.00<span>/mo</span></div>
                 <p class="plan-desc">High-performance VPS for demanding applications.</p>
                 <ul class="plan-features">
                     <li>24 GB RAM</li>
@@ -193,8 +101,9 @@
                     <li>3 Snapshots</li>
                     <li>Full Root Access</li>
                     <li data-t="liDDoS">DDoS Protection</li>
+                    <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
                 </ul>
-                <button class="btn-plan-coming" onclick="showComingSoon()" data-t="vpsBuyBtn">Coming Soon</button>
+                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('vps','vps3','VPS-3 — $24.00/mo')" data-t="mcBuyBtn">Buy Now</button>
             </div>
 
         </div>

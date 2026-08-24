@@ -68,12 +68,9 @@ const TRANSLATIONS = {
         // VPS
         vpsOverline:    "VPS Hosting",
         vpsTitle:       "Virtual Private Servers",
-        vpsDesc:        "Full root access, dedicated resources, and enterprise-grade hardware. Coming soon.",
-        vpsComingBadge: "🚀 Coming Soon",
-        vpsDelivery: "Delivery time: 1-12 hours max",
-        vpsComingTitle: "VPS Hosting is on its way",
-        vpsComingDesc:  "We're working hard to bring you powerful, affordable Virtual Private Servers. Be the first to know when we launch.",
-        vpsBuyBtn:      "Coming Soon",
+        vpsDesc:        "Full root access, dedicated resources, high-speed ports, and enterprise-grade hardware.",
+        vpsDelivery:    "Delivery time: 1-12 hours max",
+        vpsBuyBtn:      "Buy Now",
 
         // Modal
         modalTitle:   "Choose Your Location",
@@ -306,12 +303,9 @@ const TRANSLATIONS = {
 
         vpsOverline:    "VPS Hosting",
         vpsTitle:       "Servidores Privados Virtuales",
-        vpsDesc:        "Acceso root completo, recursos dedicados y hardware empresarial. Próximamente.",
-        vpsComingBadge: "🚀 Próximamente",
-        vpsDelivery: "Entre 1-12 horas máximo",
-        vpsComingTitle: "VPS Hosting está en camino",
-        vpsComingDesc:  "Estamos trabajando para traerte Servidores Privados Virtuales potentes y asequibles. Sé el primero en saber cuando lancemos.",
-        vpsBuyBtn:      "Próximamente",
+        vpsDesc:        "Acceso root completo, recursos dedicados, puertos de alta velocidad y hardware empresarial.",
+        vpsDelivery:    "Entre 1-12 horas máximo",
+        vpsBuyBtn:      "Comprar",
 
         modalTitle:   "Elige tu Ubicación",
         modalSub:     "Selecciona el centro de datos más cercano a tus jugadores.",
