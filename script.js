@@ -863,57 +863,8 @@ function initScrollReveal() {
     });
 }
 
-/* ─── INIT ──────────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
-    applyTranslations();
-    initNavbar();
-    initPageTransitions();
-    initModalClose();
-    initScrollReveal();
-});
-
-/* ============================================================
-   SOLAR CLOUD AI CHATBOT WIDGET
-   ============================================================ */
-    // 1. Inject HTML for the Chatbot Widget
-    const assistHTML = `
-    <div id="solar-sc-assistant-container">
-        <div id="solar-sc-assistant-window">
-            <div class="sc-assistant-header">
-                <div class="sc-assistant-title-container">
-                    <div class="sc-assistant-avatar">☀️</div>
-                    <div>
-                        <h3 class="sc-assistant-title">Solar Cloud Bot</h3>
-                        <div class="sc-assistant-status">Online</div>
-                    </div>
-                </div>
-                <button class="sc-assistant-close-btn">&times;</button>
-            </div>
-            <div class="sc-assistant-messages" id="sc-assistant-messages">
-                <div class="sc-assistant-msg bot">
-                    <p>¡Hola! Soy el Asistente Virtual de Solar Cloud. ¿En qué te puedo ayudar hoy? 🚀</p>
-                </div>
-            </div>
-            <div class="sc-assistant-typing" id="sc-assistant-typing">Solar Cloud está escribiendo...</div>
-            <div class="sc-assistant-input-area">
-                <input type="text" id="sc-assistant-input" class="sc-assistant-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-                <button id="sc-assistant-send-btn" class="sc-assistant-send-btn">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <button id="solar-sc-assistant-btn" aria-label="Open Chat">
-            <svg viewBox="0 0 24 24">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-            </svg>
-        </button>
-    </div>
-    `;
-    document.body.insertAdjacentHTML('beforeend', assistHTML);
-
-    // 2. Chatbot Logic
+/* ─── AI ASSISTANT CHATBOT ─────────────────────────────────── */
+function initAssistant() {
     const assistBtn = document.getElementById('solar-sc-assistant-btn');
     const assistWindow = document.getElementById('solar-sc-assistant-window');
     const closeBtn = document.querySelector('.sc-assistant-close-btn');
@@ -922,9 +873,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const messagesContainer = document.getElementById('sc-assistant-messages');
     const typingIndicator = document.getElementById('sc-assistant-typing');
 
-    let assistHistory = [];
+    if (!assistBtn || !assistWindow) return;
 
-    // URL del backend (Ajusta esto según donde alojes el backend)
+    let assistHistory = [];
     const BACKEND_API_URL = '/api/chat'; 
 
     function toggleChat() {
@@ -935,13 +886,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     assistBtn.addEventListener('click', toggleChat);
-    closeBtn.addEventListener('click', toggleChat);
+    if (closeBtn) closeBtn.addEventListener('click', toggleChat);
 
     function addMessage(text, sender) {
+        if (!messagesContainer) return;
         const msgDiv = document.createElement('div');
         msgDiv.className = `sc-assistant-msg ${sender}`;
         
-        // Convert simple markdown-like syntax to HTML
         let formattedText = text.replace(/\n/g, '<br>');
         formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
         formattedText = formattedText.replace(/\*(.*?)\*/g, '<em>$1</em>');
@@ -952,14 +903,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function sendMessage() {
+        if (!assistInput) return;
         const text = assistInput.value.trim();
         if (!text) return;
 
-        // User message
         addMessage(text, 'user');
         assistInput.value = '';
-        typingIndicator.style.display = 'block';
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        if (typingIndicator) typingIndicator.style.display = 'block';
+        if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         try {
             const response = await fetch(BACKEND_API_URL, {
@@ -996,7 +947,25 @@ document.addEventListener('DOMContentLoaded', () => {
             addMessage('Lo siento, estoy teniendo problemas para conectarme en este momento. Intenta comunicarte al Discord o a solarhostingss@gmail.com.', 'bot');
         }
     }
-    sendBtn.addEventListener('click', sendMessage);
-    assistInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
-    });
+
+    if (sendBtn) sendBtn.addEventListener('click', sendMessage);
+    if (assistInput) {
+        assistInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    }
+}
+
+/* ─── INIT ──────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+    applyTranslations();
+    initNavbar();
+    initPageTransitions();
+    initModalClose();
+    initScrollReveal();
+    initAssistant();
+});
+
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    initAssistant();
+}
