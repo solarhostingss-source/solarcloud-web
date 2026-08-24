@@ -6,7 +6,7 @@
     <title>Solar Cloud | Términos de Servicio</title>
     <meta name="description" content="Términos de Servicio de Solar Cloud — Conoce las condiciones de uso de nuestros servicios de hosting.">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=chat2">
+    <link rel="stylesheet" href="styles.css?v=chat3">
 </head>
 <body>
 
@@ -136,7 +136,7 @@
                         <div class="sc-assistant-status">Online</div>
                     </div>
                 </div>
-                <button class="sc-assistant-close-btn">&times;</button>
+                <button class="sc-assistant-close-btn" onclick="toggleAssistantChat()">&times;</button>
             </div>
             <div class="sc-assistant-messages" id="sc-assistant-messages">
                 <div class="sc-assistant-msg bot">
@@ -153,7 +153,7 @@
                 </button>
             </div>
         </div>
-        <button id="solar-sc-assistant-btn" aria-label="Open Chat">
+        <button id="solar-sc-assistant-btn" aria-label="Open Chat" onclick="toggleAssistantChat()">
             <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
                 <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
             </svg>
@@ -161,6 +161,6 @@
     </div>
 
     <script src="config.js"></script>
-    <script src="script.js?v=chat2"></script>
+    <script src="script.js?v=chat3"></script>
 </body>
 </html>

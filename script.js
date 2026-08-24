@@ -864,95 +864,73 @@ function initScrollReveal() {
 }
 
 /* ─── AI ASSISTANT CHATBOT ─────────────────────────────────── */
-function initAssistant() {
-    const assistBtn = document.getElementById('solar-sc-assistant-btn');
+let assistHistory = [];
+
+function toggleAssistantChat() {
     const assistWindow = document.getElementById('solar-sc-assistant-window');
-    const closeBtn = document.querySelector('.sc-assistant-close-btn');
-    const sendBtn = document.getElementById('sc-assistant-send-btn');
+    const assistInput = document.getElementById('sc-assistant-input');
+    if (!assistWindow) return;
+    assistWindow.classList.toggle('open');
+    if (assistWindow.classList.contains('open') && assistInput) {
+        setTimeout(() => assistInput.focus(), 100);
+    }
+}
+
+async function sendAssistantMessage() {
     const assistInput = document.getElementById('sc-assistant-input');
     const messagesContainer = document.getElementById('sc-assistant-messages');
     const typingIndicator = document.getElementById('sc-assistant-typing');
+    const BACKEND_API_URL = '/api/chat';
 
-    if (!assistBtn || !assistWindow) return;
+    if (!assistInput) return;
+    const text = assistInput.value.trim();
+    if (!text) return;
 
-    let assistHistory = [];
-    const BACKEND_API_URL = '/api/chat'; 
-
-    function toggleChat() {
-        assistWindow.classList.toggle('open');
-        if (assistWindow.classList.contains('open')) {
-            assistInput.focus();
-        }
-    }
-
-    assistBtn.addEventListener('click', toggleChat);
-    if (closeBtn) closeBtn.addEventListener('click', toggleChat);
-
-    function addMessage(text, sender) {
+    function addMessage(msg, sender) {
         if (!messagesContainer) return;
         const msgDiv = document.createElement('div');
         msgDiv.className = `sc-assistant-msg ${sender}`;
-        
-        let formattedText = text.replace(/\n/g, '<br>');
-        formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        formattedText = formattedText.replace(/\*(.*?)\*/g, '<em>$1</em>');
-        
+        let formattedText = msg.replace(/\n/g, '<br>')
+                               .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                               .replace(/\*(.*?)\*/g, '<em>$1</em>');
         msgDiv.innerHTML = formattedText;
         messagesContainer.appendChild(msgDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 
-    async function sendMessage() {
-        if (!assistInput) return;
-        const text = assistInput.value.trim();
-        if (!text) return;
+    addMessage(text, 'user');
+    assistInput.value = '';
+    if (typingIndicator) typingIndicator.style.display = 'block';
+    if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-        addMessage(text, 'user');
-        assistInput.value = '';
-        if (typingIndicator) typingIndicator.style.display = 'block';
-        if (messagesContainer) messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-        try {
-            const response = await fetch(BACKEND_API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    message: text,
-                    history: assistHistory
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error('Error en la API');
-            }
-
-            const data = await response.json();
-            
-            // Ocultar typing y mostrar respuesta
-            typingIndicator.style.display = 'none';
-            addMessage(data.response, 'bot');
-
-            // Actualizar historial
-            assistHistory.push({ role: 'user', content: text });
-            assistHistory.push({ role: 'model', content: data.response });
-
-            // Mantener solo los últimos 10 mensajes (5 turnos) para no sobrecargar
-            if (assistHistory.length > 10) {
-                assistHistory = assistHistory.slice(-10);
-            }
-
-        } catch (error) {
-            console.error('Chat error:', error);
-            typingIndicator.style.display = 'none';
-            addMessage('Lo siento, estoy teniendo problemas para conectarme en este momento. Intenta comunicarte al Discord o a solarhostingss@gmail.com.', 'bot');
-        }
-    }
-
-    if (sendBtn) sendBtn.addEventListener('click', sendMessage);
-    if (assistInput) {
-        assistInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendMessage();
+    try {
+        const response = await fetch(BACKEND_API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text, history: assistHistory })
         });
+        if (!response.ok) throw new Error('Error en la API');
+        const data = await response.json();
+        if (typingIndicator) typingIndicator.style.display = 'none';
+        addMessage(data.response, 'bot');
+        assistHistory.push({ role: 'user', content: text });
+        assistHistory.push({ role: 'model', content: data.response });
+        if (assistHistory.length > 10) assistHistory = assistHistory.slice(-10);
+    } catch (error) {
+        console.error('Chat error:', error);
+        if (typingIndicator) typingIndicator.style.display = 'none';
+        addMessage('Lo siento, estoy teniendo problemas para conectarme en este momento. Intenta comunicarte al Discord o a solarhostingss@gmail.com.', 'bot');
+    }
+}
+
+function initAssistant() {
+    const sendBtn = document.getElementById('sc-assistant-send-btn');
+    const assistInput = document.getElementById('sc-assistant-input');
+    if (sendBtn) sendBtn.onclick = sendAssistantMessage;
+    if (assistInput) {
+        assistInput.onkeypress = (e) => {
+            if (e.key === 'Enter') sendAssistantMessage();
+        };
     }
 }
 
