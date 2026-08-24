@@ -186,7 +186,7 @@ const TRANSLATIONS = {
         ref_s2_desc:   "A service is considered 'delivered and consumed' the moment the server is provisioned and powered on. No refunds will be granted for 'buyer's remorse' or 'item not as described' once hardware resources have been used.",
         ref_s3_title:  "3. Disputes & Chargebacks",
         ref_s3_desc:   "Any attempt to dispute a payment or initiate a chargeback with PayPal or your bank without using our official support will be considered fraud. This will result in immediate termination of services, total loss of data, and a permanent blacklist.",
-        ref_s3_box:    "<strong>💬 Official Support:</strong> Please contact <strong>solarhostingss@gmail.com</strong> first to resolve any issue.",
+        ref_s3_box:    "<strong>💬 Official Support:</strong> Please contact <strong>support@solarcloud.lat</strong> first to resolve any issue.",
         ref_s4_title:  "4. Legal Exceptions",
         ref_s4_desc:   "Exceptions to this policy will only be made if consumer protection legislation in the client's country of residence strictly mandates a right of withdrawal, and solely and exclusively if the digital service has not begun execution, provisioning, or consumption.",
 
@@ -216,7 +216,7 @@ const TRANSLATIONS = {
         priv_s6_li1:   "<strong>Paymenter:</strong> Payment processing and billing.",
         priv_s6_li2:   "<strong>Pterodactyl:</strong> Control panel and server management.",
         priv_s7_title: "7. Contact",
-        priv_s7_desc:  "For questions or requests related to your privacy, contact us at: <strong>solarhostingss@gmail.com</strong>",
+        priv_s7_desc:  "For questions or requests related to your privacy, contact us at: <strong>support@solarcloud.lat</strong>",
     },
 
     es: {
@@ -254,7 +254,7 @@ const TRANSLATIONS = {
         ref_s2_desc:   "Se considera que el servicio ha sido 'entregado y consumido' en el momento en que el servidor es aprovisionado y encendido. No se otorgarán reembolsos por 'arrepentimiento de compra' o 'artículo distinto a lo descrito' una vez utilizados los recursos de hardware.",
         ref_s3_title:  "3. Disputas y Contracargos",
         ref_s3_desc:   "Cualquier intento de disputar un pago o iniciar un contracargo (chargeback) en PayPal o tu banco sin usar nuestro soporte oficial será considerado fraude. Esto resultará en la terminación inmediata de tus servicios, pérdida total de datos y bloqueo (blacklist).",
-        ref_s3_box:    "<strong>💬 Contacto Oficial:</strong> Comunícate primero a <strong>solarhostingss@gmail.com</strong> para resolver cualquier inconveniente.",
+        ref_s3_box:    "<strong>💬 Contacto Oficial:</strong> Comunícate primero a <strong>support@solarcloud.lat</strong> para resolver cualquier inconveniente.",
         ref_s4_title:  "4. Excepciones Legales",
         ref_s4_desc:   "Únicamente se realizarán excepciones a esta política si la legislación de protección al consumidor del país de residencia del cliente exige de forma obligatoria un derecho de retracto, y única y exclusivamente si el servicio digital no ha comenzado a ejecutarse, aprovisionarse o consumirse.",
 
@@ -284,7 +284,7 @@ const TRANSLATIONS = {
         priv_s6_li1:   "<strong>Paymenter:</strong> Procesamiento de pagos y facturación.",
         priv_s6_li2:   "<strong>Pterodactyl:</strong> Panel de control y administración de servidores.",
         priv_s7_title: "7. Contacto",
-        priv_s7_desc:  "Para preguntas o solicitudes relacionadas con tu privacidad, contáctanos a: <strong>solarhostingss@gmail.com</strong>",
+        priv_s7_desc:  "Para preguntas o solicitudes relacionadas con tu privacidad, contáctanos a: <strong>support@solarcloud.lat</strong>",
 
         navHome:       "Inicio",
         navMinecraft:  "Minecraft",
@@ -924,7 +924,7 @@ async function sendAssistantMessage() {
     } catch (error) {
         console.error('Chat error:', error);
         if (typingIndicator) typingIndicator.style.display = 'none';
-        addMessage('Lo siento, estoy teniendo problemas para conectarme en este momento. Intenta comunicarte al Discord o a solarhostingss@gmail.com.', 'bot');
+        addMessage('Lo siento, estoy teniendo problemas para conectarme en este momento. Intenta comunicarte al Discord o a support@solarcloud.lat.', 'bot');
     }
 }
 
