@@ -187,8 +187,8 @@ const TRANSLATIONS = {
         ref_s3_title:  "3. Disputes & Chargebacks",
         ref_s3_desc:   "Any attempt to dispute a payment or initiate a chargeback with PayPal or your bank without using our official support will be considered fraud. This will result in immediate termination of services, total loss of data, and a permanent blacklist.",
         ref_s3_box:    "<strong>💬 Official Support:</strong> Please contact <strong>solarhostingss@gmail.com</strong> first to resolve any issue.",
-        ref_s4_title:  "4. Local Law Exceptions (Right of Withdrawal)",
-        ref_s4_desc:   "Exceptions to this policy will only be made if consumer protection legislation in the client's country of residence (or the Consumer Statute in Colombia, Law 1480 of 2011) strictly mandates a right of withdrawal, and solely and exclusively if the digital service has not begun execution, provisioning, or consumption.",
+        ref_s4_title:  "4. Legal Exceptions",
+        ref_s4_desc:   "Exceptions to this policy will only be made if consumer protection legislation in the client's country of residence strictly mandates a right of withdrawal, and solely and exclusively if the digital service has not begun execution, provisioning, or consumption.",
 
         // Privacy Policy (EN)
         priv_s1_title: "1. Introduction",
@@ -255,8 +255,8 @@ const TRANSLATIONS = {
         ref_s3_title:  "3. Disputas y Contracargos",
         ref_s3_desc:   "Cualquier intento de disputar un pago o iniciar un contracargo (chargeback) en PayPal o tu banco sin usar nuestro soporte oficial será considerado fraude. Esto resultará en la terminación inmediata de tus servicios, pérdida total de datos y bloqueo (blacklist).",
         ref_s3_box:    "<strong>💬 Contacto Oficial:</strong> Comunícate primero a <strong>solarhostingss@gmail.com</strong> para resolver cualquier inconveniente.",
-        ref_s4_title:  "4. Excepciones de Ley Local (Derecho de Retracto)",
-        ref_s4_desc:   "Únicamente se realizarán excepciones a esta política si la legislación de protección al consumidor del país de residencia del cliente (o el Estatuto del Consumidor en Colombia, Ley 1480 de 2011) exige de forma obligatoria un derecho de retracto, y única y exclusivamente si el servicio digital no ha comenzado a ejecutarse, aprovisionarse o consumirse.",
+        ref_s4_title:  "4. Excepciones Legales",
+        ref_s4_desc:   "Únicamente se realizarán excepciones a esta política si la legislación de protección al consumidor del país de residencia del cliente exige de forma obligatoria un derecho de retracto, y única y exclusivamente si el servicio digital no ha comenzado a ejecutarse, aprovisionarse o consumirse.",
 
         // Privacy Policy (ES)
         priv_s1_title: "1. Introducción",
