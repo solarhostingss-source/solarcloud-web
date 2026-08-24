@@ -148,37 +148,78 @@
 
     <!-- ── PRICING ────────────────────────────────────────────── -->
     <section id="pricing" style="background: var(--bg-main);">
-        <div class="pricing-grid">
-            <!-- Starter / Contribution (8GB) -->
-            <div class="plan-card featured-starter">
-                <span class="starter-tag" data-t="starterTag">⭐ Beginner Friendly</span>
-                <img src="mc-plan1.png" alt="Starter Plan" class="plan-img">
-                <p class="plan-name" data-t="starterTitle">Plan Starter</p>
-                <div class="plan-price">$10.00<span>/mo</span></div>
-                <p class="plan-desc" data-t="starterDesc">The ultimate jumpstart for new servers. High RAM and 1-on-1 VIP setup assistance.</p>
+        <!-- ── STARTER SHOWCASE (TOP FEATURED) ────────────────────── -->
+        <div class="starter-showcase-container">
+            <div class="starter-showcase-card">
+                <div class="starter-showcase-badge" data-t="starterShowcaseBadge">⭐ RECOMMENDED FOR BEGINNERS</div>
                 
-                <div class="vip-feature-box">
-                    <div class="vip-feature-title">
-                        <span>🌟</span>
-                        <span data-t="starterVipFeature">Includes VIP Staff Help for initial server setup & configs.</span>
+                <div class="starter-showcase-content">
+                    <div class="starter-showcase-left">
+                        <h3 class="starter-showcase-title" data-t="starterShowcaseTitle">Don't know how to start?</h3>
+                        <h4 class="starter-showcase-subtitle" data-t="starterShowcaseWhy">Why choose the Starter Plan (8GB)?</h4>
+                        <p class="starter-showcase-desc" data-t="starterShowcaseDesc">
+                            If it's your first time creating a server or you want zero hassle, the <strong>Starter Plan</strong> is your best choice. With <strong>8 GB RAM</strong> your server runs buttery smooth, and our Staff team helps you configure everything step-by-step from day one!
+                        </p>
+                        
+                        <div class="starter-why-list">
+                            <div class="starter-why-item">
+                                <span class="starter-why-icon">🌟</span>
+                                <div>
+                                    <strong data-t="starterWhy1Title">VIP Staff Setup Assistance:</strong>
+                                    <span data-t="starterWhy1Desc">We assist you with initial configs, plugins, mods, and custom domain setup.</span>
+                                </div>
+                            </div>
+                            <div class="starter-why-item">
+                                <span class="starter-why-icon">⚡</span>
+                                <div>
+                                    <strong data-t="starterWhy2Title">8 GB RAM & 4 vCPUs:</strong>
+                                    <span data-t="starterWhy2Desc">Generous memory and power to play with friends or launch your community lag-free.</span>
+                                </div>
+                            </div>
+                            <div class="starter-why-item">
+                                <span class="starter-why-icon">🛡️</span>
+                                <div>
+                                    <strong data-t="starterWhy3Title">All-in-One Package:</strong>
+                                    <span data-t="starterWhy3Desc">Pterodactyl panel, enterprise Anti-DDoS, and instant automated activation.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="button" class="vip-info-trigger" onclick="openVipModal()" style="display: inline-flex;" data-t="starterVipLink">
+                            What's included in VIP Help? ℹ️
+                        </button>
                     </div>
-                    <button type="button" class="vip-info-trigger" onclick="openVipModal()" data-t="starterVipLink">What's included in VIP Help? ℹ️</button>
+
+                    <div class="starter-showcase-right">
+                        <div class="starter-pricing-box">
+                            <img src="mc-plan1.png" alt="Starter Plan" class="plan-img starter-showcase-img">
+                            <div class="starter-box-name" data-t="starterTitle">Plan Starter VIP</div>
+                            <div class="plan-price" style="font-size: 2.5rem;">$10.00<span>/mo</span></div>
+                            
+                            <ul class="starter-box-specs">
+                                <li><strong>⚡ 8 GB RAM</strong></li>
+                                <li>🔥 4 vCPU Cores</li>
+                                <li>💾 35 GB SSD NVMe</li>
+                                <li data-t="liDDoS">🛡️ DDoS Protection</li>
+                                <li data-t="liInstantSetup">🚀 Instant Setup</li>
+                            </ul>
+
+                            <button class="btn-plan btn-plan-filled starter-cta-btn" onclick="openLocationModal('minecraft','starter8gb','Starter VIP 8GB — $10.00/mo')" data-t="starterBuyCta">
+                                Get Starter Plan ($10.00/mo)
+                            </button>
+                        </div>
+                    </div>
                 </div>
-
-                <ul class="plan-features">
-                    <li><strong>8 GB RAM</strong></li>
-                    <li>4 vCPU Cores</li>
-                    <li>35 GB SSD Storage</li>
-                    <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="liInstantSetup">Instant Setup</li>
-                    <li data-t="liPanel">Panel Access (Pterodactyl)</li>
-                    <li data-t="liCustomDomain">Custom Domain</li>
-                    <li data-t="liPrioritySupport">Priority Support</li>
-                </ul>
-                <button class="btn-plan btn-plan-filled" style="background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);" onclick="openLocationModal('minecraft','starter8gb','Starter VIP 8GB — $10.00/mo')" data-t="mcBuyBtn">Buy Now</button>
             </div>
+        </div>
 
+        <!-- ── OTHER PLANS ────────────────────────────────────────── -->
+        <div class="section-header" style="margin-top: 30px; margin-bottom: 24px;">
+            <h3 class="section-title" style="font-size: 1.5rem;" data-t="otherPlansTitle">Or choose from our standard tiers</h3>
+            <p class="section-desc" data-t="otherPlansDesc">From lightweight friend servers to high-capacity networks for large communities.</p>
+        </div>
+
+        <div class="pricing-grid">
             <!-- Vanguard -->
             <div class="plan-card">
                 <img src="mc-plan1.png" alt="Vanguard Plan" class="plan-img">

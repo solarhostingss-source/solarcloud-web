@@ -1165,6 +1165,179 @@ footer {
     background: rgba(255, 255, 255, 0.12);
 }
 
+/* ─── DEDICATED STARTER PLAN SHOWCASE (TOP OF PRICING) ────────── */
+.starter-showcase-container {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    padding: 0 10px;
+}
+
+.starter-showcase-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(59, 130, 246, 0.06) 50%, rgba(15, 23, 42, 0.98) 100%), #0b111e;
+    border: 2px solid #a855f7;
+    border-radius: var(--radius);
+    padding: 38px 42px;
+    box-shadow: 0 0 35px rgba(168, 85, 247, 0.25), 0 16px 45px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+}
+
+.starter-showcase-card::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.starter-showcase-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #d946ef 0%, #9333ea 100%);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 6px 16px;
+    border-radius: 100px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    box-shadow: 0 0 18px rgba(217, 70, 239, 0.4);
+    margin-bottom: 20px;
+}
+
+.starter-showcase-content {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.starter-showcase-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.8px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.starter-showcase-subtitle {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #d946ef;
+    margin-bottom: 14px;
+}
+
+.starter-showcase-desc {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+}
+
+.starter-why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.starter-why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    color: #e2e8f0;
+    line-height: 1.5;
+}
+
+.starter-why-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.starter-why-item strong {
+    color: #ffffff;
+}
+
+.starter-pricing-box {
+    background: rgba(11, 15, 25, 0.85);
+    border: 1.5px solid rgba(168, 85, 247, 0.4);
+    border-radius: var(--radius);
+    padding: 30px 24px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.starter-showcase-img {
+    height: 95px !important;
+    width: auto !important;
+    margin: 0 auto 12px !important;
+    display: block;
+    filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.4));
+}
+
+.starter-box-name {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #d946ef;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.starter-box-specs {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #f1f5f9;
+}
+
+.starter-box-specs li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.starter-cta-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 1.02rem !important;
+    padding: 14px 20px !important;
+    border-radius: var(--radius-sm) !important;
+    border: none !important;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4) !important;
+    transition: var(--transition) !important;
+    text-align: center;
+}
+
+.starter-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.6) !important;
+}
+
+@media (max-width: 860px) {
+    .starter-showcase-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .starter-showcase-card {
+        padding: 30px 20px;
+    }
+}
+
 /* ─── FEATURED STARTER / CONTRIBUTION PLAN CARD (HIGH CONTRAST) ── */
 .plan-card.featured-starter {
     position: relative;
