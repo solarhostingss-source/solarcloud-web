@@ -95,6 +95,46 @@ const TRANSLATIONS = {
         modalTermsText: "I have read and agree to the <a href=\"/terminos\" target=\"_blank\" style=\"color: var(--primary);\">Terms and Conditions</a>.",
         modalTermsErr: "You must accept the Terms and Conditions to proceed.",
 
+        // Wizard UI
+        wizardBadge: "⚡ Hosting Advisor",
+        wizardTitle: "Find Your Ideal Plan in 30 Seconds",
+        wizardDesc: "Answer 2 quick questions and our system will calculate the exact RAM and resources your server needs.",
+        wizardStep1Text: "Server Type",
+        wizardStep2Text: "Players",
+        wizardStep3Text: "Recommendation",
+        wizardQ1: "1. What type of server are you looking to create?",
+        wOpt1Title: "Vanilla Survival",
+        wOpt1Desc: "Vanilla, Paper or light survival with friends.",
+        wOpt2Title: "BoxPvP / Modalities",
+        wOpt2Desc: "PvP arenas, minigames, economy & plugins.",
+        wOpt3Title: "Heavy Modpacks",
+        wOpt3Desc: "Forge, Fabric, Cobblemon or 100+ mods.",
+        wizardQ2: "2. How many simultaneous players are you expecting?",
+        wP1Title: "1 - 5 Friends",
+        wP1Desc: "Private server for close friends.",
+        wP2Title: "10 - 30 Players",
+        wP2Desc: "Growing community with events.",
+        wP3Title: "+50 Network",
+        wP3Desc: "Large scale public multiplayer network.",
+        wizardRecBadge: "Recommended For You",
+        wizardReset: "🔄 Try another combination",
+        wizardRecButton: "Select Plan & Deploy",
+
+        // Starter 8GB & VIP
+        starterTag: "⭐ Beginner Friendly",
+        starterTitle: "Starter Plan",
+        starterDesc: "The ultimate jumpstart for new servers. High RAM and 1-on-1 VIP setup assistance.",
+        starterVipFeature: "Includes VIP Staff Help for initial server setup & configs.",
+        starterVipLink: "What's included in VIP Help? ℹ️",
+        vipModalTitle: "VIP Staff Setup Assistance",
+        vipModalSub: "We don't just give you a server; our team helps you set it up from scratch.",
+        vipPerk1Title: "Pre-configured Templates",
+        vipPerk1Desc: "Get ready-to-play optimized configurations for Paper, Purpur, BoxPvP or Survival.",
+        vipPerk2Title: "Exclusive Step-by-Step Guides",
+        vipPerk2Desc: "Easy tutorials for installing plugins, world generation, subdomain connection, and lag optimization.",
+        vipPerk3Title: "Priority 1-on-1 Discord Help",
+        vipPerk3Desc: "Direct priority assistance from our Senior Staff team in Discord for first-time server owners.",
+
         // Footer
         footerDesc:     "High-performance hosting for gamers and developers. Powered by Solar Cloud.",
         footerServices: "Services",
@@ -289,6 +329,46 @@ const TRANSLATIONS = {
         modalTermsText: "He leído y acepto los <a href=\"/terminos\" target=\"_blank\" style=\"color: var(--primary);\">Términos y Condiciones</a>.",
         modalTermsErr: "Debes aceptar los Términos y Condiciones para continuar.",
 
+        // Wizard UI
+        wizardBadge: "⚡ Asesor de Hosting",
+        wizardTitle: "Encuentra tu Plan Ideal en 30 Segundos",
+        wizardDesc: "Responde 2 preguntas rápidas y nuestro sistema calculará la RAM y recursos exactos que necesita tu servidor.",
+        wizardStep1Text: "Tipo de Servidor",
+        wizardStep2Text: "Jugadores",
+        wizardStep3Text: "Recomendación",
+        wizardQ1: "1. ¿Qué tipo de servidor buscas crear?",
+        wOpt1Title: "Supervivencia Vanilla",
+        wOpt1Desc: "Vanilla, Paper o survival ligero entre amigos.",
+        wOpt2Title: "BoxPvP / Modalidades",
+        wOpt2Desc: "Arenas PvP, minijuegos, economía y plugins.",
+        wOpt3Title: "Modpacks Pesados",
+        wOpt3Desc: "Forge, Fabric, Cobblemon o más de 100 mods.",
+        wizardQ2: "2. ¿Para cuántos jugadores simultáneos?",
+        wP1Title: "1 - 5 Amigos",
+        wP1Desc: "Servidor privado para jugar tranquilos.",
+        wP2Title: "10 - 30 Jugadores",
+        wP2Desc: "Comunidad activa en crecimiento.",
+        wP3Title: "+50 Red Grande",
+        wP3Desc: "Network o servidor público masivo.",
+        wizardRecBadge: "Recomendado para ti",
+        wizardReset: "🔄 Probar otra combinación",
+        wizardRecButton: "Elegir Plan y Configurar",
+
+        // Starter 8GB & VIP
+        starterTag: "⭐ Ideal para Principiantes",
+        starterTitle: "Plan Starter",
+        starterDesc: "El impulso definitivo para servidores nuevos. Alta memoria RAM y ayuda VIP del Staff.",
+        starterVipFeature: "Incluye ayuda VIP del Staff para la configuración inicial de tu servidor.",
+        starterVipLink: "¿Qué incluye la Ayuda VIP? ℹ️",
+        vipModalTitle: "Ayuda VIP de Configuración",
+        vipModalSub: "No te damos solo un servidor; nuestro equipo te ayuda a configurarlo desde cero.",
+        vipPerk1Title: "Plantillas Pre-configuradas",
+        vipPerk1Desc: "Recibe configuraciones optimizadas listas para jugar de Paper, Purpur, BoxPvP o Survival.",
+        vipPerk2Title: "Guías y Tutoriales Exclusivos",
+        vipPerk2Desc: "Paso a paso para instalar plugins, conectar tu dominio personalizado y optimizar el lag.",
+        vipPerk3Title: "Soporte Prioritario 1 a 1 en Discord",
+        vipPerk3Desc: "Asistencia directa de nuestro Staff técnico en Discord para dueños de servidores primerizos.",
+
         footerDesc:     "Hosting de alto rendimiento para gamers y desarrolladores. Con energía de Solar Cloud.",
         footerServices: "Servicios",
         footerLegal:    "Legal",
@@ -359,10 +439,11 @@ function initPageTransitions() {
 /* ─── LOCATION AVAILABILITY & STOCK ───────────────────────── */
 const PLAN_RAM = {
     minecraft: {
-        starter: 4,
-        pro:     6,
-        elite:   9,
-        ultra:   16
+        starter:    4,
+        starter8gb: 8,
+        pro:        6,
+        elite:      9,
+        ultra:      16
     },
     bots: {
         basic:    0.5,
@@ -514,15 +595,198 @@ function showComingSoon() {
     showToast('🚀 ' + (T.vpsComingBadge || 'Coming Soon!'));
 }
 
+/* ─── WIZARD LOGIC (ASESOR INTERACTIVO) ─────────────────────── */
+let wizardAnswers = {
+    type: null,
+    players: null
+};
+
+function selectWizardOption(step, value, el) {
+    if (step === 1) {
+        wizardAnswers.type = value;
+        const parent = document.getElementById('wizardStep1');
+        if (parent) parent.querySelectorAll('.wizard-card').forEach(c => c.classList.remove('selected'));
+        if (el) el.classList.add('selected');
+
+        setTimeout(() => {
+            const s1 = document.getElementById('wizardStep1');
+            const s2 = document.getElementById('wizardStep2');
+            if (s1 && s2) {
+                s1.classList.remove('active');
+                s2.classList.add('active');
+            }
+            
+            const i1 = document.getElementById('wStepItem1');
+            const l1 = document.getElementById('wStepLine1');
+            const i2 = document.getElementById('wStepItem2');
+            if (i1) { i1.classList.remove('active'); i1.classList.add('completed'); }
+            if (l1) l1.classList.add('active');
+            if (i2) i2.classList.add('active');
+        }, 220);
+    } else if (step === 2) {
+        wizardAnswers.players = value;
+        const parent = document.getElementById('wizardStep2');
+        if (parent) parent.querySelectorAll('.wizard-card').forEach(c => c.classList.remove('selected'));
+        if (el) el.classList.add('selected');
+
+        setTimeout(() => {
+            const s2 = document.getElementById('wizardStep2');
+            const s3 = document.getElementById('wizardStep3');
+            if (s2 && s3) {
+                s2.classList.remove('active');
+                s3.classList.add('active');
+            }
+            
+            const i2 = document.getElementById('wStepItem2');
+            const l2 = document.getElementById('wStepLine2');
+            const i3 = document.getElementById('wStepItem3');
+            if (i2) { i2.classList.remove('active'); i2.classList.add('completed'); }
+            if (l2) l2.classList.add('active');
+            if (i3) i3.classList.add('active');
+
+            renderWizardRecommendation();
+        }, 220);
+    }
+}
+
+function resetWizard() {
+    wizardAnswers = { type: null, players: null };
+    document.querySelectorAll('.wizard-card').forEach(c => c.classList.remove('selected'));
+
+    const s1 = document.getElementById('wizardStep1');
+    const s2 = document.getElementById('wizardStep2');
+    const s3 = document.getElementById('wizardStep3');
+    if (s1) s1.classList.add('active');
+    if (s2) s2.classList.remove('active');
+    if (s3) s3.classList.remove('active');
+
+    const i1 = document.getElementById('wStepItem1');
+    const l1 = document.getElementById('wStepLine1');
+    const i2 = document.getElementById('wStepItem2');
+    const l2 = document.getElementById('wStepLine2');
+    const i3 = document.getElementById('wStepItem3');
+
+    if (i1) i1.className = 'wizard-step-item active';
+    if (l1) l1.className = 'wizard-step-line';
+    if (i2) i2.className = 'wizard-step-item';
+    if (l2) l2.className = 'wizard-step-line';
+    if (i3) i3.className = 'wizard-step-item';
+}
+
+function renderWizardRecommendation() {
+    const isEs = currentLang === 'es';
+    const type = wizardAnswers.type;
+    const players = wizardAnswers.players;
+
+    let rec = {
+        title: isEs ? "Plan Starter (8GB)" : "Starter Plan (8GB)",
+        ram: "8 GB RAM",
+        reason: isEs 
+            ? "¡La opción ideal para empezar! Con 8GB de RAM tendrás rendimiento fluido, cero lag y acompañamiento VIP del Staff para la configuración."
+            : "The ultimate jumpstart! 8GB RAM delivers smooth gameplay, zero lag, and VIP Staff setup assistance included.",
+        features: isEs 
+            ? ["⭐ Ayuda VIP del Staff", "⚡ 8 GB RAM", "🚀 Configuración Inmediata", "🛡️ Anti-DDoS"]
+            : ["⭐ VIP Staff Setup", "⚡ 8 GB RAM", "🚀 Instant Setup", "🛡️ DDoS Protection"],
+        planKey: "starter8gb",
+        planLabel: isEs ? "Plan Starter VIP (8GB) — $10.00/mes" : "Starter VIP Plan (8GB) — $10.00/mo"
+    };
+
+    if (type === 'modpack' || players === 'p3') {
+        if (players === 'p3' || (type === 'modpack' && players === 'p2')) {
+            rec = {
+                title: isEs ? "Plan Scientist (16GB)" : "Scientist Plan (16GB)",
+                ram: "16 GB RAM",
+                reason: isEs
+                    ? "Para networks de +50 jugadores o modpacks masivos, 16GB de RAM y 8 vCPUs aseguran TPS perfecto y carga rápida de mundos."
+                    : "For +50 player networks or massive modpacks, 16GB RAM and 8 vCPUs guarantee maximum TPS and instant world loading.",
+                features: isEs
+                    ? ["⚡ 16 GB RAM", "🔥 8 vCPU Cores", "💾 100 GB SSD", "👑 Soporte Prioritario"]
+                    : ["⚡ 16 GB RAM", "🔥 8 vCPU Cores", "💾 100 GB SSD", "👑 Priority Support"],
+                planKey: "ultra",
+                planLabel: isEs ? "Scientist — $18.00/mes" : "Scientist — $18.00/mo"
+            };
+        } else {
+            rec = {
+                title: isEs ? "Plan Astronaut (9GB)" : "Astronaut Plan (9GB)",
+                ram: "9 GB RAM",
+                reason: isEs
+                    ? "Excelente para modpacks y comunidades medianas. 9GB de RAM brindan el espacio necesario para cargar mods pesados."
+                    : "Perfect for modpacks and medium communities. 9GB RAM gives ample headroom for heavy mods and plugins.",
+                features: isEs
+                    ? ["⚡ 9 GB RAM", "🔥 5 vCPU Cores", "💾 50 GB SSD", "🛡️ Anti-DDoS"]
+                    : ["⚡ 9 GB RAM", "🔥 5 vCPU Cores", "💾 50 GB SSD", "🛡️ DDoS Protection"],
+                planKey: "elite",
+                planLabel: isEs ? "Astronaut — $12.00/mes" : "Astronaut — $12.00/mo"
+            };
+        }
+    } else if (type === 'boxpvp' && players === 'p2') {
+        rec = {
+            title: isEs ? "Plan Invader (6GB)" : "Invader Plan (6GB)",
+            ram: "6 GB RAM",
+            reason: isEs
+                ? "Ideal para servidores BoxPvP y modalidades de hasta 30 jugadores con múltiples plugins y arenas activas."
+                : "Ideal for BoxPvP servers and modalities up to 30 players with multiple arenas and plugins.",
+            features: isEs
+                ? ["⚡ 6 GB RAM", "🔥 4 vCPU Cores", "💾 25 GB SSD", "🛡️ Anti-DDoS"]
+                : ["⚡ 6 GB RAM", "🔥 4 vCPU Cores", "💾 25 GB SSD", "🛡️ DDoS Protection"],
+            planKey: "pro",
+            planLabel: isEs ? "Invader — $8.00/mes" : "Invader — $8.00/mo"
+        };
+    }
+
+    const titleEl = document.getElementById('wizardResultTitle');
+    const ramEl = document.getElementById('wizardResultRam');
+    const reasonEl = document.getElementById('wizardResultReason');
+    const featuresEl = document.getElementById('wizardResultFeatures');
+    const btnEl = document.getElementById('wizardResultBtn');
+
+    if (titleEl) titleEl.textContent = rec.title;
+    if (ramEl) ramEl.textContent = rec.ram;
+    if (reasonEl) reasonEl.textContent = rec.reason;
+    if (featuresEl) {
+        featuresEl.innerHTML = rec.features.map(f => `<span class="wizard-result-pill">${f}</span>`).join('');
+    }
+    if (btnEl) {
+        btnEl.onclick = () => openLocationModal('minecraft', rec.planKey, rec.planLabel);
+    }
+}
+
+/* ─── VIP HELP MODAL ────────────────────────────────────────── */
+function openVipModal() {
+    const modal = document.getElementById('vipModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeVipModal() {
+    const modal = document.getElementById('vipModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
 /* ─── CLOSE MODAL ON OVERLAY CLICK ────────────────────────── */
 function initModalClose() {
     const overlay = document.getElementById('locationModal');
-    if (!overlay) return;
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeLocationModal();
-    });
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeLocationModal();
+        });
+    }
+    const vipOverlay = document.getElementById('vipModal');
+    if (vipOverlay) {
+        vipOverlay.addEventListener('click', (e) => {
+            if (e.target === vipOverlay) closeVipModal();
+        });
+    }
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLocationModal();
+        if (e.key === 'Escape') {
+            closeLocationModal();
+            closeVipModal();
+        }
     });
 }
 
@@ -550,7 +814,7 @@ function initScrollReveal() {
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.feature-card, .plan-card').forEach(el => {
+    document.querySelectorAll('.feature-card, .plan-card, .wizard-container').forEach(el => {
         el.style.opacity   = '0';
         el.style.transform = 'translateY(24px)';
         el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';

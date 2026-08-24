@@ -8,11 +8,17 @@ const CONFIG = {
 
     // ─── PLANES DE MINECRAFT ─────────────────────────────────
     minecraft: {
-        // Plan Starter
+        // Plan Starter (Vanguard 4GB)
         starter: {
             canada:   "https://billing.solarcloud.lat/checkout/mc-starter-canada",
             usa:      "https://billing.solarcloud.lat/checkout/mc-starter-usa",
             colombia: "https://billing.solarcloud.lat/checkout/mc-starter-colombia"
+        },
+        // Plan Starter VIP (8GB)
+        starter8gb: {
+            canada:   "https://billing.solarcloud.lat/checkout/mc-starter8gb-canada",
+            usa:      "https://billing.solarcloud.lat/checkout/mc-starter8gb-usa",
+            colombia: "https://billing.solarcloud.lat/checkout/mc-starter8gb-colombia"
         },
         // Plan Pro
         pro: {

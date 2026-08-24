@@ -103,6 +103,99 @@
         </div>
     </section>
 
+    <!-- ── INTERACTIVE HOSTING ADVISOR (WIZARD) ──────────────── -->
+    <section class="wizard-section" id="advisor">
+        <div class="wizard-container">
+            <div class="wizard-header">
+                <div class="wizard-badge" data-t="wizardBadge">⚡ Hosting Advisor</div>
+                <h2 class="wizard-title" data-t="wizardTitle">Find Your Ideal Plan in 30 Seconds</h2>
+                <p class="wizard-desc" data-t="wizardDesc">Answer 2 quick questions and our system will calculate the exact RAM and resources your server needs.</p>
+            </div>
+
+            <!-- Steps Progress -->
+            <div class="wizard-progress">
+                <div class="wizard-step-item active" id="wStepItem1">
+                    <div class="wizard-step-num">1</div>
+                    <span data-t="wizardStep1Text">Server Type</span>
+                </div>
+                <div class="wizard-step-line" id="wStepLine1"></div>
+                <div class="wizard-step-item" id="wStepItem2">
+                    <div class="wizard-step-num">2</div>
+                    <span data-t="wizardStep2Text">Players</span>
+                </div>
+                <div class="wizard-step-line" id="wStepLine2"></div>
+                <div class="wizard-step-item" id="wStepItem3">
+                    <div class="wizard-step-num">3</div>
+                    <span data-t="wizardStep3Text">Recommendation</span>
+                </div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="wizard-step active" id="wizardStep1">
+                <h4 class="wizard-question" data-t="wizardQ1">1. What type of server are you looking to create?</h4>
+                <div class="wizard-cards">
+                    <div class="wizard-card" onclick="selectWizardOption(1, 'vanilla', this)">
+                        <div class="wizard-card-icon">🌱</div>
+                        <div class="wizard-card-title" data-t="wOpt1Title">Vanilla Survival</div>
+                        <div class="wizard-card-desc" data-t="wOpt1Desc">Vanilla, Paper or light survival with friends.</div>
+                    </div>
+                    <div class="wizard-card" onclick="selectWizardOption(1, 'boxpvp', this)">
+                        <div class="wizard-card-icon">⚔️</div>
+                        <div class="wizard-card-title" data-t="wOpt2Title">BoxPvP / Modalities</div>
+                        <div class="wizard-card-desc" data-t="wOpt2Desc">PvP arenas, minigames, economy & plugins.</div>
+                    </div>
+                    <div class="wizard-card" onclick="selectWizardOption(1, 'modpack', this)">
+                        <div class="wizard-card-icon">⚙️</div>
+                        <div class="wizard-card-title" data-t="wOpt3Title">Heavy Modpacks</div>
+                        <div class="wizard-card-desc" data-t="wOpt3Desc">Forge, Fabric, Cobblemon or 100+ mods.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="wizard-step" id="wizardStep2">
+                <h4 class="wizard-question" data-t="wizardQ2">2. How many simultaneous players are you expecting?</h4>
+                <div class="wizard-cards">
+                    <div class="wizard-card" onclick="selectWizardOption(2, 'p1', this)">
+                        <div class="wizard-card-icon">👥</div>
+                        <div class="wizard-card-title" data-t="wP1Title">1 - 5 Friends</div>
+                        <div class="wizard-card-desc" data-t="wP1Desc">Private server for close friends.</div>
+                    </div>
+                    <div class="wizard-card" onclick="selectWizardOption(2, 'p2', this)">
+                        <div class="wizard-card-icon">🏰</div>
+                        <div class="wizard-card-title" data-t="wP2Title">10 - 30 Players</div>
+                        <div class="wizard-card-desc" data-t="wP2Desc">Growing community with events.</div>
+                    </div>
+                    <div class="wizard-card" onclick="selectWizardOption(2, 'p3', this)">
+                        <div class="wizard-card-icon">🌐</div>
+                        <div class="wizard-card-title" data-t="wP3Title">+50 Network</div>
+                        <div class="wizard-card-desc" data-t="wP3Desc">Large scale public multiplayer network.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Result Screen -->
+            <div class="wizard-step" id="wizardStep3">
+                <div class="wizard-result-box">
+                    <span class="wizard-result-badge" data-t="wizardRecBadge">Recommended For You</span>
+                    <h3 class="wizard-result-title" id="wizardResultTitle">Starter Plan (8GB)</h3>
+                    <div class="wizard-result-ram" id="wizardResultRam">8 GB RAM</div>
+                    <p class="wizard-result-reason" id="wizardResultReason">The ultimate jumpstart! 8GB RAM delivers smooth gameplay, zero lag, and VIP Staff setup assistance included.</p>
+                    <div class="wizard-result-features" id="wizardResultFeatures">
+                        <span class="wizard-result-pill">⭐ VIP Staff Setup</span>
+                        <span class="wizard-result-pill">⚡ 8 GB RAM</span>
+                        <span class="wizard-result-pill">🚀 Instant Setup</span>
+                        <span class="wizard-result-pill">🛡️ DDoS Protection</span>
+                    </div>
+                    <div class="wizard-actions">
+                        <button class="btn-primary" id="wizardResultBtn" data-t="wizardRecButton">Select Plan & Deploy</button>
+                        <button class="wizard-reset-btn" onclick="resetWizard()" data-t="wizardReset">🔄 Try another combination</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ── PRICING PREVIEW ────────────────────────────────────── -->
     <section id="pricing">
         <div class="section-header">
@@ -111,6 +204,36 @@
             <p class="section-desc" data-t="mcDesc">All plans include full control panel access, instant setup, and our 99.9% uptime guarantee.</p>
         </div>
         <div class="pricing-grid">
+            <!-- Starter / Contribution (8GB) -->
+            <div class="plan-card featured-starter">
+                <span class="starter-tag" data-t="starterTag">⭐ Beginner Friendly</span>
+                <img src="mc-plan1.png" alt="Starter Plan" style="width: 120px; height: auto; margin: 0 auto 16px; display: block; filter: drop-shadow(0 4px 12px rgba(168,85,247,0.3));">
+                <p class="plan-name" style="color: #c084fc;" data-t="starterTitle">Plan Starter</p>
+                <div class="plan-price">$10.00<span>/mo</span></div>
+                <p class="plan-desc" data-t="starterDesc">The ultimate jumpstart for new servers. High RAM and 1-on-1 VIP setup assistance.</p>
+                
+                <div class="vip-feature-box">
+                    <div class="vip-feature-title">
+                        <span>🌟</span>
+                        <span data-t="starterVipFeature">Includes VIP Staff Help for initial server setup & configs.</span>
+                    </div>
+                    <button type="button" class="vip-info-trigger" onclick="openVipModal()" data-t="starterVipLink">What's included in VIP Help? ℹ️</button>
+                </div>
+
+                <ul class="plan-features">
+                    <li><strong>8 GB RAM</strong></li>
+                    <li>4 vCPU Cores</li>
+                    <li>35 GB SSD Storage</li>
+                    <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
+                    <li data-t="liDDoS">DDoS Protection</li>
+                    <li data-t="liInstantSetup">Instant Setup</li>
+                    <li data-t="liPanel">Panel Access (Pterodactyl)</li>
+                    <li data-t="liCustomDomain">Custom Domain</li>
+                    <li data-t="liPrioritySupport">Priority Support</li>
+                </ul>
+                <button class="btn-plan btn-plan-filled" style="background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);" onclick="openLocationModal('minecraft','starter8gb','Starter VIP 8GB — $10.00/mo')" data-t="mcBuyBtn">Buy Now</button>
+            </div>
+
             <!-- Vanguard -->
             <div class="plan-card">
                 <img src="mc-plan1.png" alt="Vanguard Plan" style="width: 120px; height: auto; margin: 0 auto 16px; display: block; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));">
@@ -258,6 +381,42 @@
                     <span class="location-price" style="color: #f59e0b;" data-t="modalLowStock">Low Stock</span>
                 </button>
             </div>
+        </div>
+    </div>
+
+    <!-- ── VIP HELP MODAL ──────────────────────────────────────── -->
+    <div class="vip-modal-overlay" id="vipModal">
+        <div class="vip-modal">
+            <button class="vip-modal-close" onclick="closeVipModal()">✕</button>
+            <div class="vip-modal-header">
+                <div class="vip-modal-icon">🌟</div>
+                <h3 class="vip-modal-title" data-t="vipModalTitle">VIP Staff Setup Assistance</h3>
+                <p class="vip-modal-sub" data-t="vipModalSub">We don't just give you a server; our team helps you set it up from scratch.</p>
+            </div>
+            <ul class="vip-perks-list">
+                <li class="vip-perk-item">
+                    <div class="vip-perk-icon">📦</div>
+                    <div class="vip-perk-content">
+                        <h5 data-t="vipPerk1Title">Pre-configured Templates</h5>
+                        <p data-t="vipPerk1Desc">Get ready-to-play optimized configurations for Paper, Purpur, BoxPvP or Survival.</p>
+                    </div>
+                </li>
+                <li class="vip-perk-item">
+                    <div class="vip-perk-icon">📚</div>
+                    <div class="vip-perk-content">
+                        <h5 data-t="vipPerk2Title">Exclusive Step-by-Step Guides</h5>
+                        <p data-t="vipPerk2Desc">Easy tutorials for installing plugins, world generation, subdomain connection, and lag optimization.</p>
+                    </div>
+                </li>
+                <li class="vip-perk-item">
+                    <div class="vip-perk-icon">💬</div>
+                    <div class="vip-perk-content">
+                        <h5 data-t="vipPerk3Title">Priority 1-on-1 Discord Help</h5>
+                        <p data-t="vipPerk3Desc">Direct priority assistance from our Senior Staff team in Discord for first-time server owners.</p>
+                    </div>
+                </li>
+            </ul>
+            <a href="https://discord.gg/solarcloud" target="_blank" class="btn-primary" style="width: 100%; text-align: center; display: block; text-decoration: none;">Join Discord Community</a>
         </div>
     </div>
 
