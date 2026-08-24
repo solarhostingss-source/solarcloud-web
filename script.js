@@ -867,10 +867,15 @@ function initScrollReveal() {
 let assistHistory = [];
 
 function toggleAssistantChat() {
+    console.log("toggleAssistantChat executed!");
     const assistWindow = document.getElementById('solar-sc-assistant-window');
     const assistInput = document.getElementById('sc-assistant-input');
-    if (!assistWindow) return;
+    if (!assistWindow) {
+        console.error("assistWindow not found in DOM!");
+        return;
+    }
     assistWindow.classList.toggle('open');
+    console.log("assistWindow classList after toggle:", assistWindow.className);
     if (assistWindow.classList.contains('open') && assistInput) {
         setTimeout(() => assistInput.focus(), 100);
     }
@@ -924,13 +929,42 @@ async function sendAssistantMessage() {
 }
 
 function initAssistant() {
+    if (window._assistantInitialized) return;
+    window._assistantInitialized = true;
+    
+    console.log("initAssistant initializing bindings...");
     const sendBtn = document.getElementById('sc-assistant-send-btn');
     const assistInput = document.getElementById('sc-assistant-input');
-    if (sendBtn) sendBtn.onclick = sendAssistantMessage;
+    const assistBtn = document.getElementById('solar-sc-assistant-btn');
+    const closeBtns = document.querySelectorAll('.sc-assistant-close-btn');
+
+    if (assistBtn) {
+        assistBtn.removeAttribute('onclick');
+        assistBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("Chat button clicked via EventListener!");
+            toggleAssistantChat();
+        });
+    } else {
+        console.warn("Could not find #solar-sc-assistant-btn");
+    }
+
+    closeBtns.forEach(btn => {
+        btn.removeAttribute('onclick');
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log("Close button clicked!");
+            toggleAssistantChat();
+        });
+    });
+
+    if (sendBtn) {
+        sendBtn.addEventListener('click', sendAssistantMessage);
+    }
     if (assistInput) {
-        assistInput.onkeypress = (e) => {
+        assistInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') sendAssistantMessage();
-        };
+        });
     }
 }
 
