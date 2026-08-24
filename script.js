@@ -926,7 +926,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let chatHistory = [];
 
     // URL del backend (Ajusta esto según donde alojes el backend)
-    const BACKEND_API_URL = 'http://localhost:3000/api/chat'; 
+    const BACKEND_API_URL = '/api/chat'; 
 
     function toggleChat() {
         chatWindow.classList.toggle('open');
