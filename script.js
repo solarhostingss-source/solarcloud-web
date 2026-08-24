@@ -871,3 +871,135 @@ document.addEventListener('DOMContentLoaded', () => {
     initModalClose();
     initScrollReveal();
 });
+
+/* ============================================================
+   SOLAR CLOUD AI CHATBOT WIDGET
+   ============================================================ */
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Inject HTML for the Chatbot Widget
+    const chatHTML = \`
+    <div id="solar-chatbot-container">
+        <div id="solar-chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-title-container">
+                    <div class="chatbot-avatar">☀️</div>
+                    <div>
+                        <h3 class="chatbot-title">Solar Cloud Bot</h3>
+                        <div class="chatbot-status">Online</div>
+                    </div>
+                </div>
+                <button class="chatbot-close-btn">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chatbot-msg bot">
+                    <p>¡Hola! Soy el Asistente Virtual de Solar Cloud. ¿En qué te puedo ayudar hoy? 🚀</p>
+                </div>
+            </div>
+            <div class="chatbot-typing" id="chatbot-typing">Solar Cloud está escribiendo...</div>
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Escribe tu mensaje..." autocomplete="off">
+                <button id="chatbot-send-btn" class="chatbot-send-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <button id="solar-chatbot-btn" aria-label="Open Chat">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+            </svg>
+        </button>
+    </div>
+    \`;
+    document.body.insertAdjacentHTML('beforeend', chatHTML);
+
+    // 2. Chatbot Logic
+    const chatBtn = document.getElementById('solar-chatbot-btn');
+    const chatWindow = document.getElementById('solar-chatbot-window');
+    const closeBtn = document.querySelector('.chatbot-close-btn');
+    const sendBtn = document.getElementById('chatbot-send-btn');
+    const chatInput = document.getElementById('chatbot-input');
+    const messagesContainer = document.getElementById('chatbot-messages');
+    const typingIndicator = document.getElementById('chatbot-typing');
+
+    let chatHistory = [];
+
+    // URL del backend (Ajusta esto según donde alojes el backend)
+    const BACKEND_API_URL = 'http://localhost:3000/api/chat'; 
+
+    function toggleChat() {
+        chatWindow.classList.toggle('open');
+        if (chatWindow.classList.contains('open')) {
+            chatInput.focus();
+        }
+    }
+
+    chatBtn.addEventListener('click', toggleChat);
+    closeBtn.addEventListener('click', toggleChat);
+
+    function addMessage(text, sender) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = \`chatbot-msg \${sender}\`;
+        
+        // Convert simple markdown-like syntax to HTML
+        let formattedText = text.replace(/\\n/g, '<br>');
+        formattedText = formattedText.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
+        formattedText = formattedText.replace(/\\*(.*?)\\*/g, '<em>$1</em>');
+        
+        msgDiv.innerHTML = formattedText;
+        messagesContainer.appendChild(msgDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    async function sendMessage() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        // User message
+        addMessage(text, 'user');
+        chatInput.value = '';
+        typingIndicator.style.display = 'block';
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        try {
+            const response = await fetch(BACKEND_API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    message: text,
+                    history: chatHistory
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Error en la API');
+            }
+
+            const data = await response.json();
+            
+            // Ocultar typing y mostrar respuesta
+            typingIndicator.style.display = 'none';
+            addMessage(data.response, 'bot');
+
+            // Actualizar historial
+            chatHistory.push({ role: 'user', content: text });
+            chatHistory.push({ role: 'model', content: data.response });
+
+            // Mantener solo los últimos 10 mensajes (5 turnos) para no sobrecargar
+            if (chatHistory.length > 10) {
+                chatHistory = chatHistory.slice(-10);
+            }
+
+        } catch (error) {
+            console.error('Chat error:', error);
+            typingIndicator.style.display = 'none';
+            addMessage('Lo siento, estoy teniendo problemas para conectarme en este momento. Intenta comunicarte al Discord o a solarhostingss@gmail.com.', 'bot');
+        }
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+});
