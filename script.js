@@ -876,7 +876,7 @@ document.addEventListener('DOMContentLoaded', () => {
    SOLAR CLOUD AI CHATBOT WIDGET
    ============================================================ */
     // 1. Inject HTML for the Chatbot Widget
-    const chatHTML = \`
+    const chatHTML = `
     <div id="solar-chatbot-container">
         <div id="solar-chatbot-window">
             <div class="chatbot-header">
@@ -910,7 +910,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </svg>
         </button>
     </div>
-    \`;
+    `;
     document.body.insertAdjacentHTML('beforeend', chatHTML);
 
     // 2. Chatbot Logic
@@ -939,12 +939,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addMessage(text, sender) {
         const msgDiv = document.createElement('div');
-        msgDiv.className = \`chatbot-msg \${sender}\`;
+        msgDiv.className = `chatbot-msg ${sender}`;
         
         // Convert simple markdown-like syntax to HTML
-        let formattedText = text.replace(/\\n/g, '<br>');
-        formattedText = formattedText.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');
-        formattedText = formattedText.replace(/\\*(.*?)\\*/g, '<em>$1</em>');
+        let formattedText = text.replace(/\n/g, '<br>');
+        formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        formattedText = formattedText.replace(/\*(.*?)\*/g, '<em>$1</em>');
         
         msgDiv.innerHTML = formattedText;
         messagesContainer.appendChild(msgDiv);
