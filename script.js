@@ -697,7 +697,7 @@ function renderWizardRecommendation() {
                     ? ["⚡ 16 GB RAM", "🔥 8 vCPU Cores", "💾 100 GB SSD", "👑 Soporte Prioritario"]
                     : ["⚡ 16 GB RAM", "🔥 8 vCPU Cores", "💾 100 GB SSD", "👑 Priority Support"],
                 planKey: "ultra",
-                planLabel: isEs ? "Scientist — $18.00/mes" : "Scientist — $18.00/mo"
+                planLabel: isEs ? "Scientist — $20.00/mes" : "Scientist — $20.00/mo"
             };
         } else {
             rec = {
