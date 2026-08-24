@@ -875,7 +875,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ============================================================
    SOLAR CLOUD AI CHATBOT WIDGET
    ============================================================ */
-document.addEventListener("DOMContentLoaded", () => {
     // 1. Inject HTML for the Chatbot Widget
     const chatHTML = \`
     <div id="solar-chatbot-container">
@@ -997,7 +996,6 @@ document.addEventListener("DOMContentLoaded", () => {
             addMessage('Lo siento, estoy teniendo problemas para conectarme en este momento. Intenta comunicarte al Discord o a solarhostingss@gmail.com.', 'bot');
         }
     }
-
     sendBtn.addEventListener('click', sendMessage);
     chatInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') sendMessage();
