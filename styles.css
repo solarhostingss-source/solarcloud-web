@@ -1730,7 +1730,7 @@ footer {
 /* ============================================================
    SOLAR CLOUD AI CHATBOT WIDGET
    ============================================================ */
-#solar-chatbot-container {
+#solar-sc-assistant-container {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -1738,7 +1738,7 @@ footer {
     font-family: 'Inter', sans-serif;
 }
 
-#solar-chatbot-btn {
+#solar-sc-assistant-btn {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -1752,17 +1752,17 @@ footer {
     border: none;
     outline: none;
 }
-#solar-chatbot-btn:hover {
+#solar-sc-assistant-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(116, 73, 240, 0.6);
 }
-#solar-chatbot-btn svg {
+#solar-sc-assistant-btn svg {
     width: 32px;
     height: 32px;
     fill: white;
 }
 
-#solar-chatbot-window {
+#solar-sc-assistant-window {
     position: absolute;
     bottom: 80px;
     right: 0;
@@ -1781,13 +1781,13 @@ footer {
     transform: translateY(20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
-#solar-chatbot-window.open {
+#solar-sc-assistant-window.open {
     display: flex;
     opacity: 1;
     transform: translateY(0);
 }
 
-.chatbot-header {
+.sc-assistant-header {
     background: rgba(255,255,255,0.05);
     padding: 15px;
     display: flex;
@@ -1795,12 +1795,12 @@ footer {
     align-items: center;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.chatbot-title-container {
+.sc-assistant-title-container {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.chatbot-avatar {
+.sc-assistant-avatar {
     width: 35px;
     height: 35px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -1810,21 +1810,21 @@ footer {
     justify-content: center;
     font-size: 1.2rem;
 }
-.chatbot-title {
+.sc-assistant-title {
     color: white;
     font-weight: 600;
     font-size: 1rem;
     margin: 0;
     line-height: 1.2;
 }
-.chatbot-status {
+.sc-assistant-status {
     font-size: 0.75rem;
     color: #4ade80;
     display: flex;
     align-items: center;
     gap: 4px;
 }
-.chatbot-status::before {
+.sc-assistant-status::before {
     content: '';
     width: 6px;
     height: 6px;
@@ -1832,7 +1832,7 @@ footer {
     border-radius: 50%;
     display: inline-block;
 }
-.chatbot-close-btn {
+.sc-assistant-close-btn {
     background: none;
     border: none;
     color: var(--text-gray);
@@ -1840,11 +1840,11 @@ footer {
     font-size: 1.5rem;
     line-height: 1;
 }
-.chatbot-close-btn:hover {
+.sc-assistant-close-btn:hover {
     color: white;
 }
 
-.chatbot-messages {
+.sc-assistant-messages {
     flex: 1;
     padding: 15px;
     overflow-y: auto;
@@ -1852,7 +1852,7 @@ footer {
     flex-direction: column;
     gap: 12px;
 }
-.chatbot-msg {
+.sc-assistant-msg {
     max-width: 85%;
     padding: 10px 14px;
     border-radius: 12px;
@@ -1860,30 +1860,30 @@ footer {
     line-height: 1.4;
     word-wrap: break-word;
 }
-.chatbot-msg p {
+.sc-assistant-msg p {
     margin: 0 0 8px 0;
 }
-.chatbot-msg p:last-child {
+.sc-assistant-msg p:last-child {
     margin: 0;
 }
-.chatbot-msg.bot {
+.sc-assistant-msg.bot {
     background: rgba(255,255,255,0.05);
     color: var(--text-gray);
     align-self: flex-start;
     border-bottom-left-radius: 2px;
 }
-.chatbot-msg.user {
+.sc-assistant-msg.user {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     align-self: flex-end;
     border-bottom-right-radius: 2px;
 }
-.chatbot-msg a {
+.sc-assistant-msg a {
     color: #4ade80;
     text-decoration: underline;
 }
 
-.chatbot-typing {
+.sc-assistant-typing {
     display: none;
     align-self: flex-start;
     background: transparent;
@@ -1893,14 +1893,14 @@ footer {
     font-style: italic;
 }
 
-.chatbot-input-area {
+.sc-assistant-input-area {
     padding: 15px;
     border-top: 1px solid rgba(255,255,255,0.1);
     display: flex;
     gap: 10px;
     background: rgba(0,0,0,0.2);
 }
-.chatbot-input {
+.sc-assistant-input {
     flex: 1;
     background: rgba(255,255,255,0.05);
     border: 1px solid rgba(255,255,255,0.1);
@@ -1912,10 +1912,10 @@ footer {
     outline: none;
     resize: none;
 }
-.chatbot-input:focus {
+.sc-assistant-input:focus {
     border-color: var(--primary);
 }
-.chatbot-send-btn {
+.sc-assistant-send-btn {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     border: none;
@@ -1927,12 +1927,12 @@ footer {
     cursor: pointer;
     transition: transform 0.2s;
 }
-.chatbot-send-btn:hover {
+.sc-assistant-send-btn:hover {
     transform: scale(1.05);
 }
 
 @media (max-width: 480px) {
-    #solar-chatbot-window {
+    #solar-sc-assistant-window {
         width: 100%;
         height: 100vh;
         max-height: 100vh;
@@ -1940,7 +1940,7 @@ footer {
         right: 0;
         border-radius: 0;
     }
-    #solar-chatbot-container {
+    #solar-sc-assistant-container {
         bottom: 15px;
         right: 15px;
     }

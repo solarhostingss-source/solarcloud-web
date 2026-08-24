@@ -876,70 +876,70 @@ document.addEventListener('DOMContentLoaded', () => {
    SOLAR CLOUD AI CHATBOT WIDGET
    ============================================================ */
     // 1. Inject HTML for the Chatbot Widget
-    const chatHTML = `
-    <div id="solar-chatbot-container">
-        <div id="solar-chatbot-window">
-            <div class="chatbot-header">
-                <div class="chatbot-title-container">
-                    <div class="chatbot-avatar">☀️</div>
+    const assistHTML = `
+    <div id="solar-sc-assistant-container">
+        <div id="solar-sc-assistant-window">
+            <div class="sc-assistant-header">
+                <div class="sc-assistant-title-container">
+                    <div class="sc-assistant-avatar">☀️</div>
                     <div>
-                        <h3 class="chatbot-title">Solar Cloud Bot</h3>
-                        <div class="chatbot-status">Online</div>
+                        <h3 class="sc-assistant-title">Solar Cloud Bot</h3>
+                        <div class="sc-assistant-status">Online</div>
                     </div>
                 </div>
-                <button class="chatbot-close-btn">&times;</button>
+                <button class="sc-assistant-close-btn">&times;</button>
             </div>
-            <div class="chatbot-messages" id="chatbot-messages">
-                <div class="chatbot-msg bot">
+            <div class="sc-assistant-messages" id="sc-assistant-messages">
+                <div class="sc-assistant-msg bot">
                     <p>¡Hola! Soy el Asistente Virtual de Solar Cloud. ¿En qué te puedo ayudar hoy? 🚀</p>
                 </div>
             </div>
-            <div class="chatbot-typing" id="chatbot-typing">Solar Cloud está escribiendo...</div>
-            <div class="chatbot-input-area">
-                <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-                <button id="chatbot-send-btn" class="chatbot-send-btn">
+            <div class="sc-assistant-typing" id="sc-assistant-typing">Solar Cloud está escribiendo...</div>
+            <div class="sc-assistant-input-area">
+                <input type="text" id="sc-assistant-input" class="sc-assistant-input" placeholder="Escribe tu mensaje..." autocomplete="off">
+                <button id="sc-assistant-send-btn" class="sc-assistant-send-btn">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
                     </svg>
                 </button>
             </div>
         </div>
-        <button id="solar-chatbot-btn" aria-label="Open Chat">
+        <button id="solar-sc-assistant-btn" aria-label="Open Chat">
             <svg viewBox="0 0 24 24">
                 <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
             </svg>
         </button>
     </div>
     `;
-    document.body.insertAdjacentHTML('beforeend', chatHTML);
+    document.body.insertAdjacentHTML('beforeend', assistHTML);
 
     // 2. Chatbot Logic
-    const chatBtn = document.getElementById('solar-chatbot-btn');
-    const chatWindow = document.getElementById('solar-chatbot-window');
-    const closeBtn = document.querySelector('.chatbot-close-btn');
-    const sendBtn = document.getElementById('chatbot-send-btn');
-    const chatInput = document.getElementById('chatbot-input');
-    const messagesContainer = document.getElementById('chatbot-messages');
-    const typingIndicator = document.getElementById('chatbot-typing');
+    const assistBtn = document.getElementById('solar-sc-assistant-btn');
+    const assistWindow = document.getElementById('solar-sc-assistant-window');
+    const closeBtn = document.querySelector('.sc-assistant-close-btn');
+    const sendBtn = document.getElementById('sc-assistant-send-btn');
+    const assistInput = document.getElementById('sc-assistant-input');
+    const messagesContainer = document.getElementById('sc-assistant-messages');
+    const typingIndicator = document.getElementById('sc-assistant-typing');
 
-    let chatHistory = [];
+    let assistHistory = [];
 
     // URL del backend (Ajusta esto según donde alojes el backend)
     const BACKEND_API_URL = '/api/chat'; 
 
     function toggleChat() {
-        chatWindow.classList.toggle('open');
-        if (chatWindow.classList.contains('open')) {
-            chatInput.focus();
+        assistWindow.classList.toggle('open');
+        if (assistWindow.classList.contains('open')) {
+            assistInput.focus();
         }
     }
 
-    chatBtn.addEventListener('click', toggleChat);
+    assistBtn.addEventListener('click', toggleChat);
     closeBtn.addEventListener('click', toggleChat);
 
     function addMessage(text, sender) {
         const msgDiv = document.createElement('div');
-        msgDiv.className = `chatbot-msg ${sender}`;
+        msgDiv.className = `sc-assistant-msg ${sender}`;
         
         // Convert simple markdown-like syntax to HTML
         let formattedText = text.replace(/\n/g, '<br>');
@@ -952,12 +952,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function sendMessage() {
-        const text = chatInput.value.trim();
+        const text = assistInput.value.trim();
         if (!text) return;
 
         // User message
         addMessage(text, 'user');
-        chatInput.value = '';
+        assistInput.value = '';
         typingIndicator.style.display = 'block';
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
@@ -967,7 +967,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                     message: text,
-                    history: chatHistory
+                    history: assistHistory
                 })
             });
 
@@ -982,12 +982,12 @@ document.addEventListener('DOMContentLoaded', () => {
             addMessage(data.response, 'bot');
 
             // Actualizar historial
-            chatHistory.push({ role: 'user', content: text });
-            chatHistory.push({ role: 'model', content: data.response });
+            assistHistory.push({ role: 'user', content: text });
+            assistHistory.push({ role: 'model', content: data.response });
 
             // Mantener solo los últimos 10 mensajes (5 turnos) para no sobrecargar
-            if (chatHistory.length > 10) {
-                chatHistory = chatHistory.slice(-10);
+            if (assistHistory.length > 10) {
+                assistHistory = assistHistory.slice(-10);
             }
 
         } catch (error) {
@@ -997,6 +997,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     sendBtn.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', (e) => {
+    assistInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') sendMessage();
     });
