@@ -12,6 +12,7 @@ const TRANSLATIONS = {
         navBots:       "Bots & Web",
         navVPS:        "VPS",
         navCustom:     "Custom Plans",
+        navStatus:     "Status",
         customOverline: "Custom Plans",
         customTitle:    "Need something tailored?",
         customDesc:     "Build your server with the exact amount of RAM, CPU, and storage you need. Priority support and VIP setup.",
@@ -330,6 +331,7 @@ const TRANSLATIONS = {
         navBots:       "Bots y Web",
         navVPS:        "VPS",
         navCustom:     "Planes Custom",
+        navStatus:     "Estado",
         customOverline: "Planes Custom",
         customTitle:    "¿Necesitas algo a medida?",
         customDesc:     "Arma tu servidor con la cantidad exacta de RAM, CPU y almacenamiento que necesitas. Soporte prioritario y configuración VIP.",
@@ -1087,7 +1089,7 @@ function testNodePing(nodeKey) {
             // Color logic
             let color = '#10b981'; // green
             if (ping >= 150) color = '#ef4444'; // red
-            else if (ping >= 80) color = '#f59e0b'; // yellow
+            else if (ping > 100) color = '#f59e0b'; // yellow
 
             valueEl.style.color = color;
             if (circleFill) {
