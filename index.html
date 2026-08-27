@@ -116,23 +116,43 @@
     <!-- ── PING TEST ───────────────────────────────────────────── -->
     <section id="ping-test">
         <div class="section-header">
-            <p class="section-overline" data-t="pingOverline">Latency Test</p>
-            <h2 class="section-title" data-t="pingTitle">Test Your Connection</h2>
-            <p class="section-desc" data-t="pingDesc">Measure the latency to our main panel in real time.</p>
+            <p class="section-overline" data-t="pingOverline">Node Latency</p>
+            <h2 class="section-title" data-t="pingTitle">Node Latency Test</h2>
+            <p class="section-desc" data-t="pingDesc">Measure the latency to our nodes in real time.</p>
         </div>
-        <div class="ping-card">
-            <div class="ping-circle-container">
-                <svg width="140" height="140" viewBox="0 0 140 140">
-                    <circle class="ping-circle-bg" cx="70" cy="70" r="65"></circle>
-                    <circle class="ping-circle-fill" id="pingCircleFill" cx="70" cy="70" r="65"></circle>
-                </svg>
-                <div class="ping-value" id="pingValue">—<small data-t="pingMs">ms</small></div>
+        <div class="ping-grid">
+            <!-- USA Node -->
+            <div class="ping-card">
+                <div class="ping-node-flag">🇺🇸</div>
+                <h4 class="ping-node-name" data-t="pingNodeUSA">USA — New York</h4>
+                <div class="ping-circle-container">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle class="ping-circle-bg" cx="60" cy="60" r="54"></circle>
+                        <circle class="ping-circle-fill" id="pingCircleFillUSA" cx="60" cy="60" r="54"></circle>
+                    </svg>
+                    <div class="ping-value" id="pingValueUSA">—<small data-t="pingMs">ms</small></div>
+                </div>
+                <button class="ping-btn" id="pingBtnUSA" onclick="testNodePing('USA')">
+                    <span class="ping-btn-text" data-t="pingBtn">Test Latency</span>
+                    <span class="spinner"></span>
+                </button>
             </div>
-            <p class="ping-label" id="pingLabel" data-t="pingLabel">Latency to panel</p>
-            <button class="ping-btn" id="pingBtn" onclick="testPing()">
-                <span class="ping-btn-text" data-t="pingBtn">Test Latency</span>
-                <span class="spinner"></span>
-            </button>
+            <!-- Colombia Node -->
+            <div class="ping-card">
+                <div class="ping-node-flag">🇨🇴</div>
+                <h4 class="ping-node-name" data-t="pingNodeCO">Colombia — Bogotá</h4>
+                <div class="ping-circle-container">
+                    <svg width="120" height="120" viewBox="0 0 120 120">
+                        <circle class="ping-circle-bg" cx="60" cy="60" r="54"></circle>
+                        <circle class="ping-circle-fill" id="pingCircleFillCO" cx="60" cy="60" r="54"></circle>
+                    </svg>
+                    <div class="ping-value" id="pingValueCO">—<small data-t="pingMs">ms</small></div>
+                </div>
+                <button class="ping-btn" id="pingBtnCO" onclick="testNodePing('CO')">
+                    <span class="ping-btn-text" data-t="pingBtn">Test Latency</span>
+                    <span class="spinner"></span>
+                </button>
+            </div>
         </div>
     </section>
 

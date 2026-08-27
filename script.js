@@ -156,13 +156,13 @@ const TRANSLATIONS = {
         heroAiDesc:     "Console crash resolution with AI in 1 second",
 
         // Ping Test
-        pingOverline:   "Latency Test",
-        pingTitle:      "Test Your Connection",
-        pingDesc:       "Measure the latency to our main panel in real time.",
+        pingOverline:   "Node Latency",
+        pingTitle:      "Node Latency Test",
+        pingDesc:       "Measure the latency to our nodes in real time.",
         pingBtn:        "Test Latency",
-        pingTesting:    "Testing...",
-        pingLabel:      "Latency to panel",
         pingMs:         "ms",
+        pingNodeUSA:    "USA — New York",
+        pingNodeCO:     "Colombia — Bogotá",
 
         // Network Status
         statusOverline: "Network Status",
@@ -464,13 +464,13 @@ const TRANSLATIONS = {
         heroAiDesc:     "Resolución de crasheos de consola con IA en 1 segundo",
 
         // Ping Test
-        pingOverline:   "Prueba de Latencia",
-        pingTitle:      "Prueba tu Conexión",
-        pingDesc:       "Mide la latencia hacia nuestro panel principal en tiempo real.",
+        pingOverline:   "Latencia de los Nodos",
+        pingTitle:      "Latencia de los Nodos",
+        pingDesc:       "Mide la latencia hacia nuestros nodos en tiempo real.",
         pingBtn:        "Probar Latencia",
-        pingTesting:    "Probando...",
-        pingLabel:      "Latencia al panel",
         pingMs:         "ms",
+        pingNodeUSA:    "USA — New York",
+        pingNodeCO:     "Colombia — Bogotá",
 
         // Network Status
         statusOverline: "Estado de la Red",
@@ -1060,19 +1060,23 @@ if (document.readyState === 'interactive' || document.readyState === 'complete')
     initAssistant();
 }
 
-/* ─── PING TEST ────────────────────────────────────────────── */
-function testPing() {
-    const btn = document.getElementById('pingBtn');
-    const valueEl = document.getElementById('pingValue');
-    const labelEl = document.getElementById('pingLabel');
-    const circleFill = document.getElementById('pingCircleFill');
+/* ─── PING TEST (DUAL NODES) ──────────────────────────────── */
+const PING_NODES = {
+    USA: 'https://node3.solarcloud.lat/favicon.ico',
+    CO:  'https://node.solarcloud.lat/favicon.ico'
+};
+
+function testNodePing(nodeKey) {
+    const btn = document.getElementById('pingBtn' + nodeKey);
+    const valueEl = document.getElementById('pingValue' + nodeKey);
+    const circleFill = document.getElementById('pingCircleFill' + nodeKey);
     if (!btn || !valueEl) return;
 
     btn.classList.add('loading');
     btn.disabled = true;
     valueEl.textContent = '...';
 
-    const endpoint = 'https://panel.solarcloud.lat/favicon.ico';
+    const endpoint = PING_NODES[nodeKey];
     const start = performance.now();
 
     fetch(endpoint, { mode: 'no-cors', cache: 'no-store' })
@@ -1088,13 +1092,10 @@ function testPing() {
             valueEl.style.color = color;
             if (circleFill) {
                 circleFill.style.stroke = color;
-                const circumference = 408;
+                const circumference = 339;
                 const pct = Math.min(ping / 200, 1);
                 circleFill.style.strokeDashoffset = circumference - (circumference * pct);
             }
-
-            const T = TRANSLATIONS[currentLang];
-            if (labelEl && T) labelEl.textContent = T.pingLabel || 'Latency to panel';
         })
         .catch(() => {
             valueEl.textContent = '!';
