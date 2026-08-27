@@ -41,6 +41,16 @@
             <div class="hero-badge" data-t="heroBadge">⚡ High-Performance Hosting</div>
             <h1 data-t="heroTitle">Power Your Server with <span class="gradient-text">Solar Cloud</span></h1>
             <p class="hero-sub" data-t="heroSub">Enterprise-grade hosting for Minecraft servers and Discord bots, starting at <span class="price-highlight">$2.50/mo</span>. Canada, USA and Colombia locations available.</p>
+
+            <!-- Solar AI Highlight -->
+            <div class="hero-ai-highlight">
+                <div class="hero-ai-icon">🤖</div>
+                <div class="hero-ai-text">
+                    <div class="ai-label" data-t="heroAiLabel">NEW — SOLAR AI</div>
+                    <div class="ai-desc" data-t="heroAiDesc">Console crash resolution with AI in 1 second</div>
+                </div>
+            </div>
+
             <div class="hero-buttons">
                 <a href="/minecraft" class="btn-primary" data-t="heroBtn1">Get Started</a>
                 <a href="#pricing" class="btn-secondary" data-t="heroBtn2">View Plans</a>
@@ -100,6 +110,29 @@
                 <h4 data-t="f6Title">Highly Scalable</h4>
                 <p data-t="f6Desc">Start small and upgrade any time. Our plans grow with your community without complicated migrations.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- ── PING TEST ───────────────────────────────────────────── -->
+    <section id="ping-test">
+        <div class="section-header">
+            <p class="section-overline" data-t="pingOverline">Latency Test</p>
+            <h2 class="section-title" data-t="pingTitle">Test Your Connection</h2>
+            <p class="section-desc" data-t="pingDesc">Measure the latency to our main panel in real time.</p>
+        </div>
+        <div class="ping-card">
+            <div class="ping-circle-container">
+                <svg width="140" height="140" viewBox="0 0 140 140">
+                    <circle class="ping-circle-bg" cx="70" cy="70" r="65"></circle>
+                    <circle class="ping-circle-fill" id="pingCircleFill" cx="70" cy="70" r="65"></circle>
+                </svg>
+                <div class="ping-value" id="pingValue">—<small data-t="pingMs">ms</small></div>
+            </div>
+            <p class="ping-label" id="pingLabel" data-t="pingLabel">Latency to panel</p>
+            <button class="ping-btn" id="pingBtn" onclick="testPing()">
+                <span class="ping-btn-text" data-t="pingBtn">Test Latency</span>
+                <span class="spinner"></span>
+            </button>
         </div>
     </section>
 
@@ -400,6 +433,91 @@
         </div>
     </section>
 
+    <!-- ── NETWORK STATUS ──────────────────────────────────────── -->
+    <section id="network-status">
+        <div class="section-header">
+            <p class="section-overline" data-t="statusOverline">Network Status</p>
+            <h2 class="section-title" data-t="statusTitle">All Systems Operational</h2>
+            <p class="section-desc" data-t="statusDesc">Real-time monitoring of our infrastructure.</p>
+        </div>
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-dot-wrapper"><div class="status-dot"></div></div>
+                <div class="status-info">
+                    <h5 data-t="statusPanel">Web Panel</h5>
+                    <span data-t="statusOp">Operational</span>
+                </div>
+            </div>
+            <div class="status-card">
+                <div class="status-dot-wrapper"><div class="status-dot"></div></div>
+                <div class="status-info">
+                    <h5 data-t="statusNode1">Node 1 — Canada</h5>
+                    <span data-t="statusOp">Operational</span>
+                </div>
+            </div>
+            <div class="status-card">
+                <div class="status-dot-wrapper"><div class="status-dot"></div></div>
+                <div class="status-info">
+                    <h5 data-t="statusNode3">Node 3 — Colombia</h5>
+                    <span data-t="statusOp">Operational</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ ──────────────────────────────────────────────────── -->
+    <section id="faq">
+        <div class="section-header">
+            <p class="section-overline" data-t="faqOverline">FAQ</p>
+            <h2 class="section-title" data-t="faqTitle">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-t="faqQ1">How do I transfer my server from another host?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-t="faqA1">It's very simple. Once you purchase your plan, open a ticket on our Discord and our staff will help you migrate your worlds, plugins, and configurations completely free of charge.</div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-t="faqQ2">Do you accept PayPal?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-t="faqA2">Yes! We accept PayPal, credit cards, and debit cards through our secure payment platform. Use code <strong>SLC</strong> for 30% OFF on your first purchase.</div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    <span data-t="faqQ3">What is Solar AI?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-t="faqA3">Solar AI is our exclusive artificial intelligence assistant that analyzes your server console crashes and errors in real time, providing instant solutions in just 1 second. It's available 24/7 on our website.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COMMUNITY BANNER ────────────────────────────────────── -->
+    <div class="community-banner">
+        <h3 data-t="communityTitle">Join the Community</h3>
+        <p data-t="communityDesc">Connect with other server owners, get support, and stay updated.</p>
+        <div class="community-links">
+            <a href="https://discord.gg/solarcloud" target="_blank" class="community-link discord">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.175 13.175 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/></svg>
+                <span data-t="communityDiscord">Join Discord</span>
+            </a>
+            <a href="https://www.tiktok.com/@solarcloudrl" target="_blank" class="community-link tiktok">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.94a8.27 8.27 0 0 0 4.76 1.5V7a4.84 4.84 0 0 1-1-.31z"/></svg>
+                <span data-t="communityTiktok">Follow on TikTok</span>
+            </a>
+        </div>
+    </div>
+
     <!-- ── FOOTER ──────────────────────────────────────────────── -->
     <footer>
         <div class="footer-grid">
@@ -427,9 +545,14 @@
                 <h5 data-t="footerContact">Contact</h5>
                 <a href="mailto:support@solarcloud.lat">support@solarcloud.lat</a>
             </div>
+            <div class="footer-col">
+                <h5 data-t="footerCommunity">Community</h5>
+                <a href="https://discord.gg/solarcloud" target="_blank">Discord</a>
+                <a href="https://www.tiktok.com/@solarcloudrl" target="_blank">TikTok</a>
+            </div>
         </div>
         <div class="footer-bottom">
-            <span data-t="footerCopy">© 2025 Solar Cloud. All rights reserved.</span>
+            <span data-t="footerCopy">© 2026 Solar Cloud. All rights reserved.</span>
             <span>Made with ☀️ by Solar Cloud</span>
         </div>
     </footer>

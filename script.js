@@ -150,6 +150,45 @@ const TRANSLATIONS = {
         footerServices: "Services",
         footerLegal:    "Legal",
         footerContact:  "Contact",
+
+        // Solar AI Highlight
+        heroAiLabel:    "NEW — SOLAR AI",
+        heroAiDesc:     "Console crash resolution with AI in 1 second",
+
+        // Ping Test
+        pingOverline:   "Latency Test",
+        pingTitle:      "Test Your Connection",
+        pingDesc:       "Measure the latency to our main panel in real time.",
+        pingBtn:        "Test Latency",
+        pingTesting:    "Testing...",
+        pingLabel:      "Latency to panel",
+        pingMs:         "ms",
+
+        // Network Status
+        statusOverline: "Network Status",
+        statusTitle:    "All Systems Operational",
+        statusDesc:     "Real-time monitoring of our infrastructure.",
+        statusOp:       "Operational",
+        statusNode1:    "Node 1 — Canada",
+        statusNode3:    "Node 3 — Colombia",
+        statusPanel:    "Web Panel",
+
+        // FAQ
+        faqOverline:    "FAQ",
+        faqTitle:       "Frequently Asked Questions",
+        faqQ1:          "How do I transfer my server from another host?",
+        faqA1:          "It's very simple. Once you purchase your plan, open a ticket on our Discord and our staff will help you migrate your worlds, plugins, and configurations completely free of charge.",
+        faqQ2:          "Do you accept PayPal?",
+        faqA2:          "Yes! We accept PayPal, credit cards, and debit cards through our secure payment platform. Use code <strong>SLC</strong> for 30% OFF on your first purchase.",
+        faqQ3:          "What is Solar AI?",
+        faqA3:          "Solar AI is our exclusive artificial intelligence assistant that analyzes your server console crashes and errors in real time, providing instant solutions in just 1 second. It's available 24/7 on our website.",
+
+        // Community
+        communityTitle: "Join the Community",
+        communityDesc:  "Connect with other server owners, get support, and stay updated.",
+        communityDiscord: "Join Discord",
+        communityTiktok:  "Follow on TikTok",
+        footerCommunity:  "Community",
         footerCopy:     "© 2025 Solar Cloud. All rights reserved.",
 
         // Legal pages titles
@@ -419,6 +458,45 @@ const TRANSLATIONS = {
         footerServices: "Servicios",
         footerLegal:    "Legal",
         footerContact:  "Contacto",
+
+        // Solar AI Highlight
+        heroAiLabel:    "NUEVO — SOLAR AI",
+        heroAiDesc:     "Resolución de crasheos de consola con IA en 1 segundo",
+
+        // Ping Test
+        pingOverline:   "Prueba de Latencia",
+        pingTitle:      "Prueba tu Conexión",
+        pingDesc:       "Mide la latencia hacia nuestro panel principal en tiempo real.",
+        pingBtn:        "Probar Latencia",
+        pingTesting:    "Probando...",
+        pingLabel:      "Latencia al panel",
+        pingMs:         "ms",
+
+        // Network Status
+        statusOverline: "Estado de la Red",
+        statusTitle:    "Todos los Sistemas Operativos",
+        statusDesc:     "Monitoreo en tiempo real de nuestra infraestructura.",
+        statusOp:       "Operativo",
+        statusNode1:    "Nodo 1 — Canadá",
+        statusNode3:    "Nodo 3 — Colombia",
+        statusPanel:    "Panel Web",
+
+        // FAQ
+        faqOverline:    "Preguntas Frecuentes",
+        faqTitle:       "Preguntas Frecuentes",
+        faqQ1:          "¿Cómo transfiero mi servidor desde otro host?",
+        faqA1:          "Es muy sencillo. Una vez compres tu plan, abre un ticket en nuestro Discord y nuestro staff te ayudará a migrar tus mundos, plugins y configuraciones de forma totalmente gratuita.",
+        faqQ2:          "¿Aceptan PayPal?",
+        faqA2:          "¡Sí! Aceptamos PayPal, tarjetas de crédito y débito a través de nuestra plataforma de pago segura. Usa el código <strong>SLC</strong> para un 30% de descuento en tu primera compra.",
+        faqQ3:          "¿Qué es Solar AI?",
+        faqA3:          "Solar AI es nuestro asistente de inteligencia artificial exclusivo que analiza los crasheos y errores de la consola de tu servidor en tiempo real, brindando soluciones instantáneas en solo 1 segundo. Está disponible 24/7 en nuestra web.",
+
+        // Community
+        communityTitle: "Únete a la Comunidad",
+        communityDesc:  "Conecta con otros dueños de servidores, obtén soporte y mantente al día.",
+        communityDiscord: "Unirse a Discord",
+        communityTiktok:  "Síguenos en TikTok",
+        footerCommunity:  "Comunidad",
         footerCopy:     "© 2025 Solar Cloud. Todos los derechos reservados."
     }
 };
@@ -980,4 +1058,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
 if (document.readyState === 'interactive' || document.readyState === 'complete') {
     initAssistant();
+}
+
+/* ─── PING TEST ────────────────────────────────────────────── */
+function testPing() {
+    const btn = document.getElementById('pingBtn');
+    const valueEl = document.getElementById('pingValue');
+    const labelEl = document.getElementById('pingLabel');
+    const circleFill = document.getElementById('pingCircleFill');
+    if (!btn || !valueEl) return;
+
+    btn.classList.add('loading');
+    btn.disabled = true;
+    valueEl.textContent = '...';
+
+    const endpoint = 'https://panel.solarcloud.lat/favicon.ico';
+    const start = performance.now();
+
+    fetch(endpoint, { mode: 'no-cors', cache: 'no-store' })
+        .then(() => {
+            const ping = Math.round(performance.now() - start);
+            valueEl.textContent = ping;
+
+            // Color logic
+            let color = '#10b981'; // green
+            if (ping >= 150) color = '#ef4444'; // red
+            else if (ping >= 80) color = '#f59e0b'; // yellow
+
+            valueEl.style.color = color;
+            if (circleFill) {
+                circleFill.style.stroke = color;
+                const circumference = 408;
+                const pct = Math.min(ping / 200, 1);
+                circleFill.style.strokeDashoffset = circumference - (circumference * pct);
+            }
+
+            const T = TRANSLATIONS[currentLang];
+            if (labelEl && T) labelEl.textContent = T.pingLabel || 'Latency to panel';
+        })
+        .catch(() => {
+            valueEl.textContent = '!';
+            valueEl.style.color = '#ef4444';
+        })
+        .finally(() => {
+            btn.classList.remove('loading');
+            btn.disabled = false;
+        });
+}
+
+/* ─── FAQ ACCORDION ────────────────────────────────────────── */
+function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    if (!item) return;
+    const isActive = item.classList.contains('active');
+    // Close all
+    document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
+    // Open clicked if it wasn't active
+    if (!isActive) item.classList.add('active');
 }
