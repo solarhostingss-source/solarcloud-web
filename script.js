@@ -129,8 +129,8 @@ const TRANSLATIONS = {
         starterShowcaseDesc: "If it's your first time creating a server or you want zero hassle, the <strong>Starter Plan</strong> is your best choice. With <strong>8 GB RAM</strong> your server runs buttery smooth, and our Staff team helps you configure everything step-by-step from day one!",
         starterWhy1Title: "VIP Staff Setup Assistance:",
         starterWhy1Desc: "We assist you with initial configs, plugins, mods, and custom domain setup.",
-        starterWhy2Title: "8 GB RAM & 4 vCPUs:",
-        starterWhy2Desc: "Generous memory and power to play with friends or launch your community lag-free.",
+        starterWhy2Title: "8 GB RAM & 4 vCPUs (AMD Ryzen 5 5600):",
+        starterWhy2Desc: "Powered by AMD Ryzen 5 5600 for high clock speeds to play with friends or launch your community lag-free.",
         starterWhy3Title: "All-in-One Package:",
         starterWhy3Desc: "Pterodactyl panel, enterprise Anti-DDoS, and instant automated activation.",
         starterBuyCta: "Get Starter Plan ($10.00/mo)",
@@ -399,8 +399,8 @@ const TRANSLATIONS = {
         starterShowcaseDesc: "Si es tu primera vez creando un servidor o buscas cero complicaciones, el <strong>Plan Starter</strong> es tu mejor opción. Con <strong>8 GB de RAM</strong> tu servidor funcionará totalmente fluido, ¡y nuestro equipo de Staff te ayuda paso a paso a configurarlo todo desde el primer día!",
         starterWhy1Title: "Ayuda VIP del Staff Incluida:",
         starterWhy1Desc: "Te asistimos en la configuración inicial, instalación de plugins, mods y dominio personalizado.",
-        starterWhy2Title: "8 GB RAM & 4 vCPUs:",
-        starterWhy2Desc: "Memoria y potencia de sobra para jugar con amigos o abrir tu comunidad sin lag.",
+        starterWhy2Title: "8 GB RAM & 4 vCPUs (AMD Ryzen 5 5600):",
+        starterWhy2Desc: "Potenciado por AMD Ryzen 5 5600 de alta frecuencia para jugar con amigos o abrir tu comunidad sin lag.",
         starterWhy3Title: "Todo Incluido:",
         starterWhy3Desc: "Panel Pterodactyl en español, protección Anti-DDoS y activación instantánea.",
         starterBuyCta: "Comprar Plan Starter ($10.00/mes)",
@@ -738,11 +738,11 @@ function renderWizardRecommendation() {
                 title: isEs ? "Plan Scientist (16GB)" : "Scientist Plan (16GB)",
                 ram: "16 GB RAM",
                 reason: isEs
-                    ? "Para networks de +50 jugadores o modpacks masivos, 16GB de RAM y 8 vCPUs aseguran TPS perfecto y carga rápida de mundos."
-                    : "For +50 player networks or massive modpacks, 16GB RAM and 8 vCPUs guarantee maximum TPS and instant world loading.",
+                    ? "Para networks de +50 jugadores o modpacks masivos, 16GB de RAM y 8 vCPUs (AMD Ryzen 5 5600) aseguran TPS perfecto y carga rápida de mundos."
+                    : "For +50 player networks or massive modpacks, 16GB RAM and 8 vCPUs (AMD Ryzen 5 5600) guarantee maximum TPS and instant world loading.",
                 features: isEs
-                    ? ["⚡ 16 GB RAM", "🔥 8 vCPU Cores", "💾 100 GB SSD", "👑 Soporte Prioritario"]
-                    : ["⚡ 16 GB RAM", "🔥 8 vCPU Cores", "💾 100 GB SSD", "👑 Priority Support"],
+                    ? ["⚡ 16 GB RAM", "🔥 8 vCPUs (Ryzen 5 5600)", "💾 100 GB SSD", "👑 Soporte Prioritario"]
+                    : ["⚡ 16 GB RAM", "🔥 8 vCPUs (Ryzen 5 5600)", "💾 100 GB SSD", "👑 Priority Support"],
                 planKey: "ultra",
                 planLabel: isEs ? "Scientist — $20.00/mes" : "Scientist — $20.00/mo"
             };
@@ -751,11 +751,11 @@ function renderWizardRecommendation() {
                 title: isEs ? "Plan Astronaut (9GB)" : "Astronaut Plan (9GB)",
                 ram: "9 GB RAM",
                 reason: isEs
-                    ? "Excelente para modpacks y comunidades medianas. 9GB de RAM brindan el espacio necesario para cargar mods pesados."
-                    : "Perfect for modpacks and medium communities. 9GB RAM gives ample headroom for heavy mods and plugins.",
+                    ? "Excelente para modpacks y comunidades medianas. 9GB de RAM y procesadores Ryzen brindan el espacio necesario para cargar mods pesados."
+                    : "Perfect for modpacks and medium communities. 9GB RAM and Ryzen processors give ample headroom for heavy mods and plugins.",
                 features: isEs
-                    ? ["⚡ 9 GB RAM", "🔥 5 vCPU Cores", "💾 50 GB SSD", "🛡️ Anti-DDoS"]
-                    : ["⚡ 9 GB RAM", "🔥 5 vCPU Cores", "💾 50 GB SSD", "🛡️ DDoS Protection"],
+                    ? ["⚡ 9 GB RAM", "🔥 5 vCPUs (Ryzen 5 5600)", "💾 50 GB SSD", "🛡️ Anti-DDoS"]
+                    : ["⚡ 9 GB RAM", "🔥 5 vCPUs (Ryzen 5 5600)", "💾 50 GB SSD", "🛡️ DDoS Protection"],
                 planKey: "elite",
                 planLabel: isEs ? "Astronaut — $12.00/mes" : "Astronaut — $12.00/mo"
             };
@@ -768,8 +768,8 @@ function renderWizardRecommendation() {
                 ? "Ideal para servidores BoxPvP y modalidades de hasta 30 jugadores con múltiples plugins y arenas activas."
                 : "Ideal for BoxPvP servers and modalities up to 30 players with multiple arenas and plugins.",
             features: isEs
-                ? ["⚡ 6 GB RAM", "🔥 4 vCPU Cores", "💾 25 GB SSD", "🛡️ Anti-DDoS"]
-                : ["⚡ 6 GB RAM", "🔥 4 vCPU Cores", "💾 25 GB SSD", "🛡️ DDoS Protection"],
+                ? ["⚡ 6 GB RAM", "🔥 4 vCPUs (Ryzen 5 5600)", "💾 25 GB SSD", "🛡️ Anti-DDoS"]
+                : ["⚡ 6 GB RAM", "🔥 4 vCPUs (Ryzen 5 5600)", "💾 25 GB SSD", "🛡️ DDoS Protection"],
             planKey: "pro",
             planLabel: isEs ? "Invader — $8.00/mes" : "Invader — $8.00/mo"
         };

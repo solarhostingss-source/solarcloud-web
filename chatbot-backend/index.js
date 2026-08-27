@@ -37,6 +37,7 @@ Información sobre Solar Cloud:
 - Discord Oficial: https://discord.gg/solarcloud
 - Soporte por Correo: solarhostingss@gmail.com
 - Panel de Control: Pterodactyl Panel
+- Procesadores: AMD Ryzen 5 5600 de alto rendimiento y almacenamiento NVMe SSD
 - Ubicaciones disponibles: Canadá (Montreal), Estados Unidos (New York, +$1.00 USD), Colombia (Bogotá), Europa (Frankfurt, solo para VPS).
 - Métodos de Pago: Aceptamos varios métodos, recomendamos contactar a soporte si tienen dudas (ej. Nequi, PayPal, etc.).
 
