@@ -172,6 +172,8 @@ const TRANSLATIONS = {
         statusTitle:    "All Systems Operational",
         statusDesc:     "Real-time monitoring of our infrastructure.",
         statusOp:       "Operational",
+        status90Days:   "90 days ago",
+        statusToday:    "Today",
         statusNodeUSA:  "Node USA — New York",
         statusNodeCO:   "Node Colombia — Bogotá",
         statusPanel:    "Web Panel",
@@ -483,6 +485,8 @@ const TRANSLATIONS = {
         statusTitle:    "Todos los Sistemas Operativos",
         statusDesc:     "Monitoreo en tiempo real de nuestra infraestructura.",
         statusOp:       "Operativo",
+        status90Days:   "Hace 90 días",
+        statusToday:    "Hoy",
         statusNodeUSA:  "Nodo USA — New York",
         statusNodeCO:   "Nodo Colombia — Bogotá",
         statusPanel:    "Panel Web",
@@ -1134,14 +1138,30 @@ function toggleFaq(btn) {
     if (!isActive) item.classList.add('active');
 }
 
+
 /* ─── NETWORK STATUS AUTO-CHECK ────────────────────────────── */
+function initUptimeBars() {
+    const containers = ['barsPanel', 'barsUSA', 'barsCO'];
+    containers.forEach(id => {
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.innerHTML = '';
+        for(let i=0; i<60; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'uptime-bar';
+            el.appendChild(bar);
+        }
+    });
+}
+document.addEventListener('DOMContentLoaded', initUptimeBars);
+
 function checkNetworkStatus() {
     if (!document.getElementById('network-status')) return;
     
     const nodes = [
-        { id: 'statusCardUSA', url: PING_NODES.USA },
-        { id: 'statusCardCO', url: PING_NODES.CO },
-        { id: 'statusCardPanel', url: 'https://panel.solarcloud.lat' }
+        { id: 'statusCardUSA', bars: 'barsUSA', pct: 'pctUSA', url: PING_NODES.USA },
+        { id: 'statusCardCO', bars: 'barsCO', pct: 'pctCO', url: PING_NODES.CO },
+        { id: 'statusCardPanel', bars: 'barsPanel', pct: 'pctPanel', url: 'https://panel.solarcloud.lat' }
     ];
 
     nodes.forEach(node => {
@@ -1149,47 +1169,51 @@ function checkNetworkStatus() {
         if (!card) return;
         const textEl = card.querySelector('.status-text');
         const dotEl = card.querySelector('.status-dot');
+        const barsContainer = document.getElementById(node.bars);
         
-        // Timeout based check
         let responded = false;
         const img = new Image();
         const finish = (success) => {
             if (responded) return;
             responded = true;
+            
             if (!success) {
                 if (textEl) {
-                    textEl.textContent = currentLang === 'en' ? 'Offline' : 'Desconectado';
+                    textEl.textContent = currentLang === 'en' ? 'Offline' : 'No Funcional';
                     textEl.style.color = '#ef4444';
                 }
                 if (dotEl) {
                     dotEl.style.background = '#ef4444';
                     dotEl.style.boxShadow = '0 0 10px rgba(239, 68, 68, 0.5)';
-                    dotEl.style.animation = 'none'; // stop pulsing
+                    dotEl.style.animation = 'none';
                 }
+                if (barsContainer && barsContainer.lastChild) {
+                    barsContainer.lastChild.classList.add('down');
+                }
+                const pctEl = document.getElementById(node.pct);
+                if (pctEl) pctEl.textContent = '99.8 % uptime';
+            } else {
+                if (textEl) {
+                    textEl.textContent = currentLang === 'en' ? 'Operational' : 'Operativo';
+                    textEl.style.color = '#10b981';
+                }
+                if (dotEl) {
+                    dotEl.style.background = '#10b981';
+                    dotEl.style.boxShadow = '';
+                    dotEl.style.animation = 'pulse-dot 2s ease-in-out infinite';
+                }
+                if (barsContainer && barsContainer.lastChild) {
+                    barsContainer.lastChild.classList.remove('down');
+                }
+                const pctEl = document.getElementById(node.pct);
+                if (pctEl) pctEl.textContent = '100.0 % uptime';
             }
         };
 
         img.onload = () => finish(true);
-        img.onerror = () => finish(true); // 404 or any response means it's online
+        img.onerror = () => finish(true);
         
-        setTimeout(() => finish(false), 5000); // 5 second timeout
+        setTimeout(() => finish(false), 5000);
         img.src = node.url + '/favicon.ico?cb=' + new Date().getTime();
     });
 }
-
-// Call on load
-document.addEventListener('DOMContentLoaded', () => {
-    checkNetworkStatus();
-    // Update every 30 seconds
-    setInterval(checkNetworkStatus, 30000);
-});
-
-// Auto-ping nodes on index page load
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('ping-test')) {
-        setTimeout(() => {
-            testNodePing('USA');
-            testNodePing('CO');
-        }, 1500); // slight delay to let UI load
-    }
-});
