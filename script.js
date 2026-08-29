@@ -151,6 +151,8 @@ const TRANSLATIONS = {
         footerServices: "Services",
         footerLegal:    "Legal",
         footerContact:  "Contact",
+        footerHours:    "Hours: 10:00 - 22:00",
+        footerHoursAI:  "AI Support: 24/7",
 
         // Solar AI Highlight
         heroAiLabel:    "NEW — SOLAR AI",
@@ -460,6 +462,8 @@ const TRANSLATIONS = {
         footerServices: "Servicios",
         footerLegal:    "Legal",
         footerContact:  "Contacto",
+        footerHours:    "Horario: 10:00 - 22:00 (EST)",
+        footerHoursAI:  "Soporte IA: 24/7",
 
         // Solar AI Highlight
         heroAiLabel:    "NUEVO — SOLAR AI",
@@ -1078,15 +1082,18 @@ function testNodePing(nodeKey) {
     btn.disabled = true;
     valueEl.textContent = '...';
 
-    const endpoint = PING_NODES[nodeKey];
     const start = performance.now();
+    const img = new Image();
+    let responded = false;
 
-    fetch(endpoint, { mode: 'no-cors', cache: 'no-store' })
-        .then(() => {
+    const finish = (success) => {
+        if (responded) return;
+        responded = true;
+        
+        if (success) {
             const ping = Math.round(performance.now() - start);
             valueEl.textContent = ping;
 
-            // Color logic
             let color = '#10b981'; // green
             if (ping >= 150) color = '#ef4444'; // red
             else if (ping > 100) color = '#f59e0b'; // yellow
@@ -1098,15 +1105,22 @@ function testNodePing(nodeKey) {
                 const pct = Math.min(ping / 200, 1);
                 circleFill.style.strokeDashoffset = circumference - (circumference * pct);
             }
-        })
-        .catch(() => {
+        } else {
             valueEl.textContent = '!';
             valueEl.style.color = '#ef4444';
-        })
-        .finally(() => {
-            btn.classList.remove('loading');
-            btn.disabled = false;
-        });
+        }
+        btn.classList.remove('loading');
+        btn.disabled = false;
+    };
+
+    img.onload = () => finish(true);
+    img.onerror = () => finish(true); // 404 response means the node is reachable and responded!
+
+    // Fallback timeout
+    setTimeout(() => finish(false), 5000);
+
+    // Bypass cache with timestamp
+    img.src = PING_NODES[nodeKey] + '/favicon.ico?cb=' + new Date().getTime();
 }
 
 /* ─── FAQ ACCORDION ────────────────────────────────────────── */
@@ -1168,4 +1182,14 @@ document.addEventListener('DOMContentLoaded', () => {
     checkNetworkStatus();
     // Update every 30 seconds
     setInterval(checkNetworkStatus, 30000);
+});
+
+// Auto-ping nodes on index page load
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('ping-test')) {
+        setTimeout(() => {
+            testNodePing('USA');
+            testNodePing('CO');
+        }, 1500); // slight delay to let UI load
+    }
 });
