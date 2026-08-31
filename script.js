@@ -1458,16 +1458,16 @@ function checkNetworkStatus() {
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Scroll-linked rotation for the hero planet
-  const planet = document.querySelector(".hero-planet");
+  const planet = document.querySelector(".hero-planet-img");
   let ticking = false;
   let lastScrollY = 0;
 
   const updatePlanet = () => {
     if (planet) {
-      // Rotate counter-clockwise (negative rotation) based on scroll
+      // Translate horizontally (negative rotation) based on scroll
       // factor 0.05 controls rotation speed
-      const rotation = lastScrollY * -0.05;
-      planet.style.transform = `rotate(${rotation}deg)`;
+      const translateX = lastScrollY * -0.3;
+      planet.style.transform = `translate3d(${translateX}px, 0, 0)`;
     }
     ticking = false;
   };
