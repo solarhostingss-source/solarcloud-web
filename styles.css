@@ -200,7 +200,7 @@ body.fade-out {
   text-align: center;
   padding: 100px 24px 60px;
   position: relative;
-  background: url("hero_bg.png") no-repeat center center / cover;
+
   overflow: hidden;
 }
 
@@ -2789,4 +2789,46 @@ footer {
 .uptime-percent {
   color: var(--text-main);
   font-weight: 600;
+}
+
+.hero-planet {
+  position: absolute;
+  top: 10%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: url("hero_bg.png") no-repeat center center / contain;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.9;
+  will-change: transform;
+}
+
+@media (max-width: 1024px) {
+  .hero-planet {
+    right: -25%;
+    width: 500px;
+    height: 500px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-planet {
+    top: 20%;
+    right: -40%;
+    width: 400px;
+    height: 400px;
+    opacity: 0.4;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }

@@ -1455,3 +1455,53 @@ function checkNetworkStatus() {
     img.src = node.url + "/favicon.ico?cb=" + new Date().getTime();
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Scroll-linked rotation for the hero planet
+  const planet = document.querySelector(".hero-planet");
+  let ticking = false;
+  let lastScrollY = 0;
+
+  const updatePlanet = () => {
+    if (planet) {
+      // Rotate counter-clockwise (negative rotation) based on scroll
+      // factor 0.05 controls rotation speed
+      const rotation = lastScrollY * -0.05;
+      planet.style.transform = `rotate(${rotation}deg)`;
+    }
+    ticking = false;
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      lastScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(updatePlanet);
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
+
+  // 2. Intersection Observer for scroll reveal animations
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.15,
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const revealElements = document.querySelectorAll(".reveal");
+  revealElements.forEach((el) => {
+    revealObserver.observe(el);
+  });
+});
