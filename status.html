@@ -1,250 +1,334 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solar Cloud | Network Status</title>
-    <meta name="description" content="Solar Cloud Network Status. Real-time monitoring of our Minecraft and VPS hosting nodes.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=chat4">
+    <meta
+      name="description"
+      content="Solar Cloud Network Status. Real-time monitoring of our Minecraft and VPS hosting nodes."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css?v=chat4" />
     <style>
-        .vps-coming-banner {
-            padding: 130px 5% 60px;
-            text-align: center;
-            background: radial-gradient(ellipse at top, rgba(124,58,237,0.12) 0%, rgba(59,130,246,0.06) 40%, transparent 70%);
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
+      .vps-coming-banner {
+        padding: 130px 5% 60px;
+        text-align: center;
+        background: radial-gradient(
+          ellipse at top,
+          rgba(124, 58, 237, 0.12) 0%,
+          rgba(59, 130, 246, 0.06) 40%,
+          transparent 70%
+        );
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+      .vps-coming-banner::before {
+        content: "";
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(124, 58, 237, 0.08) 0%,
+          transparent 70%
+        );
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        pointer-events: none;
+      }
+      .coming-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(124, 58, 237, 0.12);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        color: #c4b5fd;
+        padding: 7px 18px;
+        border-radius: 100px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 28px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.3);
         }
-        .vps-coming-banner::before {
-            content: '';
-            position: absolute;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
-            top: -100px; left: 50%; transform: translateX(-50%);
-            pointer-events: none;
+        50% {
+          box-shadow: 0 0 0 8px rgba(124, 58, 237, 0);
         }
-        .coming-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(124,58,237,0.12);
-            border: 1px solid rgba(124,58,237,0.3);
-            color: #c4b5fd;
-            padding: 7px 18px;
-            border-radius: 100px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 28px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.3); }
-            50%       { box-shadow: 0 0 0 8px rgba(124,58,237,0); }
-        }
-        .vps-coming-banner h1 {
-            font-size: clamp(2.4rem, 5vw, 3.8rem);
-            font-weight: 900;
-            letter-spacing: -1.5px;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .vps-coming-banner p {
-            color: var(--text-muted);
-            max-width: 520px;
-            margin: 0 auto;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
+      }
+      .vps-coming-banner h1 {
+        font-size: clamp(2.4rem, 5vw, 3.8rem);
+        font-weight: 900;
+        letter-spacing: -1.5px;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .vps-coming-banner p {
+        color: var(--text-muted);
+        max-width: 520px;
+        margin: 0 auto;
+        line-height: 1.7;
+        font-size: 1rem;
+      }
 
-        /* Plans dimmed with "coming soon" overlay */
-        .vps-plans-section { background: var(--bg-main); }
-        .vps-section-note {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 40px;
-            padding: 12px 20px;
-            background: rgba(124,58,237,0.06);
-            border: 1px solid rgba(124,58,237,0.15);
-            border-radius: var(--radius-sm);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .btn-plan-coming {
-            display: block;
-            text-align: center;
-            padding: 12px;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: not-allowed;
-            transition: var(--transition);
-            border: 1px solid rgba(124,58,237,0.25);
-            color: #a78bfa;
-            background: rgba(124,58,237,0.08);
-            font-family: 'Inter', sans-serif;
-            opacity: 0.8;
-        }
-        .btn-plan-coming:hover {
-            opacity: 1;
-            background: rgba(124,58,237,0.12);
-        }
+      /* Plans dimmed with "coming soon" overlay */
+      .vps-plans-section {
+        background: var(--bg-main);
+      }
+      .vps-section-note {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        margin-bottom: 40px;
+        padding: 12px 20px;
+        background: rgba(124, 58, 237, 0.06);
+        border: 1px solid rgba(124, 58, 237, 0.15);
+        border-radius: var(--radius-sm);
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn-plan-coming {
+        display: block;
+        text-align: center;
+        padding: 12px;
+        border-radius: var(--radius-sm);
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: not-allowed;
+        transition: var(--transition);
+        border: 1px solid rgba(124, 58, 237, 0.25);
+        color: #a78bfa;
+        background: rgba(124, 58, 237, 0.08);
+        font-family: "Inter", sans-serif;
+        opacity: 0.8;
+      }
+      .btn-plan-coming:hover {
+        opacity: 1;
+        background: rgba(124, 58, 237, 0.12);
+      }
     </style>
-</head>
-<body>
-
-    <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="/" class="nav-logo">
-            <div class="nav-logo-icon">☀️</div>
-            <span class="nav-logo-text">Solar Cloud</span>
-        </a>
-        <div class="nav-links">
-            <a href="/" data-t="navHome">Home</a>
-            <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
-            <a href="/bots" data-t="navBots">Bots & Web</a>
-            <a href="/vps"  data-t="navVPS">VPS</a>
-            <a href="/custom" data-t="navCustom">Custom Plans</a>
-            <a href="/status" class="active" data-t="navStatus">Status</a>
-            <a href="/terminos" data-t="navTerms">Terms of Service</a>
-            <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
-            <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
-        </div>
-        <div class="nav-right">
-            <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">🌐 ES</button>
-        </div>
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">☀️</div>
+        <span class="nav-logo-text">Solar Cloud</span>
+      </a>
+      <div class="nav-links">
+        <a href="/" data-t="navHome">Home</a>
+        <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+        <a href="/bots" data-t="navBots">Bots & Web</a>
+        <a href="/vps" data-t="navVPS">VPS</a>
+        <a href="/custom" data-t="navCustom">Custom Plans</a>
+        <a href="/status" class="active" data-t="navStatus">Status</a>
+        <a href="/terminos" data-t="navTerms">Terms of Service</a>
+        <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+        <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+      </div>
+      <div class="nav-right">
+        <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">
+          🌐 ES
+        </button>
+      </div>
     </nav>
 
-    <!-- ── NETWORK STATUS ──────────────────────────────────────── -->
-    <section id="network-status" style="padding-top: 130px; min-height: 70vh;">
+    <main>
+      <section id="network-status" style="padding-top: 130px; min-height: 70vh">
         <div class="section-header">
-            <p class="section-overline" data-t="statusOverline">Network Status</p>
-            <h2 class="section-title" data-t="statusTitle">All Systems Operational</h2>
-            <p class="section-desc" data-t="statusDesc">Real-time monitoring of our infrastructure.</p>
+          <p class="section-overline" data-t="statusOverline">Network Status</p>
+          <h2 class="section-title" data-t="statusTitle">
+            All Systems Operational
+          </h2>
+          <p class="section-desc" data-t="statusDesc">
+            Real-time monitoring of our infrastructure.
+          </p>
         </div>
         <div class="uptime-list">
-            <!-- Panel -->
-            <div class="uptime-card" id="statusCardPanel">
-                <div class="uptime-header">
-                    <h5 data-t="statusPanel">Web Panel</h5>
-                    <div class="uptime-status"><span class="status-dot"></span><span class="status-text" data-t="statusOp">Operational</span></div>
-                </div>
-                <div class="uptime-bars" id="barsPanel"></div>
-                <div class="uptime-footer">
-                    <span data-t="status90Days">90 days ago</span>
-                    <span class="uptime-percent" id="pctPanel">100.0 % uptime</span>
-                    <span data-t="statusToday">Today</span>
-                </div>
+          <div class="uptime-card" id="statusCardPanel">
+            <div class="uptime-header">
+              <h5 data-t="statusPanel">Web Panel</h5>
+              <div class="uptime-status">
+                <span class="status-dot"></span
+                ><span class="status-text" data-t="statusOp">Operational</span>
+              </div>
             </div>
-            <!-- Node USA -->
-            <div class="uptime-card" id="statusCardUSA">
-                <div class="uptime-header">
-                    <h5 data-t="statusNodeUSA">Node USA — New York</h5>
-                    <div class="uptime-status"><span class="status-dot"></span><span class="status-text" data-t="statusOp">Operational</span></div>
-                </div>
-                <div class="uptime-bars" id="barsUSA"></div>
-                <div class="uptime-footer">
-                    <span data-t="status90Days">90 days ago</span>
-                    <span class="uptime-percent" id="pctUSA">100.0 % uptime</span>
-                    <span data-t="statusToday">Today</span>
-                </div>
+            <div class="uptime-bars" id="barsPanel"></div>
+            <div class="uptime-footer">
+              <span data-t="status90Days">90 days ago</span>
+              <span class="uptime-percent" id="pctPanel">100.0 % uptime</span>
+              <span data-t="statusToday">Today</span>
             </div>
-            <!-- Node CO -->
-            <div class="uptime-card" id="statusCardCO">
-                <div class="uptime-header">
-                    <h5 data-t="statusNodeCO">Node Colombia — Bogotá</h5>
-                    <div class="uptime-status"><span class="status-dot"></span><span class="status-text" data-t="statusOp">Operational</span></div>
-                </div>
-                <div class="uptime-bars" id="barsCO"></div>
-                <div class="uptime-footer">
-                    <span data-t="status90Days">90 days ago</span>
-                    <span class="uptime-percent" id="pctCO">100.0 % uptime</span>
-                    <span data-t="statusToday">Today</span>
-                </div>
+          </div>
+          <div class="uptime-card" id="statusCardUSA">
+            <div class="uptime-header">
+              <h5 data-t="statusNodeUSA">Node USA — New York</h5>
+              <div class="uptime-status">
+                <span class="status-dot"></span
+                ><span class="status-text" data-t="statusOp">Operational</span>
+              </div>
             </div>
+            <div class="uptime-bars" id="barsUSA"></div>
+            <div class="uptime-footer">
+              <span data-t="status90Days">90 days ago</span>
+              <span class="uptime-percent" id="pctUSA">100.0 % uptime</span>
+              <span data-t="statusToday">Today</span>
+            </div>
+          </div>
+          <div class="uptime-card" id="statusCardCO">
+            <div class="uptime-header">
+              <h5 data-t="statusNodeCO">Node Colombia — Bogotá</h5>
+              <div class="uptime-status">
+                <span class="status-dot"></span
+                ><span class="status-text" data-t="statusOp">Operational</span>
+              </div>
+            </div>
+            <div class="uptime-bars" id="barsCO"></div>
+            <div class="uptime-footer">
+              <span data-t="status90Days">90 days ago</span>
+              <span class="uptime-percent" id="pctCO">100.0 % uptime</span>
+              <span data-t="statusToday">Today</span>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- ── FOOTER ──────────────────────────────────────────────── -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="/" class="nav-logo">
-                    <div class="nav-logo-icon">☀️</div>
-                    <span class="nav-logo-text">Solar Cloud</span>
-                </a>
-                <p data-t="footerDesc">High-performance hosting for gamers and developers. Powered by Solar Cloud.</p>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerServices">Services</h5>
-                <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
-                <a href="/bots" data-t="navBots">Bots & Web</a>
-                <a href="/vps" data-t="navVPS">VPS</a>
-                <a href="/custom" data-t="navCustom">Custom Plans</a>
-            <a href="/status" data-t="navStatus">Status</a>
-                <a href="/status">Network Status</a>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerLegal">Legal</h5>
-                <a href="/terminos" data-t="navTerms">Terms of Service</a>
-                <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
-                <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerContact">Contact</h5>
-                <a href="mailto:solarhostingss@gmail.com">solarhostingss@gmail.com</a>
-                <span style="display:block; color:var(--text-muted); font-size:0.85rem; margin-top:12px;" data-t="footerHours">Hours: 10:00 - 22:00</span>
-                <span style="display:block; color:var(--accent); font-size:0.85rem; margin-top:4px; font-weight:600;" data-t="footerHoursAI">AI Support: 24/7</span>
-            </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="nav-logo-icon">☀️</div>
+            <span class="nav-logo-text">Solar Cloud</span>
+          </a>
+          <p data-t="footerDesc">
+            High-performance hosting for gamers and developers. Powered by Solar
+            Cloud.
+          </p>
         </div>
-        <div class="footer-bottom">
-            <span data-t="footerCopy">© 2025 Solar Cloud. All rights reserved.</span>
-            <span>Made with ☀️ by Solar Cloud</span>
+        <div class="footer-col">
+          <h5 data-t="footerServices">Services</h5>
+          <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+          <a href="/bots" data-t="navBots">Bots & Web</a>
+          <a href="/vps" data-t="navVPS">VPS</a>
+          <a href="/custom" data-t="navCustom">Custom Plans</a>
+          <a href="/status" data-t="navStatus">Status</a>
+          <a href="/status">Network Status</a>
         </div>
+        <div class="footer-col">
+          <h5 data-t="footerLegal">Legal</h5>
+          <a href="/terminos" data-t="navTerms">Terms of Service</a>
+          <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+          <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerContact">Contact</h5>
+          <a href="mailto:solarhostingss@gmail.com">solarhostingss@gmail.com</a>
+          <span
+            style="
+              display: block;
+              color: var(--text-muted);
+              font-size: 0.85rem;
+              margin-top: 12px;
+            "
+            data-t="footerHours"
+            >Hours: 10:00 - 22:00</span
+          >
+          <span
+            style="
+              display: block;
+              color: var(--accent);
+              font-size: 0.85rem;
+              margin-top: 4px;
+              font-weight: 600;
+            "
+            data-t="footerHoursAI"
+            >AI Support: 24/7</span
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-t="footerCopy"
+          >© 2025 Solar Cloud. All rights reserved.</span
+        >
+        <span>Made with ☀️ by Solar Cloud</span>
+      </div>
     </footer>
-
-        <!-- ── SOLAR CLOUD AI ASSISTANT CHATBOT ───────────────────── -->
     <div id="solar-sc-assistant-container">
-        <div id="solar-sc-assistant-window">
-            <div class="sc-assistant-header">
-                <div class="sc-assistant-title-container">
-                    <div class="sc-assistant-avatar">☀️</div>
-                    <div>
-                        <h3 class="sc-assistant-title">Solar AI</h3>
-                        <div class="sc-assistant-status">Online</div>
-                    </div>
-                </div>
-                <button class="sc-assistant-close-btn" onclick="toggleAssistantChat()">&times;</button>
+      <div id="solar-sc-assistant-window">
+        <div class="sc-assistant-header">
+          <div class="sc-assistant-title-container">
+            <div class="sc-assistant-avatar">☀️</div>
+            <div>
+              <h3 class="sc-assistant-title">Solar AI</h3>
+              <div class="sc-assistant-status">Online</div>
             </div>
-            <div class="sc-assistant-messages" id="sc-assistant-messages">
-                <div class="sc-assistant-msg bot">
-                    <p>¡Hola! Soy Solar AI, tu asistente virtual. ¿En qué te puedo ayudar hoy? 🚀</p>
-                </div>
-            </div>
-            <div class="sc-assistant-typing" id="sc-assistant-typing">Solar AI está escribiendo...</div>
-            <div class="sc-assistant-input-area">
-                <input type="text" id="sc-assistant-input" class="sc-assistant-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-                <button id="sc-assistant-send-btn" class="sc-assistant-send-btn" aria-label="Enviar">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
+          </div>
+          <button
+            class="sc-assistant-close-btn"
+            onclick="toggleAssistantChat()"
+          >
+            &times;
+          </button>
         </div>
-        <button id="solar-sc-assistant-btn" aria-label="Open Chat" onclick="toggleAssistantChat()">
-            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        <div class="sc-assistant-messages" id="sc-assistant-messages">
+          <div class="sc-assistant-msg bot">
+            <p>
+              ¡Hola! Soy Solar AI, tu asistente virtual. ¿En qué te puedo ayudar
+              hoy? 🚀
+            </p>
+          </div>
+        </div>
+        <div class="sc-assistant-typing" id="sc-assistant-typing">
+          Solar AI está escribiendo...
+        </div>
+        <div class="sc-assistant-input-area">
+          <input
+            type="text"
+            id="sc-assistant-input"
+            class="sc-assistant-input"
+            placeholder="Escribe tu mensaje..."
+            autocomplete="off"
+          />
+          <button
+            id="sc-assistant-send-btn"
+            class="sc-assistant-send-btn"
+            aria-label="Enviar"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
             </svg>
-        </button>
+          </button>
+        </div>
+      </div>
+      <button
+        id="solar-sc-assistant-btn"
+        aria-label="Open Chat"
+        onclick="toggleAssistantChat()"
+      >
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+          <path
+            d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </button>
     </div>
 
     <script src="config.js"></script>
     <script src="script.js?v=chat4"></script>
-</body>
+  </body>
 </html>

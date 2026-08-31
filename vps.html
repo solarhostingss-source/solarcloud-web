@@ -1,284 +1,445 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solar Cloud | VPS Hosting</title>
-    <meta name="description" content="Solar Cloud VPS Hosting — High-performance Virtual Private Servers with dedicated resources.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=chat4">
+    <meta
+      name="description"
+      content="Solar Cloud VPS Hosting — High-performance Virtual Private Servers with dedicated resources."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css?v=chat4" />
     <style>
-        .location-price { display: block; font-size: 0.85rem; color: var(--primary); margin-top: 5px; font-weight: 500; }
+      .location-price {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--primary);
+        margin-top: 5px;
+        font-weight: 500;
+      }
     </style>
-</head>
-<body>
-
-    <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="/" class="nav-logo">
-            <div class="nav-logo-icon">☀️</div>
-            <span class="nav-logo-text">Solar Cloud</span>
-        </a>
-        <div class="nav-links">
-            <a href="/" data-t="navHome">Home</a>
-            <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
-            <a href="/bots" data-t="navBots">Bots & Web</a>
-            <a href="/vps" class="active" data-t="navVPS">VPS</a>
-            <a href="/custom" data-t="navCustom">Custom Plans</a>
-            <a href="/status" data-t="navStatus">Status</a>
-            <a href="/terminos" data-t="navTerms">Terms of Service</a>
-            <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
-            <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
-        </div>
-        <div class="nav-right">
-            <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">🌐 ES</button>
-        </div>
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">☀️</div>
+        <span class="nav-logo-text">Solar Cloud</span>
+      </a>
+      <div class="nav-links">
+        <a href="/" data-t="navHome">Home</a>
+        <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+        <a href="/bots" data-t="navBots">Bots & Web</a>
+        <a href="/vps" class="active" data-t="navVPS">VPS</a>
+        <a href="/custom" data-t="navCustom">Custom Plans</a>
+        <a href="/status" data-t="navStatus">Status</a>
+        <a href="/terminos" data-t="navTerms">Terms of Service</a>
+        <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+        <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+      </div>
+      <div class="nav-right">
+        <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">
+          🌐 ES
+        </button>
+      </div>
     </nav>
 
-    <!-- ── PAGE HERO ──────────────────────────────────────────── -->
-    <div class="vps-hero">
+    <main>
+      <div class="vps-hero">
         <p class="section-overline" data-t="vpsOverline">VPS Hosting</p>
         <h1 data-t="vpsTitle">Virtual Private Servers</h1>
-        <p data-t="vpsDesc">Full root access, dedicated resources, high-speed ports, and enterprise-grade hardware.</p>
+        <p data-t="vpsDesc">
+          Full root access, dedicated resources, high-speed ports, and
+          enterprise-grade hardware.
+        </p>
 
         <div class="vps-specs-strip">
-            <div class="vps-spec-tag">⚡ NVMe SSD Storage</div>
-            <div class="vps-spec-tag">🛡️ Enterprise DDoS Shield</div>
-            <div class="vps-spec-tag">🌐 Dedicated IPv4</div>
-            <div class="vps-spec-tag">⏱️ 1-12h Delivery</div>
+          <div class="vps-spec-tag">⚡ NVMe SSD Storage</div>
+          <div class="vps-spec-tag">🛡️ Enterprise DDoS Shield</div>
+          <div class="vps-spec-tag">🌐 Dedicated IPv4</div>
+          <div class="vps-spec-tag">⏱️ 1-12h Delivery</div>
         </div>
-    </div>
-
-    <!-- ── VPS PLANS ─────────────────────────────────────────── -->
-    <section class="vps-plans-section" style="padding: 70px 5%; background: var(--bg-main);">
-        <div class="pricing-grid" style="max-width: 1100px; margin: 0 auto;">
-
-            <!-- VPS Starter -->
-            <div class="plan-card">
-                <img src="vps-plan.png" alt="VPS-1 Plan" class="plan-img">
-                <p class="plan-name">VPS-1</p>
-                <div class="plan-price">$9.00<span>/mo</span></div>
-                <p class="plan-desc">Entry-level VPS for small projects and development.</p>
-                <ul class="plan-features">
-                    <li>8 GB RAM</li>
-                    <li>4 vCPU Cores</li>
-                    <li>100 GB SSD</li>
-                    <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
-                    <li>200 Mbit/s Port</li>
-                    <li>1 Snapshot</li>
-                    <li>Full Root Access</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
-                </ul>
-                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('vps','vps1','VPS-1 — $9.00/mo')" data-t="mcBuyBtn">Buy Now</button>
-            </div>
-
-            <!-- VPS Standard (Popular) -->
-            <div class="plan-card popular">
-                <span class="popular-badge">⭐ Popular</span>
-                <img src="vps-plan.png" alt="VPS-2 Plan" class="plan-img">
-                <p class="plan-name">VPS-2</p>
-                <div class="plan-price">$13.00<span>/mo</span></div>
-                <p class="plan-desc">Great balance of power and price for most use cases.</p>
-                <ul class="plan-features">
-                    <li>12 GB RAM</li>
-                    <li>6 vCPU Cores</li>
-                    <li>200 GB SSD</li>
-                    <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
-                    <li>300 Mbit/s Port</li>
-                    <li>2 Snapshots</li>
-                    <li>Full Root Access</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
-                </ul>
-                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('vps','vps2','VPS-2 — $13.00/mo')" data-t="mcBuyBtn">Buy Now</button>
-            </div>
-
-            <!-- VPS Pro -->
-            <div class="plan-card">
-                <img src="vps-plan.png" alt="VPS-3 Plan" class="plan-img">
-                <p class="plan-name">VPS-3</p>
-                <div class="plan-price">$24.00<span>/mo</span></div>
-                <p class="plan-desc">High-performance VPS for demanding applications.</p>
-                <ul class="plan-features">
-                    <li>24 GB RAM</li>
-                    <li>8 vCPU Cores</li>
-                    <li>300 GB SSD</li>
-                    <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
-                    <li>600 Mbit/s Port</li>
-                    <li>3 Snapshots</li>
-                    <li>Full Root Access</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
-                </ul>
-                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('vps','vps3','VPS-3 — $24.00/mo')" data-t="mcBuyBtn">Buy Now</button>
-            </div>
-
+      </div>
+      <section
+        class="vps-plans-section"
+        style="padding: 70px 5%; background: var(--bg-main)"
+      >
+        <div class="pricing-grid" style="max-width: 1100px; margin: 0 auto">
+          <div class="plan-card">
+            <img src="vps-plan.png" alt="VPS-1 Plan" class="plan-img" />
+            <p class="plan-name">VPS-1</p>
+            <div class="plan-price">$9.00<span>/mo</span></div>
+            <p class="plan-desc">
+              Entry-level VPS for small projects and development.
+            </p>
+            <ul class="plan-features">
+              <li>8 GB RAM</li>
+              <li>4 vCPU Cores</li>
+              <li>100 GB SSD</li>
+              <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
+              <li>200 Mbit/s Port</li>
+              <li>1 Snapshot</li>
+              <li>Full Root Access</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-outline"
+              onclick="openLocationModal('vps', 'vps1', 'VPS-1 — $9.00/mo')"
+              data-t="mcBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
+          <div class="plan-card popular">
+            <span class="popular-badge">⭐ Popular</span>
+            <img src="vps-plan.png" alt="VPS-2 Plan" class="plan-img" />
+            <p class="plan-name">VPS-2</p>
+            <div class="plan-price">$13.00<span>/mo</span></div>
+            <p class="plan-desc">
+              Great balance of power and price for most use cases.
+            </p>
+            <ul class="plan-features">
+              <li>12 GB RAM</li>
+              <li>6 vCPU Cores</li>
+              <li>200 GB SSD</li>
+              <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
+              <li>300 Mbit/s Port</li>
+              <li>2 Snapshots</li>
+              <li>Full Root Access</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-filled"
+              onclick="openLocationModal('vps', 'vps2', 'VPS-2 — $13.00/mo')"
+              data-t="mcBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
+          <div class="plan-card">
+            <img src="vps-plan.png" alt="VPS-3 Plan" class="plan-img" />
+            <p class="plan-name">VPS-3</p>
+            <div class="plan-price">$24.00<span>/mo</span></div>
+            <p class="plan-desc">
+              High-performance VPS for demanding applications.
+            </p>
+            <ul class="plan-features">
+              <li>24 GB RAM</li>
+              <li>8 vCPU Cores</li>
+              <li>300 GB SSD</li>
+              <li data-t="liUnlimitedBW">Unlimited Traffic*</li>
+              <li>600 Mbit/s Port</li>
+              <li>3 Snapshots</li>
+              <li>Full Root Access</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li data-t="vpsDelivery">Delivery time: 1-12 hours max</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-outline"
+              onclick="openLocationModal('vps', 'vps3', 'VPS-3 — $24.00/mo')"
+              data-t="mcBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
         </div>
-    </section>
-
-    <!-- ── VPS FEATURES ───────────────────────────────────────── -->
-    <section id="vps-features" style="padding: 70px 5%; background: var(--bg-card);">
+      </section>
+      <section
+        id="vps-features"
+        style="padding: 70px 5%; background: var(--bg-card)"
+      >
         <div class="section-header">
-            <p class="section-overline">Why Solar Cloud VPS</p>
-            <h2 class="section-title">Built for Performance and Reliability</h2>
-            <p class="section-desc">Deploy your databases, web servers, gaming nodes, or developer environments with complete control.</p>
+          <p class="section-overline">Why Solar Cloud VPS</p>
+          <h2 class="section-title">Built for Performance and Reliability</h2>
+          <p class="section-desc">
+            Deploy your databases, web servers, gaming nodes, or developer
+            environments with complete control.
+          </p>
         </div>
-        <div class="features-grid" style="max-width: 1100px; margin: 0 auto;">
-            <div class="feature-card">
-                <div class="feature-icon">👑</div>
-                <h4>Full Root & SSH Access</h4>
-                <p>Complete control over your operating system. Install custom kernels, software packages, docker containers, and firewalls.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h4>NVMe Enterprise Storage</h4>
-                <p>Supercharged read and write speeds to ensure your applications and databases run without disk I/O bottlenecks.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <h4>Always-on DDoS Mitigation</h4>
-                <p>Enterprise-grade filters keep your VPS online even through large volumetric and application layer cyber attacks.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📸</div>
-                <h4>Instant Snapshots & Backups</h4>
-                <p>Take point-in-time snapshots and restore your entire system in seconds before applying major updates.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌐</div>
-                <h4>Gigabit Uplink Ports</h4>
-                <p>Blazing fast network connectivity across Montreal, New York, and Bogota data centers for minimum latency.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💬</div>
-                <h4>Dedicated Discord Support</h4>
-                <p>Get fast, friendly assistance from our technical team whenever you need help with your VPS.</p>
-            </div>
+        <div class="features-grid" style="max-width: 1100px; margin: 0 auto">
+          <div class="feature-card">
+            <div class="feature-icon">👑</div>
+            <h4>Full Root & SSH Access</h4>
+            <p>
+              Complete control over your operating system. Install custom
+              kernels, software packages, docker containers, and firewalls.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h4>NVMe Enterprise Storage</h4>
+            <p>
+              Supercharged read and write speeds to ensure your applications and
+              databases run without disk I/O bottlenecks.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h4>Always-on DDoS Mitigation</h4>
+            <p>
+              Enterprise-grade filters keep your VPS online even through large
+              volumetric and application layer cyber attacks.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📸</div>
+            <h4>Instant Snapshots & Backups</h4>
+            <p>
+              Take point-in-time snapshots and restore your entire system in
+              seconds before applying major updates.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌐</div>
+            <h4>Gigabit Uplink Ports</h4>
+            <p>
+              Blazing fast network connectivity across Montreal, New York, and
+              Bogota data centers for minimum latency.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h4>Dedicated Discord Support</h4>
+            <p>
+              Get fast, friendly assistance from our technical team whenever you
+              need help with your VPS.
+            </p>
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- ── FOOTER ──────────────────────────────────────────────── -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="/" class="nav-logo">
-                    <div class="nav-logo-icon">☀️</div>
-                    <span class="nav-logo-text">Solar Cloud</span>
-                </a>
-                <p data-t="footerDesc">High-performance hosting for gamers and developers. Powered by Solar Cloud.</p>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerServices">Services</h5>
-                <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
-                <a href="/bots" data-t="navBots">Bots & Web</a>
-                <a href="/vps" data-t="navVPS">VPS</a>
-            <a href="/custom" data-t="navCustom">Custom Plans</a>
-            <a href="/status" data-t="navStatus">Status</a>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerLegal">Legal</h5>
-                <a href="/terminos" data-t="navTerms">Terms of Service</a>
-                <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
-                <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerContact">Contact</h5>
-                <a href="mailto:solarhostingss@gmail.com">solarhostingss@gmail.com</a>
-                <span style="display:block; color:var(--text-muted); font-size:0.85rem; margin-top:12px;" data-t="footerHours">Hours: 10:00 - 22:00</span>
-                <span style="display:block; color:var(--accent); font-size:0.85rem; margin-top:4px; font-weight:600;" data-t="footerHoursAI">AI Support: 24/7</span>
-            </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="nav-logo-icon">☀️</div>
+            <span class="nav-logo-text">Solar Cloud</span>
+          </a>
+          <p data-t="footerDesc">
+            High-performance hosting for gamers and developers. Powered by Solar
+            Cloud.
+          </p>
         </div>
-        <div class="footer-bottom">
-            <span data-t="footerCopy">© 2025 Solar Cloud. All rights reserved.</span>
-            <span>Made with ☀️ by Solar Cloud</span>
+        <div class="footer-col">
+          <h5 data-t="footerServices">Services</h5>
+          <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+          <a href="/bots" data-t="navBots">Bots & Web</a>
+          <a href="/vps" data-t="navVPS">VPS</a>
+          <a href="/custom" data-t="navCustom">Custom Plans</a>
+          <a href="/status" data-t="navStatus">Status</a>
         </div>
+        <div class="footer-col">
+          <h5 data-t="footerLegal">Legal</h5>
+          <a href="/terminos" data-t="navTerms">Terms of Service</a>
+          <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+          <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerContact">Contact</h5>
+          <a href="mailto:solarhostingss@gmail.com">solarhostingss@gmail.com</a>
+          <span
+            style="
+              display: block;
+              color: var(--text-muted);
+              font-size: 0.85rem;
+              margin-top: 12px;
+            "
+            data-t="footerHours"
+            >Hours: 10:00 - 22:00</span
+          >
+          <span
+            style="
+              display: block;
+              color: var(--accent);
+              font-size: 0.85rem;
+              margin-top: 4px;
+              font-weight: 600;
+            "
+            data-t="footerHoursAI"
+            >AI Support: 24/7</span
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-t="footerCopy"
+          >© 2025 Solar Cloud. All rights reserved.</span
+        >
+        <span>Made with ☀️ by Solar Cloud</span>
+      </div>
     </footer>
-
-    <!-- ── LOCATION MODAL ─────────────────────────────────────── -->
     <div class="modal-overlay" id="locationModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeLocationModal()">✕</button>
-            <div class="modal-icon">🌍</div>
-            <h2 data-t="modalTitle">Choose Your Location</h2>
-            <p class="modal-sub" data-t="modalSub">Select the data center closest to your players for the best performance.</p>
-            <div class="modal-plan-info" id="modalPlanInfo"></div>
-            
-            <div class="checkout-notices" style="margin-bottom: 15px; font-size: 0.85rem; text-align: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                <div style="color: var(--primary); font-weight: bold; margin-bottom: 4px;">
-                    🎉 <span data-t="modalDiscount">Use code <strong>SLC</strong> for 30% OFF at checkout!</span>
-                </div>
-                <div style="color: var(--text-secondary);">
-                    💳 <span data-t="modalPaypal">Accepting PayPal, Credit & Debit Cards.</span>
-                </div>
-            </div>
+      <div class="modal">
+        <button class="modal-close" onclick="closeLocationModal()">✕</button>
+        <div class="modal-icon">🌍</div>
+        <h2 data-t="modalTitle">Choose Your Location</h2>
+        <p class="modal-sub" data-t="modalSub">
+          Select the data center closest to your players for the best
+          performance.
+        </p>
+        <div class="modal-plan-info" id="modalPlanInfo"></div>
 
-            <div class="terms-checkbox-container" style="margin: 0 0 20px 0; text-align: left; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                    <input type="checkbox" id="agreeTerms" style="width: 18px; height: 18px; accent-color: var(--primary);">
-                    <span style="font-size: 0.9rem; color: var(--text-secondary);" data-t="modalTermsText">He leído y acepto los <a href="/terminos" target="_blank" style="color: var(--primary);">Términos y Condiciones</a>.</span>
-                </label>
-            </div>
-            <div class="location-grid">
-
-                <button class="location-btn" onclick="selectLocation('canada')">
-                    <span class="location-flag">🇨🇦</span>
-                    <span class="location-name" data-t="modalCanada">Canada</span>
-                    <span class="location-city" data-t="modalCaCity">Montréal</span>
-                    <span class="location-price" style="color: #f59e0b;" data-t="modalLowStock">Low Stock</span>
-                </button>
-                <button class="location-btn" onclick="selectLocation('usa')">
-                    <span class="location-flag">🇺🇸</span>
-                    <span class="location-name" data-t="modalUSA">USA</span>
-                    <span class="location-city" data-t="modalUSCity">New York</span>
-                    <span class="location-price">+$1.00</span>
-                </button>
-                <button class="location-btn" onclick="selectLocation('europa')">
-                    <span class="location-flag">🇪🇺</span>
-                    <span class="location-name">Europa</span>
-                    <span class="location-city">Frankfurt</span>
-                    <span class="location-price" style="color: #f59e0b;" data-t="modalLowStock">Low Stock</span>
-                </button>
-            </div>
+        <div
+          class="checkout-notices"
+          style="
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <div
+            style="color: var(--primary); font-weight: bold; margin-bottom: 4px"
+          >
+            🎉
+            <span data-t="modalDiscount"
+              >Use code <strong>SLC</strong> for 30% OFF at checkout!</span
+            >
+          </div>
+          <div style="color: var(--text-secondary)">
+            💳
+            <span data-t="modalPaypal"
+              >Accepting PayPal, Credit & Debit Cards.</span
+            >
+          </div>
         </div>
+
+        <div
+          class="terms-checkbox-container"
+          style="
+            margin: 0 0 20px 0;
+            text-align: left;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <label
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              cursor: pointer;
+            "
+          >
+            <input
+              type="checkbox"
+              id="agreeTerms"
+              style="width: 18px; height: 18px; accent-color: var(--primary)"
+            />
+            <span
+              style="font-size: 0.9rem; color: var(--text-secondary)"
+              data-t="modalTermsText"
+              >He leído y acepto los
+              <a href="/terminos" target="_blank" style="color: var(--primary)"
+                >Términos y Condiciones</a
+              >.</span
+            >
+          </label>
+        </div>
+        <div class="location-grid">
+          <button class="location-btn" onclick="selectLocation('canada')">
+            <span class="location-flag">🇨🇦</span>
+            <span class="location-name" data-t="modalCanada">Canada</span>
+            <span class="location-city" data-t="modalCaCity">Montréal</span>
+            <span
+              class="location-price"
+              style="color: #f59e0b"
+              data-t="modalLowStock"
+              >Low Stock</span
+            >
+          </button>
+          <button class="location-btn" onclick="selectLocation('usa')">
+            <span class="location-flag">🇺🇸</span>
+            <span class="location-name" data-t="modalUSA">USA</span>
+            <span class="location-city" data-t="modalUSCity">New York</span>
+            <span class="location-price">+$1.00</span>
+          </button>
+          <button class="location-btn" onclick="selectLocation('europa')">
+            <span class="location-flag">🇪🇺</span>
+            <span class="location-name">Europa</span>
+            <span class="location-city">Frankfurt</span>
+            <span
+              class="location-price"
+              style="color: #f59e0b"
+              data-t="modalLowStock"
+              >Low Stock</span
+            >
+          </button>
+        </div>
+      </div>
     </div>
-
-        <!-- ── SOLAR CLOUD AI ASSISTANT CHATBOT ───────────────────── -->
     <div id="solar-sc-assistant-container">
-        <div id="solar-sc-assistant-window">
-            <div class="sc-assistant-header">
-                <div class="sc-assistant-title-container">
-                    <div class="sc-assistant-avatar">☀️</div>
-                    <div>
-                        <h3 class="sc-assistant-title">Solar AI</h3>
-                        <div class="sc-assistant-status">Online</div>
-                    </div>
-                </div>
-                <button class="sc-assistant-close-btn" onclick="toggleAssistantChat()">&times;</button>
+      <div id="solar-sc-assistant-window">
+        <div class="sc-assistant-header">
+          <div class="sc-assistant-title-container">
+            <div class="sc-assistant-avatar">☀️</div>
+            <div>
+              <h3 class="sc-assistant-title">Solar AI</h3>
+              <div class="sc-assistant-status">Online</div>
             </div>
-            <div class="sc-assistant-messages" id="sc-assistant-messages">
-                <div class="sc-assistant-msg bot">
-                    <p>¡Hola! Soy Solar AI, tu asistente virtual. ¿En qué te puedo ayudar hoy? 🚀</p>
-                </div>
-            </div>
-            <div class="sc-assistant-typing" id="sc-assistant-typing">Solar AI está escribiendo...</div>
-            <div class="sc-assistant-input-area">
-                <input type="text" id="sc-assistant-input" class="sc-assistant-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-                <button id="sc-assistant-send-btn" class="sc-assistant-send-btn" aria-label="Enviar">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
+          </div>
+          <button
+            class="sc-assistant-close-btn"
+            onclick="toggleAssistantChat()"
+          >
+            &times;
+          </button>
         </div>
-        <button id="solar-sc-assistant-btn" aria-label="Open Chat" onclick="toggleAssistantChat()">
-            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        <div class="sc-assistant-messages" id="sc-assistant-messages">
+          <div class="sc-assistant-msg bot">
+            <p>
+              ¡Hola! Soy Solar AI, tu asistente virtual. ¿En qué te puedo ayudar
+              hoy? 🚀
+            </p>
+          </div>
+        </div>
+        <div class="sc-assistant-typing" id="sc-assistant-typing">
+          Solar AI está escribiendo...
+        </div>
+        <div class="sc-assistant-input-area">
+          <input
+            type="text"
+            id="sc-assistant-input"
+            class="sc-assistant-input"
+            placeholder="Escribe tu mensaje..."
+            autocomplete="off"
+          />
+          <button
+            id="sc-assistant-send-btn"
+            class="sc-assistant-send-btn"
+            aria-label="Enviar"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
             </svg>
-        </button>
+          </button>
+        </div>
+      </div>
+      <button
+        id="solar-sc-assistant-btn"
+        aria-label="Open Chat"
+        onclick="toggleAssistantChat()"
+      >
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+          <path
+            d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </button>
     </div>
 
     <script src="config.js"></script>
     <script src="script.js?v=chat4"></script>
-</body>
+  </body>
 </html>

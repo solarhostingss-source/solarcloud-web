@@ -1,299 +1,506 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solar Cloud | Bot & Web Hosting</title>
-    <meta name="description" content="Solar Cloud Discord bot and web hosting plans. Keep your bot online 24/7. Choose Canada, USA or Colombia.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=chat4">
+    <meta
+      name="description"
+      content="Solar Cloud Discord bot and web hosting plans. Keep your bot online 24/7. Choose Canada, USA or Colombia."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css?v=chat4" />
     <style>
-        .page-hero {
-            padding: 130px 5% 70px;
-            text-align: center;
-            background: radial-gradient(ellipse at top, rgba(124,58,237,0.08) 0%, transparent 60%);
-            border-bottom: 1px solid var(--border);
-        }
-        .page-hero h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 900; letter-spacing: -1.2px; margin-bottom: 16px; }
-        .page-hero p { color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+      .page-hero {
+        padding: 130px 5% 70px;
+        text-align: center;
+        background: radial-gradient(
+          ellipse at top,
+          rgba(124, 58, 237, 0.08) 0%,
+          transparent 60%
+        );
+        border-bottom: 1px solid var(--border);
+      }
+      .page-hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        font-weight: 900;
+        letter-spacing: -1.2px;
+        margin-bottom: 16px;
+      }
+      .page-hero p {
+        color: var(--text-muted);
+        max-width: 560px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
     </style>
 
     <style>
-        .location-price { display: block; font-size: 0.85rem; color: var(--primary); margin-top: 5px; font-weight: 500; }
+      .location-price {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--primary);
+        margin-top: 5px;
+        font-weight: 500;
+      }
     </style>
-    </head>
-<body>
-
-    <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="/" class="nav-logo">
-            <div class="nav-logo-icon">☀️</div>
-            <span class="nav-logo-text">Solar Cloud</span>
-        </a>
-        <div class="nav-links">
-            <a href="/" data-t="navHome">Home</a>
-            <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
-            <a href="/bots" class="active" data-t="navBots">Bots & Web</a>
-            <a href="/vps" data-t="navVPS">VPS</a>
-            <a href="/custom" data-t="navCustom">Custom Plans</a>
-            <a href="/status" data-t="navStatus">Status</a>
-            <a href="/terminos" data-t="navTerms">Terms of Service</a>
-            <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
-            <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
-        </div>
-        <div class="nav-right">
-            <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">🌐 ES</button>
-        </div>
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">☀️</div>
+        <span class="nav-logo-text">Solar Cloud</span>
+      </a>
+      <div class="nav-links">
+        <a href="/" data-t="navHome">Home</a>
+        <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+        <a href="/bots" class="active" data-t="navBots">Bots & Web</a>
+        <a href="/vps" data-t="navVPS">VPS</a>
+        <a href="/custom" data-t="navCustom">Custom Plans</a>
+        <a href="/status" data-t="navStatus">Status</a>
+        <a href="/terminos" data-t="navTerms">Terms of Service</a>
+        <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+        <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+      </div>
+      <div class="nav-right">
+        <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">
+          🌐 ES
+        </button>
+      </div>
     </nav>
 
-    <!-- ── PAGE HERO ──────────────────────────────────────────── -->
-    <div class="page-hero">
+    <main>
+      <div class="page-hero">
         <p class="section-overline" data-t="botOverline">Bots & Web Hosting</p>
         <h1 data-t="botTitle">Always-on Bot Hosting</h1>
-        <p data-t="botDesc">Keep your Discord bot online 24/7 with our reliable and affordable hosting solutions.</p>
-
-        <!-- ── HARDWARE SPECS HEADER STRIP ────────────────────── -->
+        <p data-t="botDesc">
+          Keep your Discord bot online 24/7 with our reliable and affordable
+          hosting solutions.
+        </p>
         <div class="hardware-specs-banner">
-            <div class="hw-server-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                </svg>
-            </div>
-            <div class="hw-specs-grid">
-                <div class="hw-spec-item">
-                    <svg class="hw-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                        <rect x="9" y="9" width="6" height="6"></rect>
-                        <line x1="9" y1="1" x2="9" y2="4"></line>
-                        <line x1="15" y1="1" x2="15" y2="4"></line>
-                        <line x1="9" y1="20" x2="9" y2="23"></line>
-                        <line x1="15" y1="20" x2="15" y2="23"></line>
-                        <line x1="20" y1="9" x2="23" y2="9"></line>
-                        <line x1="20" y1="15" x2="23" y2="15"></line>
-                        <line x1="1" y1="9" x2="4" y2="9"></line>
-                        <line x1="1" y1="15" x2="4" y2="15"></line>
-                    </svg>
-                    <span class="hw-text">Ryzen 5 5600 <span class="hw-badge">6c 12t</span></span>
-                </div>
-                <div class="hw-spec-item">
-                    <svg class="hw-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                        <line x1="6" y1="12" x2="18" y2="12"></line>
-                    </svg>
-                    <span class="hw-text">DDR4 @ 3200 MHz RAM</span>
-                </div>
-                <div class="hw-spec-item">
-                    <svg class="hw-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 12H2"></path>
-                        <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
-                        <line x1="6" y1="16" x2="6.01" y2="16"></line>
-                        <line x1="10" y1="16" x2="10.01" y2="16"></line>
-                    </svg>
-                    <span class="hw-text">NVMe SSD</span>
-                </div>
-                <div class="hw-spec-item">
-                    <svg class="hw-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="9" y="2" width="6" height="6" rx="1"></rect>
-                        <rect x="2" y="16" width="6" height="6" rx="1"></rect>
-                        <rect x="16" y="16" width="6" height="6" rx="1"></rect>
-                        <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
-                        <path d="M12 8v4"></path>
-                    </svg>
-                    <span class="hw-text">1 Gbit Multi-blend</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ── PRICING ────────────────────────────────────────────── -->
-    <section id="bots-pricing" style="background: var(--bg-main);">
-        <div class="pricing-grid" style="max-width: 1000px; margin: 0 auto;">
-
-            <!-- Spark -->
-            <div class="plan-card">
-                <img src="bot-plan1.png" alt="Spark Plan" class="plan-img">
-                <p class="plan-name">Spark</p>
-                <div class="plan-price">$1.00<span>/mo</span></div>
-                <p class="plan-desc">Ideal for a single Discord bot or small web project.</p>
-                <ul class="plan-features">
-                    <li>512 MB RAM</li>
-                    <li>1 vCPU</li>
-                    <li>5 GB SSD Storage</li>
-                    <li>Node.js / Python / Java</li>
-                    <li data-t="li247Uptime">24/7 Uptime</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li class="unavailable" data-t="liMultipleBots">Multiple Bots</li>
-                    <li class="unavailable" data-t="liPrioritySupport">Priority Support</li>
-                </ul>
-                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('bots','basic','Bot Basic — $2.00/mo')" data-t="botBuyBtn">Buy Now</button>
-            </div>
-
-            <!-- Reactor -->
-            <div class="plan-card popular">
-                <span class="popular-badge">⭐ Popular</span>
-                <img src="bot-plan2.png" alt="Reactor Plan" class="plan-img">
-                <p class="plan-name">Reactor</p>
-                <div class="plan-price">$2.50<span>/mo</span></div>
-                <p class="plan-desc">Run multiple bots or a full-stack web application.</p>
-                <ul class="plan-features">
-                    <li>2 GB RAM</li>
-                    <li>2 vCPU</li>
-                    <li>20 GB SSD Storage</li>
-                    <li>Node.js / Python / Java</li>
-                    <li data-t="li247Uptime">24/7 Uptime</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="liMultipleBots">Multiple Bots</li>
-                    <li data-t="liPrioritySupport">Priority Support</li>
-                </ul>
-                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('bots','advanced','Bot Advanced — $2.50/mo')" data-t="botBuyBtn">Buy Now</button>
-            </div>
-
-            <!-- Matrix -->
-            <div class="plan-card">
-                <img src="bot-plan3.png" alt="Matrix Plan" class="plan-img">
-                <p class="plan-name">Matrix</p>
-                <div class="plan-price">$3.50<span>/mo</span></div>
-                <p class="plan-desc">Perfect for static websites, landing pages, and web apps.</p>
-                <ul class="plan-features">
-                    <li>3 GB RAM</li>
-                    <li>2 vCPU</li>
-                    <li>10 GB SSD Storage</li>
-                    <li>Nginx / Apache</li>
-                    <li data-t="li247Uptime">24/7 Uptime</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="liCustomDomain">Custom Domain</li>
-                    <li data-t="liWebPanel">Web Control Panel</li>
-                </ul>
-                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('bots','nginx','Nginx — $3.50/mo')" data-t="botBuyBtn">Buy Now</button>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ── FOOTER ──────────────────────────────────────────────── -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="/" class="nav-logo">
-                    <div class="nav-logo-icon">☀️</div>
-                    <span class="nav-logo-text">Solar Cloud</span>
-                </a>
-                <p data-t="footerDesc">High-performance hosting for gamers and developers. Powered by Solar Cloud.</p>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerServices">Services</h5>
-                <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
-                <a href="/bots" data-t="navBots">Bots & Web</a>
-                <a href="/vps" data-t="navVPS">VPS</a>
-            <a href="/custom" data-t="navCustom">Custom Plans</a>
-            <a href="/status" data-t="navStatus">Status</a>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerLegal">Legal</h5>
-                <a href="/terminos" data-t="navTerms">Terms of Service</a>
-                <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
-                <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerContact">Contact</h5>
-                <a href="mailto:solarhostingss@gmail.com">solarhostingss@gmail.com</a>
-                <span style="display:block; color:var(--text-muted); font-size:0.85rem; margin-top:12px;" data-t="footerHours">Hours: 10:00 - 22:00</span>
-                <span style="display:block; color:var(--accent); font-size:0.85rem; margin-top:4px; font-weight:600;" data-t="footerHoursAI">AI Support: 24/7</span>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span data-t="footerCopy">© 2025 Solar Cloud. All rights reserved.</span>
-            <span>Made with ☀️ by Solar Cloud</span>
-        </div>
-    </footer>
-
-    <!-- ── LOCATION MODAL ─────────────────────────────────────── -->
-    <div class="modal-overlay" id="locationModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeLocationModal()">✕</button>
-            <div class="modal-icon">🌍</div>
-            <h2 data-t="modalTitle">Choose Your Location</h2>
-            <p class="modal-sub" data-t="modalSub">Select the data center closest to your players for the best performance.</p>
-            <div class="modal-plan-info" id="modalPlanInfo"></div>
-            
-            <div class="checkout-notices" style="margin-bottom: 15px; font-size: 0.85rem; text-align: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                <div style="color: var(--primary); font-weight: bold; margin-bottom: 4px;">
-                    🎉 <span data-t="modalDiscount">Use code <strong>SLC</strong> for 30% OFF at checkout!</span>
-                </div>
-                <div style="color: var(--text-secondary);">
-                    💳 <span data-t="modalPaypal">Accepting PayPal, Credit & Debit Cards.</span>
-                </div>
-            </div>
-
-            <div class="terms-checkbox-container" style="margin: 0 0 20px 0; text-align: left; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                    <input type="checkbox" id="agreeTerms" style="width: 18px; height: 18px; accent-color: var(--primary);">
-                    <span style="font-size: 0.9rem; color: var(--text-secondary);" data-t="modalTermsText">He leído y acepto los <a href="/terminos" target="_blank" style="color: var(--primary);">Términos y Condiciones</a>.</span>
-                </label>
-            </div>
-            <div class="location-grid">
-
-                <button class="location-btn" onclick="selectLocation('canada')">
-                    <span class="location-flag">🇨🇦</span>
-                    <span class="location-name" data-t="modalCanada">Canada</span>
-                    <span class="location-city" data-t="modalCaCity">Montréal</span>
-                    <span class="location-price" style="color: #f59e0b;" data-t="modalLowStock">Low Stock</span>
-                </button>
-                <button class="location-btn" onclick="selectLocation('usa')">
-                    <span class="location-flag">🇺🇸</span>
-                    <span class="location-name" data-t="modalUSA">USA</span>
-                    <span class="location-city" data-t="modalUSCity">New York</span>
-                    <span class="location-price">+$1.00</span>
-                </button>
-                <button class="location-btn" onclick="selectLocation('colombia')">
-                    <span class="location-flag">🇨🇴</span>
-                    <span class="location-name" data-t="modalCol">Colombia</span>
-                    <span class="location-city" data-t="modalCoCity">Bogotá</span>
-                    <span class="location-price" style="color: #f59e0b;" data-t="modalLowStock">Low Stock</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-        <!-- ── SOLAR CLOUD AI ASSISTANT CHATBOT ───────────────────── -->
-    <div id="solar-sc-assistant-container">
-        <div id="solar-sc-assistant-window">
-            <div class="sc-assistant-header">
-                <div class="sc-assistant-title-container">
-                    <div class="sc-assistant-avatar">☀️</div>
-                    <div>
-                        <h3 class="sc-assistant-title">Solar AI</h3>
-                        <div class="sc-assistant-status">Online</div>
-                    </div>
-                </div>
-                <button class="sc-assistant-close-btn" onclick="toggleAssistantChat()">&times;</button>
-            </div>
-            <div class="sc-assistant-messages" id="sc-assistant-messages">
-                <div class="sc-assistant-msg bot">
-                    <p>¡Hola! Soy Solar AI, tu asistente virtual. ¿En qué te puedo ayudar hoy? 🚀</p>
-                </div>
-            </div>
-            <div class="sc-assistant-typing" id="sc-assistant-typing">Solar AI está escribiendo...</div>
-            <div class="sc-assistant-input-area">
-                <input type="text" id="sc-assistant-input" class="sc-assistant-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-                <button id="sc-assistant-send-btn" class="sc-assistant-send-btn" aria-label="Enviar">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <button id="solar-sc-assistant-btn" aria-label="Open Chat" onclick="toggleAssistantChat()">
-            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+          <div class="hw-server-icon">
+            <svg
+              viewBox="0 0 24 24"
+              width="26"
+              height="26"
+              fill="none"
+              stroke="#facc15"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
             </svg>
-        </button>
+          </div>
+          <div class="hw-specs-grid">
+            <div class="hw-spec-item">
+              <svg
+                class="hw-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#94a3b8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="15" x2="23" y2="15"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="15" x2="4" y2="15"></line>
+              </svg>
+              <span class="hw-text"
+                >Ryzen 5 5600 <span class="hw-badge">6c 12t</span></span
+              >
+            </div>
+            <div class="hw-spec-item">
+              <svg
+                class="hw-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#94a3b8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <line x1="6" y1="12" x2="18" y2="12"></line>
+              </svg>
+              <span class="hw-text">DDR4 @ 3200 MHz RAM</span>
+            </div>
+            <div class="hw-spec-item">
+              <svg
+                class="hw-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#94a3b8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 12H2"></path>
+                <path
+                  d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+                ></path>
+                <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                <line x1="10" y1="16" x2="10.01" y2="16"></line>
+              </svg>
+              <span class="hw-text">NVMe SSD</span>
+            </div>
+            <div class="hw-spec-item">
+              <svg
+                class="hw-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#94a3b8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+                <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+                <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+                <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
+                <path d="M12 8v4"></path>
+              </svg>
+              <span class="hw-text">1 Gbit Multi-blend</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="bots-pricing" style="background: var(--bg-main)">
+        <div class="pricing-grid" style="max-width: 1000px; margin: 0 auto">
+          <div class="plan-card">
+            <img src="bot-plan1.png" alt="Spark Plan" class="plan-img" />
+            <p class="plan-name">Spark</p>
+            <div class="plan-price">$1.00<span>/mo</span></div>
+            <p class="plan-desc">
+              Ideal for a single Discord bot or small web project.
+            </p>
+            <ul class="plan-features">
+              <li>512 MB RAM</li>
+              <li>1 vCPU</li>
+              <li>5 GB SSD Storage</li>
+              <li>Node.js / Python / Java</li>
+              <li data-t="li247Uptime">24/7 Uptime</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li class="unavailable" data-t="liMultipleBots">Multiple Bots</li>
+              <li class="unavailable" data-t="liPrioritySupport">
+                Priority Support
+              </li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-outline"
+              onclick="
+                openLocationModal('bots', 'basic', 'Bot Basic — $2.00/mo')
+              "
+              data-t="botBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
+          <div class="plan-card popular">
+            <span class="popular-badge">⭐ Popular</span>
+            <img src="bot-plan2.png" alt="Reactor Plan" class="plan-img" />
+            <p class="plan-name">Reactor</p>
+            <div class="plan-price">$2.50<span>/mo</span></div>
+            <p class="plan-desc">
+              Run multiple bots or a full-stack web application.
+            </p>
+            <ul class="plan-features">
+              <li>2 GB RAM</li>
+              <li>2 vCPU</li>
+              <li>20 GB SSD Storage</li>
+              <li>Node.js / Python / Java</li>
+              <li data-t="li247Uptime">24/7 Uptime</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li data-t="liMultipleBots">Multiple Bots</li>
+              <li data-t="liPrioritySupport">Priority Support</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-filled"
+              onclick="
+                openLocationModal('bots', 'advanced', 'Bot Advanced — $2.50/mo')
+              "
+              data-t="botBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
+          <div class="plan-card">
+            <img src="bot-plan3.png" alt="Matrix Plan" class="plan-img" />
+            <p class="plan-name">Matrix</p>
+            <div class="plan-price">$3.50<span>/mo</span></div>
+            <p class="plan-desc">
+              Perfect for static websites, landing pages, and web apps.
+            </p>
+            <ul class="plan-features">
+              <li>3 GB RAM</li>
+              <li>2 vCPU</li>
+              <li>10 GB SSD Storage</li>
+              <li>Nginx / Apache</li>
+              <li data-t="li247Uptime">24/7 Uptime</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li data-t="liCustomDomain">Custom Domain</li>
+              <li data-t="liWebPanel">Web Control Panel</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-outline"
+              onclick="openLocationModal('bots', 'nginx', 'Nginx — $3.50/mo')"
+              data-t="botBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="nav-logo-icon">☀️</div>
+            <span class="nav-logo-text">Solar Cloud</span>
+          </a>
+          <p data-t="footerDesc">
+            High-performance hosting for gamers and developers. Powered by Solar
+            Cloud.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerServices">Services</h5>
+          <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+          <a href="/bots" data-t="navBots">Bots & Web</a>
+          <a href="/vps" data-t="navVPS">VPS</a>
+          <a href="/custom" data-t="navCustom">Custom Plans</a>
+          <a href="/status" data-t="navStatus">Status</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerLegal">Legal</h5>
+          <a href="/terminos" data-t="navTerms">Terms of Service</a>
+          <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+          <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerContact">Contact</h5>
+          <a href="mailto:solarhostingss@gmail.com">solarhostingss@gmail.com</a>
+          <span
+            style="
+              display: block;
+              color: var(--text-muted);
+              font-size: 0.85rem;
+              margin-top: 12px;
+            "
+            data-t="footerHours"
+            >Hours: 10:00 - 22:00</span
+          >
+          <span
+            style="
+              display: block;
+              color: var(--accent);
+              font-size: 0.85rem;
+              margin-top: 4px;
+              font-weight: 600;
+            "
+            data-t="footerHoursAI"
+            >AI Support: 24/7</span
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-t="footerCopy"
+          >© 2025 Solar Cloud. All rights reserved.</span
+        >
+        <span>Made with ☀️ by Solar Cloud</span>
+      </div>
+    </footer>
+    <div class="modal-overlay" id="locationModal">
+      <div class="modal">
+        <button class="modal-close" onclick="closeLocationModal()">✕</button>
+        <div class="modal-icon">🌍</div>
+        <h2 data-t="modalTitle">Choose Your Location</h2>
+        <p class="modal-sub" data-t="modalSub">
+          Select the data center closest to your players for the best
+          performance.
+        </p>
+        <div class="modal-plan-info" id="modalPlanInfo"></div>
+
+        <div
+          class="checkout-notices"
+          style="
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <div
+            style="color: var(--primary); font-weight: bold; margin-bottom: 4px"
+          >
+            🎉
+            <span data-t="modalDiscount"
+              >Use code <strong>SLC</strong> for 30% OFF at checkout!</span
+            >
+          </div>
+          <div style="color: var(--text-secondary)">
+            💳
+            <span data-t="modalPaypal"
+              >Accepting PayPal, Credit & Debit Cards.</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="terms-checkbox-container"
+          style="
+            margin: 0 0 20px 0;
+            text-align: left;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <label
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              cursor: pointer;
+            "
+          >
+            <input
+              type="checkbox"
+              id="agreeTerms"
+              style="width: 18px; height: 18px; accent-color: var(--primary)"
+            />
+            <span
+              style="font-size: 0.9rem; color: var(--text-secondary)"
+              data-t="modalTermsText"
+              >He leído y acepto los
+              <a href="/terminos" target="_blank" style="color: var(--primary)"
+                >Términos y Condiciones</a
+              >.</span
+            >
+          </label>
+        </div>
+        <div class="location-grid">
+          <button class="location-btn" onclick="selectLocation('canada')">
+            <span class="location-flag">🇨🇦</span>
+            <span class="location-name" data-t="modalCanada">Canada</span>
+            <span class="location-city" data-t="modalCaCity">Montréal</span>
+            <span
+              class="location-price"
+              style="color: #f59e0b"
+              data-t="modalLowStock"
+              >Low Stock</span
+            >
+          </button>
+          <button class="location-btn" onclick="selectLocation('usa')">
+            <span class="location-flag">🇺🇸</span>
+            <span class="location-name" data-t="modalUSA">USA</span>
+            <span class="location-city" data-t="modalUSCity">New York</span>
+            <span class="location-price">+$1.00</span>
+          </button>
+          <button class="location-btn" onclick="selectLocation('colombia')">
+            <span class="location-flag">🇨🇴</span>
+            <span class="location-name" data-t="modalCol">Colombia</span>
+            <span class="location-city" data-t="modalCoCity">Bogotá</span>
+            <span
+              class="location-price"
+              style="color: #f59e0b"
+              data-t="modalLowStock"
+              >Low Stock</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="solar-sc-assistant-container">
+      <div id="solar-sc-assistant-window">
+        <div class="sc-assistant-header">
+          <div class="sc-assistant-title-container">
+            <div class="sc-assistant-avatar">☀️</div>
+            <div>
+              <h3 class="sc-assistant-title">Solar AI</h3>
+              <div class="sc-assistant-status">Online</div>
+            </div>
+          </div>
+          <button
+            class="sc-assistant-close-btn"
+            onclick="toggleAssistantChat()"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="sc-assistant-messages" id="sc-assistant-messages">
+          <div class="sc-assistant-msg bot">
+            <p>
+              ¡Hola! Soy Solar AI, tu asistente virtual. ¿En qué te puedo ayudar
+              hoy? 🚀
+            </p>
+          </div>
+        </div>
+        <div class="sc-assistant-typing" id="sc-assistant-typing">
+          Solar AI está escribiendo...
+        </div>
+        <div class="sc-assistant-input-area">
+          <input
+            type="text"
+            id="sc-assistant-input"
+            class="sc-assistant-input"
+            placeholder="Escribe tu mensaje..."
+            autocomplete="off"
+          />
+          <button
+            id="sc-assistant-send-btn"
+            class="sc-assistant-send-btn"
+            aria-label="Enviar"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <button
+        id="solar-sc-assistant-btn"
+        aria-label="Open Chat"
+        onclick="toggleAssistantChat()"
+      >
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+          <path
+            d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </button>
     </div>
 
     <script src="config.js"></script>
     <script src="script.js?v=chat4"></script>
-</body>
+  </body>
 </html>

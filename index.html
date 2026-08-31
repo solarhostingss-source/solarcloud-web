@@ -1,676 +1,1148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solar Cloud | High-Performance Hosting</title>
-    <meta name="description" content="Solar Cloud offers enterprise-grade Minecraft server hosting and bot hosting starting at $2.50/mo. Locations in Canada, USA, and Colombia.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
-    <link rel="stylesheet" href="styles.css?v=chat4">
+    <meta
+      name="description"
+      content="Solar Cloud offers enterprise-grade Minecraft server hosting and bot hosting starting at $2.50/mo. Locations in Canada, USA, and Colombia."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css?v=chat4" />
 
     <style>
-        .location-price { display: block; font-size: 0.85rem; color: var(--primary); margin-top: 5px; font-weight: 500; }
+      .location-price {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--primary);
+        margin-top: 5px;
+        font-weight: 500;
+      }
     </style>
-    </head>
-<body>
-
-    <!-- ── NAVBAR ─────────────────────────────────────────────── -->
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="/" class="nav-logo">
-            <div class="nav-logo-icon">☀️</div>
-            <span class="nav-logo-text">Solar Cloud</span>
-        </a>
-        <div class="nav-links">
-            <a href="/" class="active" data-t="navHome">Home</a>
-            <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
-            <a href="/bots" data-t="navBots">Bots & Web</a>
-            <a href="/vps" data-t="navVPS">VPS</a>
-            <a href="/custom" data-t="navCustom">Custom Plans</a>
-            <a href="/status" data-t="navStatus">Status</a>
-            <a href="/terminos" data-t="navTerms">Terms of Service</a>
-            <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
-            <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
-        </div>
-        <div class="nav-right">
-            <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">🌐 ES</button>
-        </div>
+      <a href="/" class="nav-logo">
+        <div class="nav-logo-icon">☀️</div>
+        <span class="nav-logo-text">Solar Cloud</span>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="active" data-t="navHome">Home</a>
+        <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+        <a href="/bots" data-t="navBots">Bots & Web</a>
+        <a href="/vps" data-t="navVPS">VPS</a>
+        <a href="/custom" data-t="navCustom">Custom Plans</a>
+        <a href="/status" data-t="navStatus">Status</a>
+        <a href="/terminos" data-t="navTerms">Terms of Service</a>
+        <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+        <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+      </div>
+      <div class="nav-right">
+        <button class="lang-btn" onclick="toggleLang()" data-t="langBtn">
+          🌐 ES
+        </button>
+      </div>
     </nav>
 
-    <!-- ── HERO ───────────────────────────────────────────────── -->
-    <section class="hero">
+    <main>
+      <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge" data-t="heroBadge">⚡ High-Performance Hosting</div>
-            <h1 data-t="heroTitle">Power Your Server with <span class="gradient-text">Solar Cloud</span></h1>
-            <p class="hero-sub" data-t="heroSub">Enterprise-grade hosting for Minecraft servers and Discord bots, starting at <span class="price-highlight">$2.50/mo</span>. Canada, USA and Colombia locations available.</p>
+          <div class="hero-badge" data-t="heroBadge">
+            ⚡ High-Performance Hosting
+          </div>
+          <h1 data-t="heroTitle">
+            Power Your Server with
+            <span class="gradient-text">Solar Cloud</span>
+          </h1>
+          <p class="hero-sub" data-t="heroSub">
+            Enterprise-grade hosting for Minecraft servers and Discord bots,
+            starting at <span class="price-highlight">$2.50/mo</span>. Canada,
+            USA and Colombia locations available.
+          </p>
+          <div class="hero-ai-highlight">
+            <div class="hero-ai-icon">🤖</div>
+            <div class="hero-ai-text">
+              <div class="ai-label" data-t="heroAiLabel">NEW — SOLAR AI</div>
+              <div class="ai-desc" data-t="heroAiDesc">
+                Console crash resolution with AI in 1 second
+              </div>
+            </div>
+          </div>
 
-            <!-- Solar AI Highlight -->
-            <div class="hero-ai-highlight">
-                <div class="hero-ai-icon">🤖</div>
-                <div class="hero-ai-text">
-                    <div class="ai-label" data-t="heroAiLabel">NEW — SOLAR AI</div>
-                    <div class="ai-desc" data-t="heroAiDesc">Console crash resolution with AI in 1 second</div>
-                </div>
+          <div class="hero-buttons">
+            <a href="/minecraft" class="btn-primary" data-t="heroBtn1"
+              >Get Started</a
+            >
+            <a href="#pricing" class="btn-secondary" data-t="heroBtn2"
+              >View Plans</a
+            >
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-value">80+</span>
+              <span class="stat-label" data-t="statServers"
+                >Active Servers</span
+              >
             </div>
-
-            <div class="hero-buttons">
-                <a href="/minecraft" class="btn-primary" data-t="heroBtn1">Get Started</a>
-                <a href="#pricing" class="btn-secondary" data-t="heroBtn2">View Plans</a>
+            <div class="stat">
+              <span class="stat-value">99.9%</span>
+              <span class="stat-label" data-t="statUptime">Uptime</span>
             </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-value">80+</span>
-                    <span class="stat-label" data-t="statServers">Active Servers</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">99.9%</span>
-                    <span class="stat-label" data-t="statUptime">Uptime</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-value">24/7</span>
-                    <span class="stat-label" data-t="statSupport">Support</span>
-                </div>
+            <div class="stat">
+              <span class="stat-value">24/7</span>
+              <span class="stat-label" data-t="statSupport">Support</span>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- ── FEATURES ───────────────────────────────────────────── -->
-    <section id="features">
+      </section>
+      <section id="features">
         <div class="section-header">
-            <p class="section-overline" data-t="featOverline">Why Choose Us</p>
-            <h2 class="section-title" data-t="featTitle">Everything you need, nothing you don't</h2>
-            <p class="section-desc" data-t="featDesc">We built Solar Cloud for game server admins and developers who demand reliability without breaking the bank.</p>
+          <p class="section-overline" data-t="featOverline">Why Choose Us</p>
+          <h2 class="section-title" data-t="featTitle">
+            Everything you need, nothing you don't
+          </h2>
+          <p class="section-desc" data-t="featDesc">
+            We built Solar Cloud for game server admins and developers who
+            demand reliability without breaking the bank.
+          </p>
         </div>
         <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h4 data-t="f1Title">Solid Infrastructure</h4>
-                <p data-t="f1Desc">We use top-tier data centers in Canada, USA, and Colombia to ensure maximum reliability and zero-downtime experiences.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🛡️</div>
-                <h4 data-t="f2Title">DDoS Protection</h4>
-                <p data-t="f2Desc">Enterprise-grade mitigation systems keep your server online even during heavy and unexpected cyber attacks.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h4 data-t="f3Title">Instant Deployment</h4>
-                <p data-t="f3Desc">Your server is set up and ready to use within seconds of purchase — fully automated, no waiting.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌎</div>
-                <h4 data-t="f4Title">Optimized Routing</h4>
-                <p data-t="f4Desc">Our network is configured to guarantee the lowest possible latency for players across North America and Latin America.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💳</div>
-                <h4 data-t="f5Title">Wallet Friendly</h4>
-                <p data-t="f5Desc">Premium quality hosting at prices that make sense. We believe great infrastructure shouldn't cost a fortune.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📈</div>
-                <h4 data-t="f6Title">Highly Scalable</h4>
-                <p data-t="f6Desc">Start small and upgrade any time. Our plans grow with your community without complicated migrations.</p>
-            </div>
+          <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h4 data-t="f1Title">Solid Infrastructure</h4>
+            <p data-t="f1Desc">
+              We use top-tier data centers in Canada, USA, and Colombia to
+              ensure maximum reliability and zero-downtime experiences.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h4 data-t="f2Title">DDoS Protection</h4>
+            <p data-t="f2Desc">
+              Enterprise-grade mitigation systems keep your server online even
+              during heavy and unexpected cyber attacks.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h4 data-t="f3Title">Instant Deployment</h4>
+            <p data-t="f3Desc">
+              Your server is set up and ready to use within seconds of purchase
+              — fully automated, no waiting.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌎</div>
+            <h4 data-t="f4Title">Optimized Routing</h4>
+            <p data-t="f4Desc">
+              Our network is configured to guarantee the lowest possible latency
+              for players across North America and Latin America.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💳</div>
+            <h4 data-t="f5Title">Wallet Friendly</h4>
+            <p data-t="f5Desc">
+              Premium quality hosting at prices that make sense. We believe
+              great infrastructure shouldn't cost a fortune.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h4 data-t="f6Title">Highly Scalable</h4>
+            <p data-t="f6Desc">
+              Start small and upgrade any time. Our plans grow with your
+              community without complicated migrations.
+            </p>
+          </div>
         </div>
-    </section>
-
-    <!-- ── PING TEST ───────────────────────────────────────────── -->
-    <section id="ping-test">
+      </section>
+      <section id="ping-test">
         <div class="section-header">
-            <p class="section-overline" data-t="pingOverline">Node Latency</p>
-            <h2 class="section-title" data-t="pingTitle">Node Latency Test</h2>
-            <p class="section-desc" data-t="pingDesc">Measure the latency to our nodes in real time.</p>
+          <p class="section-overline" data-t="pingOverline">Node Latency</p>
+          <h2 class="section-title" data-t="pingTitle">Node Latency Test</h2>
+          <p class="section-desc" data-t="pingDesc">
+            Measure the latency to our nodes in real time.
+          </p>
         </div>
         <div class="ping-grid">
-            <!-- USA Node -->
-            <div class="ping-card">
-                <div class="ping-node-flag">🇺🇸</div>
-                <h4 class="ping-node-name" data-t="pingNodeUSA">USA — New York</h4>
-                <div class="ping-circle-container">
-                    <svg width="120" height="120" viewBox="0 0 120 120">
-                        <circle class="ping-circle-bg" cx="60" cy="60" r="54"></circle>
-                        <circle class="ping-circle-fill" id="pingCircleFillUSA" cx="60" cy="60" r="54"></circle>
-                    </svg>
-                    <div class="ping-value" id="pingValueUSA">—<small data-t="pingMs">ms</small></div>
-                </div>
-                <button class="ping-btn" id="pingBtnUSA" onclick="testNodePing('USA')">
-                    <span class="ping-btn-text" data-t="pingBtn">Test Latency</span>
-                    <span class="spinner"></span>
-                </button>
+          <div class="ping-card">
+            <div class="ping-node-flag">🇺🇸</div>
+            <h4 class="ping-node-name" data-t="pingNodeUSA">USA — New York</h4>
+            <div class="ping-circle-container">
+              <svg width="120" height="120" viewBox="0 0 120 120">
+                <circle class="ping-circle-bg" cx="60" cy="60" r="54"></circle>
+                <circle
+                  class="ping-circle-fill"
+                  id="pingCircleFillUSA"
+                  cx="60"
+                  cy="60"
+                  r="54"
+                ></circle>
+              </svg>
+              <div class="ping-value" id="pingValueUSA">
+                —<small data-t="pingMs">ms</small>
+              </div>
             </div>
-            <!-- Colombia Node -->
-            <div class="ping-card">
-                <div class="ping-node-flag">🇨🇴</div>
-                <h4 class="ping-node-name" data-t="pingNodeCO">Colombia — Bogotá</h4>
-                <div class="ping-circle-container">
-                    <svg width="120" height="120" viewBox="0 0 120 120">
-                        <circle class="ping-circle-bg" cx="60" cy="60" r="54"></circle>
-                        <circle class="ping-circle-fill" id="pingCircleFillCO" cx="60" cy="60" r="54"></circle>
-                    </svg>
-                    <div class="ping-value" id="pingValueCO">—<small data-t="pingMs">ms</small></div>
-                </div>
-                <button class="ping-btn" id="pingBtnCO" onclick="testNodePing('CO')">
-                    <span class="ping-btn-text" data-t="pingBtn">Test Latency</span>
-                    <span class="spinner"></span>
-                </button>
+            <button
+              class="ping-btn"
+              id="pingBtnUSA"
+              onclick="testNodePing('USA')"
+            >
+              <span class="ping-btn-text" data-t="pingBtn">Test Latency</span>
+              <span class="spinner"></span>
+            </button>
+          </div>
+          <div class="ping-card">
+            <div class="ping-node-flag">🇨🇴</div>
+            <h4 class="ping-node-name" data-t="pingNodeCO">
+              Colombia — Bogotá
+            </h4>
+            <div class="ping-circle-container">
+              <svg width="120" height="120" viewBox="0 0 120 120">
+                <circle class="ping-circle-bg" cx="60" cy="60" r="54"></circle>
+                <circle
+                  class="ping-circle-fill"
+                  id="pingCircleFillCO"
+                  cx="60"
+                  cy="60"
+                  r="54"
+                ></circle>
+              </svg>
+              <div class="ping-value" id="pingValueCO">
+                —<small data-t="pingMs">ms</small>
+              </div>
             </div>
+            <button
+              class="ping-btn"
+              id="pingBtnCO"
+              onclick="testNodePing('CO')"
+            >
+              <span class="ping-btn-text" data-t="pingBtn">Test Latency</span>
+              <span class="spinner"></span>
+            </button>
+          </div>
         </div>
-    </section>
-
-    <!-- ── INTERACTIVE HOSTING ADVISOR (WIZARD) ──────────────── -->
-    <section class="wizard-section" id="advisor">
+      </section>
+      <section class="wizard-section" id="advisor">
         <div class="wizard-container">
-            <div class="wizard-header">
-                <div class="wizard-badge" data-t="wizardBadge">⚡ Hosting Advisor</div>
-                <h2 class="wizard-title" data-t="wizardTitle">Find Your Ideal Plan in 30 Seconds</h2>
-                <p class="wizard-desc" data-t="wizardDesc">Answer 2 quick questions and our system will calculate the exact RAM and resources your server needs.</p>
+          <div class="wizard-header">
+            <div class="wizard-badge" data-t="wizardBadge">
+              ⚡ Hosting Advisor
             </div>
-
-            <!-- Steps Progress -->
-            <div class="wizard-progress">
-                <div class="wizard-step-item active" id="wStepItem1">
-                    <div class="wizard-step-num">1</div>
-                    <span data-t="wizardStep1Text">Server Type</span>
-                </div>
-                <div class="wizard-step-line" id="wStepLine1"></div>
-                <div class="wizard-step-item" id="wStepItem2">
-                    <div class="wizard-step-num">2</div>
-                    <span data-t="wizardStep2Text">Players</span>
-                </div>
-                <div class="wizard-step-line" id="wStepLine2"></div>
-                <div class="wizard-step-item" id="wStepItem3">
-                    <div class="wizard-step-num">3</div>
-                    <span data-t="wizardStep3Text">Recommendation</span>
-                </div>
+            <h2 class="wizard-title" data-t="wizardTitle">
+              Find Your Ideal Plan in 30 Seconds
+            </h2>
+            <p class="wizard-desc" data-t="wizardDesc">
+              Answer 2 quick questions and our system will calculate the exact
+              RAM and resources your server needs.
+            </p>
+          </div>
+          <div class="wizard-progress">
+            <div class="wizard-step-item active" id="wStepItem1">
+              <div class="wizard-step-num">1</div>
+              <span data-t="wizardStep1Text">Server Type</span>
             </div>
-
-            <!-- Step 1 -->
-            <div class="wizard-step active" id="wizardStep1">
-                <h4 class="wizard-question" data-t="wizardQ1">1. What type of server are you looking to create?</h4>
-                <div class="wizard-cards">
-                    <div class="wizard-card" onclick="selectWizardOption(1, 'vanilla', this)">
-                        <div class="wizard-card-icon">🌱</div>
-                        <div class="wizard-card-title" data-t="wOpt1Title">Vanilla Survival</div>
-                        <div class="wizard-card-desc" data-t="wOpt1Desc">Vanilla, Paper or light survival with friends.</div>
-                    </div>
-                    <div class="wizard-card" onclick="selectWizardOption(1, 'boxpvp', this)">
-                        <div class="wizard-card-icon">⚔️</div>
-                        <div class="wizard-card-title" data-t="wOpt2Title">BoxPvP / Modalities</div>
-                        <div class="wizard-card-desc" data-t="wOpt2Desc">PvP arenas, minigames, economy & plugins.</div>
-                    </div>
-                    <div class="wizard-card" onclick="selectWizardOption(1, 'modpack', this)">
-                        <div class="wizard-card-icon">⚙️</div>
-                        <div class="wizard-card-title" data-t="wOpt3Title">Heavy Modpacks</div>
-                        <div class="wizard-card-desc" data-t="wOpt3Desc">Forge, Fabric, Cobblemon or 100+ mods.</div>
-                    </div>
-                </div>
+            <div class="wizard-step-line" id="wStepLine1"></div>
+            <div class="wizard-step-item" id="wStepItem2">
+              <div class="wizard-step-num">2</div>
+              <span data-t="wizardStep2Text">Players</span>
             </div>
-
-            <!-- Step 2 -->
-            <div class="wizard-step" id="wizardStep2">
-                <h4 class="wizard-question" data-t="wizardQ2">2. How many simultaneous players are you expecting?</h4>
-                <div class="wizard-cards">
-                    <div class="wizard-card" onclick="selectWizardOption(2, 'p1', this)">
-                        <div class="wizard-card-icon">👥</div>
-                        <div class="wizard-card-title" data-t="wP1Title">1 - 5 Friends</div>
-                        <div class="wizard-card-desc" data-t="wP1Desc">Private server for close friends.</div>
-                    </div>
-                    <div class="wizard-card" onclick="selectWizardOption(2, 'p2', this)">
-                        <div class="wizard-card-icon">🏰</div>
-                        <div class="wizard-card-title" data-t="wP2Title">10 - 30 Players</div>
-                        <div class="wizard-card-desc" data-t="wP2Desc">Growing community with events.</div>
-                    </div>
-                    <div class="wizard-card" onclick="selectWizardOption(2, 'p3', this)">
-                        <div class="wizard-card-icon">🌐</div>
-                        <div class="wizard-card-title" data-t="wP3Title">+50 Network</div>
-                        <div class="wizard-card-desc" data-t="wP3Desc">Large scale public multiplayer network.</div>
-                    </div>
-                </div>
+            <div class="wizard-step-line" id="wStepLine2"></div>
+            <div class="wizard-step-item" id="wStepItem3">
+              <div class="wizard-step-num">3</div>
+              <span data-t="wizardStep3Text">Recommendation</span>
             </div>
-
-            <!-- Step 3: Result Screen -->
-            <div class="wizard-step" id="wizardStep3">
-                <div class="wizard-result-box">
-                    <span class="wizard-result-badge" data-t="wizardRecBadge">Recommended For You</span>
-                    <h3 class="wizard-result-title" id="wizardResultTitle">Starter Plan (8GB)</h3>
-                    <div class="wizard-result-ram" id="wizardResultRam">8 GB RAM</div>
-                    <p class="wizard-result-reason" id="wizardResultReason">The ultimate jumpstart! 8GB RAM delivers smooth gameplay, zero lag, and VIP Staff setup assistance included.</p>
-                    <div class="wizard-result-features" id="wizardResultFeatures">
-                        <span class="wizard-result-pill">⭐ VIP Staff Setup</span>
-                        <span class="wizard-result-pill">⚡ 8 GB RAM</span>
-                        <span class="wizard-result-pill">🚀 Instant Setup</span>
-                        <span class="wizard-result-pill">🛡️ DDoS Protection</span>
-                    </div>
-                    <div class="wizard-actions">
-                        <button class="btn-primary" id="wizardResultBtn" data-t="wizardRecButton">Select Plan & Deploy</button>
-                        <button class="wizard-reset-btn" onclick="resetWizard()" data-t="wizardReset">🔄 Try another combination</button>
-                    </div>
+          </div>
+          <div class="wizard-step active" id="wizardStep1">
+            <h4 class="wizard-question" data-t="wizardQ1">
+              1. What type of server are you looking to create?
+            </h4>
+            <div class="wizard-cards">
+              <div
+                class="wizard-card"
+                onclick="selectWizardOption(1, 'vanilla', this)"
+              >
+                <div class="wizard-card-icon">🌱</div>
+                <div class="wizard-card-title" data-t="wOpt1Title">
+                  Vanilla Survival
                 </div>
+                <div class="wizard-card-desc" data-t="wOpt1Desc">
+                  Vanilla, Paper or light survival with friends.
+                </div>
+              </div>
+              <div
+                class="wizard-card"
+                onclick="selectWizardOption(1, 'boxpvp', this)"
+              >
+                <div class="wizard-card-icon">⚔️</div>
+                <div class="wizard-card-title" data-t="wOpt2Title">
+                  BoxPvP / Modalities
+                </div>
+                <div class="wizard-card-desc" data-t="wOpt2Desc">
+                  PvP arenas, minigames, economy & plugins.
+                </div>
+              </div>
+              <div
+                class="wizard-card"
+                onclick="selectWizardOption(1, 'modpack', this)"
+              >
+                <div class="wizard-card-icon">⚙️</div>
+                <div class="wizard-card-title" data-t="wOpt3Title">
+                  Heavy Modpacks
+                </div>
+                <div class="wizard-card-desc" data-t="wOpt3Desc">
+                  Forge, Fabric, Cobblemon or 100+ mods.
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="wizard-step" id="wizardStep2">
+            <h4 class="wizard-question" data-t="wizardQ2">
+              2. How many simultaneous players are you expecting?
+            </h4>
+            <div class="wizard-cards">
+              <div
+                class="wizard-card"
+                onclick="selectWizardOption(2, 'p1', this)"
+              >
+                <div class="wizard-card-icon">👥</div>
+                <div class="wizard-card-title" data-t="wP1Title">
+                  1 - 5 Friends
+                </div>
+                <div class="wizard-card-desc" data-t="wP1Desc">
+                  Private server for close friends.
+                </div>
+              </div>
+              <div
+                class="wizard-card"
+                onclick="selectWizardOption(2, 'p2', this)"
+              >
+                <div class="wizard-card-icon">🏰</div>
+                <div class="wizard-card-title" data-t="wP2Title">
+                  10 - 30 Players
+                </div>
+                <div class="wizard-card-desc" data-t="wP2Desc">
+                  Growing community with events.
+                </div>
+              </div>
+              <div
+                class="wizard-card"
+                onclick="selectWizardOption(2, 'p3', this)"
+              >
+                <div class="wizard-card-icon">🌐</div>
+                <div class="wizard-card-title" data-t="wP3Title">
+                  +50 Network
+                </div>
+                <div class="wizard-card-desc" data-t="wP3Desc">
+                  Large scale public multiplayer network.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wizard-step" id="wizardStep3">
+            <div class="wizard-result-box">
+              <span class="wizard-result-badge" data-t="wizardRecBadge"
+                >Recommended For You</span
+              >
+              <h3 class="wizard-result-title" id="wizardResultTitle">
+                Starter Plan (8GB)
+              </h3>
+              <div class="wizard-result-ram" id="wizardResultRam">8 GB RAM</div>
+              <p class="wizard-result-reason" id="wizardResultReason">
+                The ultimate jumpstart! 8GB RAM delivers smooth gameplay, zero
+                lag, and VIP Staff setup assistance included.
+              </p>
+              <div class="wizard-result-features" id="wizardResultFeatures">
+                <span class="wizard-result-pill">⭐ VIP Staff Setup</span>
+                <span class="wizard-result-pill">⚡ 8 GB RAM</span>
+                <span class="wizard-result-pill">🚀 Instant Setup</span>
+                <span class="wizard-result-pill">🛡️ DDoS Protection</span>
+              </div>
+              <div class="wizard-actions">
+                <button
+                  class="btn-primary"
+                  id="wizardResultBtn"
+                  data-t="wizardRecButton"
+                >
+                  Select Plan & Deploy
+                </button>
+                <button
+                  class="wizard-reset-btn"
+                  onclick="resetWizard()"
+                  data-t="wizardReset"
+                >
+                  🔄 Try another combination
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- ── PRICING PREVIEW ────────────────────────────────────── -->
-    <!-- ── PRICING PREVIEW ────────────────────────────────────── -->
-    <section id="pricing">
+      <section id="pricing">
         <div class="section-header">
-            <p class="section-overline" data-t="mcOverline">Minecraft Hosting</p>
-            <h2 class="section-title" data-t="mcTitle">Pick your plan</h2>
-            <p class="section-desc" data-t="mcDesc">All plans include full control panel access, instant setup, and our 99.9% uptime guarantee.</p>
+          <p class="section-overline" data-t="mcOverline">Minecraft Hosting</p>
+          <h2 class="section-title" data-t="mcTitle">Pick your plan</h2>
+          <p class="section-desc" data-t="mcDesc">
+            All plans include full control panel access, instant setup, and our
+            99.9% uptime guarantee.
+          </p>
         </div>
-
-        <!-- ── HARDWARE SPECS HEADER STRIP ────────────────────── -->
         <div class="hardware-specs-banner">
-            <div class="hw-server-icon">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                </svg>
+          <div class="hw-server-icon">
+            <svg
+              viewBox="0 0 24 24"
+              width="26"
+              height="26"
+              fill="none"
+              stroke="#facc15"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <div class="hw-specs-grid">
+            <div class="hw-spec-item">
+              <svg
+                class="hw-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#94a3b8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="15" x2="23" y2="15"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="15" x2="4" y2="15"></line>
+              </svg>
+              <span class="hw-text"
+                >Ryzen 5 5600 <span class="hw-badge">6c 12t</span></span
+              >
             </div>
-            <div class="hw-specs-grid">
-                <div class="hw-spec-item">
-                    <svg class="hw-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                        <rect x="9" y="9" width="6" height="6"></rect>
-                        <line x1="9" y1="1" x2="9" y2="4"></line>
-                        <line x1="15" y1="1" x2="15" y2="4"></line>
-                        <line x1="9" y1="20" x2="9" y2="23"></line>
-                        <line x1="15" y1="20" x2="15" y2="23"></line>
-                        <line x1="20" y1="9" x2="23" y2="9"></line>
-                        <line x1="20" y1="15" x2="23" y2="15"></line>
-                        <line x1="1" y1="9" x2="4" y2="9"></line>
-                        <line x1="1" y1="15" x2="4" y2="15"></line>
-                    </svg>
-                    <span class="hw-text">Ryzen 5 5600 <span class="hw-badge">6c 12t</span></span>
-                </div>
-                <div class="hw-spec-item">
-                    <svg class="hw-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-                        <line x1="6" y1="12" x2="18" y2="12"></line>
-                    </svg>
-                    <span class="hw-text">DDR4 @ 3200 MHz RAM</span>
-                </div>
-                <div class="hw-spec-item">
-                    <svg class="hw-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M22 12H2"></path>
-                        <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
-                        <line x1="6" y1="16" x2="6.01" y2="16"></line>
-                        <line x1="10" y1="16" x2="10.01" y2="16"></line>
-                    </svg>
-                    <span class="hw-text">NVMe SSD</span>
-                </div>
-                <div class="hw-spec-item">
-                    <svg class="hw-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="9" y="2" width="6" height="6" rx="1"></rect>
-                        <rect x="2" y="16" width="6" height="6" rx="1"></rect>
-                        <rect x="16" y="16" width="6" height="6" rx="1"></rect>
-                        <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
-                        <path d="M12 8v4"></path>
-                    </svg>
-                    <span class="hw-text">1 Gbit Multi-blend</span>
-                </div>
+            <div class="hw-spec-item">
+              <svg
+                class="hw-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#94a3b8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <line x1="6" y1="12" x2="18" y2="12"></line>
+              </svg>
+              <span class="hw-text">DDR4 @ 3200 MHz RAM</span>
             </div>
+            <div class="hw-spec-item">
+              <svg
+                class="hw-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#94a3b8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 12H2"></path>
+                <path
+                  d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"
+                ></path>
+                <line x1="6" y1="16" x2="6.01" y2="16"></line>
+                <line x1="10" y1="16" x2="10.01" y2="16"></line>
+              </svg>
+              <span class="hw-text">NVMe SSD</span>
+            </div>
+            <div class="hw-spec-item">
+              <svg
+                class="hw-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#94a3b8"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+                <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+                <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+                <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
+                <path d="M12 8v4"></path>
+              </svg>
+              <span class="hw-text">1 Gbit Multi-blend</span>
+            </div>
+          </div>
         </div>
-
-        <!-- ── STARTER SHOWCASE (TOP FEATURED) ────────────────────── -->
         <div class="starter-showcase-container">
-            <div class="starter-showcase-card">
-                <div class="starter-showcase-badge" data-t="starterShowcaseBadge">⭐ RECOMMENDED FOR BEGINNERS</div>
-                
-                <div class="starter-showcase-content">
-                    <div class="starter-showcase-left">
-                        <h3 class="starter-showcase-title" data-t="starterShowcaseTitle">Don't know how to start?</h3>
-                        <h4 class="starter-showcase-subtitle" data-t="starterShowcaseWhy">Why choose the Starter Plan (8GB)?</h4>
-                        <p class="starter-showcase-desc" data-t="starterShowcaseDesc">
-                            If it's your first time creating a server or you want zero hassle, the <strong>Starter Plan</strong> is your best choice. With <strong>8 GB RAM</strong> your server runs buttery smooth, and our Staff team helps you configure everything step-by-step from day one!
-                        </p>
-                        
-                        <div class="starter-why-list">
-                            <div class="starter-why-item">
-                                <span class="starter-why-icon">🌟</span>
-                                <div>
-                                    <strong data-t="starterWhy1Title">VIP Staff Setup Assistance:</strong>
-                                    <span data-t="starterWhy1Desc">We assist you with initial configs, plugins, mods, and custom domain setup.</span>
-                                </div>
-                            </div>
-                            <div class="starter-why-item">
-                                <span class="starter-why-icon">⚡</span>
-                                <div>
-                                    <strong data-t="starterWhy2Title">8 GB RAM & 4 vCPUs (Ryzen 5 5600):</strong>
-                                    <span data-t="starterWhy2Desc">High-frequency AMD Ryzen 5 5600 to play with friends or launch your community lag-free.</span>
-                                </div>
-                            </div>
-                            <div class="starter-why-item">
-                                <span class="starter-why-icon">🛡️</span>
-                                <div>
-                                    <strong data-t="starterWhy3Title">All-in-One Package:</strong>
-                                    <span data-t="starterWhy3Desc">Pterodactyl panel, enterprise Anti-DDoS, and instant automated activation.</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="button" class="vip-info-trigger" onclick="openVipModal()" style="display: inline-flex;" data-t="starterVipLink">
-                            What's included in VIP Help? ℹ️
-                        </button>
-                    </div>
-
-                    <div class="starter-showcase-right">
-                        <div class="starter-pricing-box">
-                            <img src="mc-starter.png" alt="Starter Plan" class="plan-img starter-showcase-img">
-                            <div class="starter-box-name" data-t="starterTitle">Plan Starter VIP</div>
-                            <div class="plan-price" style="font-size: 2.5rem;">$10.00<span>/mo</span></div>
-                            
-                            <ul class="starter-box-specs">
-                                <li><strong>⚡ 8 GB RAM</strong></li>
-                                <li>🔥 4 vCPUs (AMD Ryzen 5 5600)</li>
-                                <li>💾 35 GB SSD NVMe</li>
-                                <li data-t="liDDoS">🛡️ DDoS Protection</li>
-                                <li data-t="liInstantSetup">🚀 Instant Setup</li>
-                            </ul>
-
-                            <button class="btn-plan btn-plan-filled starter-cta-btn" onclick="openLocationModal('minecraft','starter8gb','Starter VIP 8GB — $10.00/mo')" data-t="starterBuyCta">
-                                Get Starter Plan ($10.00/mo)
-                            </button>
-                        </div>
-                    </div>
-                </div>
+          <div class="starter-showcase-card">
+            <div class="starter-showcase-badge" data-t="starterShowcaseBadge">
+              ⭐ RECOMMENDED FOR BEGINNERS
             </div>
-        </div>
 
-        <!-- ── OTHER PLANS ────────────────────────────────────────── -->
-        <div class="section-header" style="margin-top: 30px; margin-bottom: 24px;">
-            <h3 class="section-title" style="font-size: 1.5rem;" data-t="otherPlansTitle">Or choose from our standard tiers</h3>
-            <p class="section-desc" data-t="otherPlansDesc">From lightweight friend servers to high-capacity networks for large communities.</p>
+            <div class="starter-showcase-content">
+              <div class="starter-showcase-left">
+                <h3
+                  class="starter-showcase-title"
+                  data-t="starterShowcaseTitle"
+                >
+                  Don't know how to start?
+                </h3>
+                <h4
+                  class="starter-showcase-subtitle"
+                  data-t="starterShowcaseWhy"
+                >
+                  Why choose the Starter Plan (8GB)?
+                </h4>
+                <p class="starter-showcase-desc" data-t="starterShowcaseDesc">
+                  If it's your first time creating a server or you want zero
+                  hassle, the <strong>Starter Plan</strong> is your best choice.
+                  With <strong>8 GB RAM</strong> your server runs buttery
+                  smooth, and our Staff team helps you configure everything
+                  step-by-step from day one!
+                </p>
+
+                <div class="starter-why-list">
+                  <div class="starter-why-item">
+                    <span class="starter-why-icon">🌟</span>
+                    <div>
+                      <strong data-t="starterWhy1Title"
+                        >VIP Staff Setup Assistance:</strong
+                      >
+                      <span data-t="starterWhy1Desc"
+                        >We assist you with initial configs, plugins, mods, and
+                        custom domain setup.</span
+                      >
+                    </div>
+                  </div>
+                  <div class="starter-why-item">
+                    <span class="starter-why-icon">⚡</span>
+                    <div>
+                      <strong data-t="starterWhy2Title"
+                        >8 GB RAM & 4 vCPUs (Ryzen 5 5600):</strong
+                      >
+                      <span data-t="starterWhy2Desc"
+                        >High-frequency AMD Ryzen 5 5600 to play with friends or
+                        launch your community lag-free.</span
+                      >
+                    </div>
+                  </div>
+                  <div class="starter-why-item">
+                    <span class="starter-why-icon">🛡️</span>
+                    <div>
+                      <strong data-t="starterWhy3Title"
+                        >All-in-One Package:</strong
+                      >
+                      <span data-t="starterWhy3Desc"
+                        >Pterodactyl panel, enterprise Anti-DDoS, and instant
+                        automated activation.</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="vip-info-trigger"
+                  onclick="openVipModal()"
+                  style="display: inline-flex"
+                  data-t="starterVipLink"
+                >
+                  What's included in VIP Help? ℹ️
+                </button>
+              </div>
+
+              <div class="starter-showcase-right">
+                <div class="starter-pricing-box">
+                  <img
+                    src="mc-starter.png"
+                    alt="Starter Plan"
+                    class="plan-img starter-showcase-img"
+                  />
+                  <div class="starter-box-name" data-t="starterTitle">
+                    Plan Starter VIP
+                  </div>
+                  <div class="plan-price" style="font-size: 2.5rem">
+                    $10.00<span>/mo</span>
+                  </div>
+
+                  <ul class="starter-box-specs">
+                    <li><strong>⚡ 8 GB RAM</strong></li>
+                    <li>🔥 4 vCPUs (AMD Ryzen 5 5600)</li>
+                    <li>💾 35 GB SSD NVMe</li>
+                    <li data-t="liDDoS">🛡️ DDoS Protection</li>
+                    <li data-t="liInstantSetup">🚀 Instant Setup</li>
+                  </ul>
+
+                  <button
+                    class="btn-plan btn-plan-filled starter-cta-btn"
+                    onclick="
+                      openLocationModal(
+                        'minecraft',
+                        'starter8gb',
+                        'Starter VIP 8GB — $10.00/mo',
+                      )
+                    "
+                    data-t="starterBuyCta"
+                  >
+                    Get Starter Plan ($10.00/mo)
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="section-header"
+          style="margin-top: 30px; margin-bottom: 24px"
+        >
+          <h3
+            class="section-title"
+            style="font-size: 1.5rem"
+            data-t="otherPlansTitle"
+          >
+            Or choose from our standard tiers
+          </h3>
+          <p class="section-desc" data-t="otherPlansDesc">
+            From lightweight friend servers to high-capacity networks for large
+            communities.
+          </p>
         </div>
 
         <div class="pricing-grid">
-            <!-- Vanguard -->
-            <div class="plan-card">
-                <img src="mc-plan1.png" alt="Vanguard Plan" class="plan-img">
-                <p class="plan-name">Vanguard</p>
-                <div class="plan-price">$5.50<span>/mo</span></div>
-                <p class="plan-desc">Perfect for small friends groups and vanilla servers.</p>
-                <ul class="plan-features">
-                    <li>4 GB RAM</li>
-                    <li>2 vCPU Cores</li>
-                    <li>10 GB SSD Storage</li>
-                    <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li class="unavailable" data-t="liCustomDomain">Custom Domain</li>
-                </ul>
-                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('minecraft','starter','Starter — $5.50/mo')" data-t="mcBuyBtn">Buy Now</button>
-            </div>
-            <!-- Invader -->
-            <div class="plan-card popular">
-                <span class="popular-badge">⭐ Popular</span>
-                <img src="mc-plan2.png" alt="Invader Plan" class="plan-img">
-                <p class="plan-name">Invader</p>
-                <div class="plan-price">$8.00<span>/mo</span></div>
-                <p class="plan-desc">Great for medium communities with plugins and mods.</p>
-                <ul class="plan-features">
-                    <li>6 GB RAM</li>
-                    <li>4 vCPU Cores</li>
-                    <li>25 GB SSD Storage</li>
-                    <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="liCustomDomain">Custom Domain</li>
-                </ul>
-                <button class="btn-plan btn-plan-filled" onclick="openLocationModal('minecraft','pro','Pro — $8.00/mo')" data-t="mcBuyBtn">Buy Now</button>
-            </div>
-            <!-- Astronaut -->
-            <div class="plan-card">
-                <img src="mc-plan3.png" alt="Astronaut Plan" class="plan-img">
-                <p class="plan-name">Astronaut</p>
-                <div class="plan-price">$12.00<span>/mo</span></div>
-                <p class="plan-desc">For large communities and heavy modpacks.</p>
-                <ul class="plan-features">
-                    <li>9 GB RAM</li>
-                    <li>5 vCPU Cores</li>
-                    <li>50 GB SSD Storage</li>
-                    <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="liCustomDomain">Custom Domain</li>
-                </ul>
-                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('minecraft','elite','Elite — $12.00/mo')" data-t="mcBuyBtn">Buy Now</button>
-            </div>
-            <!-- Scientist -->
-            <div class="plan-card">
-                <img src="mc-plan4.png" alt="Scientist Plan" class="plan-img">
-                <p class="plan-name">Scientist</p>
-                <div class="plan-price">$20.00<span>/mo</span></div>
-                <p class="plan-desc">Maximum power for networks and large-scale servers.</p>
-                <ul class="plan-features">
-                    <li>16 GB RAM</li>
-                    <li>8 vCPU Cores</li>
-                    <li>100 GB SSD Storage</li>
-                    <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
-                    <li data-t="liDDoS">DDoS Protection</li>
-                    <li data-t="liCustomDomain">Custom Domain</li>
-                </ul>
-                <button class="btn-plan btn-plan-outline" onclick="openLocationModal('minecraft','ultra','Scientist — $20.00/mo')" data-t="mcBuyBtn">Buy Now</button>
-            </div>
+          <div class="plan-card">
+            <img src="mc-plan1.png" alt="Vanguard Plan" class="plan-img" />
+            <p class="plan-name">Vanguard</p>
+            <div class="plan-price">$5.50<span>/mo</span></div>
+            <p class="plan-desc">
+              Perfect for small friends groups and vanilla servers.
+            </p>
+            <ul class="plan-features">
+              <li>4 GB RAM</li>
+              <li>2 vCPU Cores</li>
+              <li>10 GB SSD Storage</li>
+              <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li class="unavailable" data-t="liCustomDomain">Custom Domain</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-outline"
+              onclick="
+                openLocationModal('minecraft', 'starter', 'Starter — $5.50/mo')
+              "
+              data-t="mcBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
+          <div class="plan-card popular">
+            <span class="popular-badge">⭐ Popular</span>
+            <img src="mc-plan2.png" alt="Invader Plan" class="plan-img" />
+            <p class="plan-name">Invader</p>
+            <div class="plan-price">$8.00<span>/mo</span></div>
+            <p class="plan-desc">
+              Great for medium communities with plugins and mods.
+            </p>
+            <ul class="plan-features">
+              <li>6 GB RAM</li>
+              <li>4 vCPU Cores</li>
+              <li>25 GB SSD Storage</li>
+              <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li data-t="liCustomDomain">Custom Domain</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-filled"
+              onclick="openLocationModal('minecraft', 'pro', 'Pro — $8.00/mo')"
+              data-t="mcBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
+          <div class="plan-card">
+            <img src="mc-plan3.png" alt="Astronaut Plan" class="plan-img" />
+            <p class="plan-name">Astronaut</p>
+            <div class="plan-price">$12.00<span>/mo</span></div>
+            <p class="plan-desc">For large communities and heavy modpacks.</p>
+            <ul class="plan-features">
+              <li>9 GB RAM</li>
+              <li>5 vCPU Cores</li>
+              <li>50 GB SSD Storage</li>
+              <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li data-t="liCustomDomain">Custom Domain</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-outline"
+              onclick="
+                openLocationModal('minecraft', 'elite', 'Elite — $12.00/mo')
+              "
+              data-t="mcBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
+          <div class="plan-card">
+            <img src="mc-plan4.png" alt="Scientist Plan" class="plan-img" />
+            <p class="plan-name">Scientist</p>
+            <div class="plan-price">$20.00<span>/mo</span></div>
+            <p class="plan-desc">
+              Maximum power for networks and large-scale servers.
+            </p>
+            <ul class="plan-features">
+              <li>16 GB RAM</li>
+              <li>8 vCPU Cores</li>
+              <li>100 GB SSD Storage</li>
+              <li data-t="liUnlimitedBW">Unlimited Bandwidth</li>
+              <li data-t="liDDoS">DDoS Protection</li>
+              <li data-t="liCustomDomain">Custom Domain</li>
+            </ul>
+            <button
+              class="btn-plan btn-plan-outline"
+              onclick="
+                openLocationModal('minecraft', 'ultra', 'Scientist — $20.00/mo')
+              "
+              data-t="mcBuyBtn"
+            >
+              Buy Now
+            </button>
+          </div>
         </div>
-    </section>
-
-
-    <!-- ── FAQ ──────────────────────────────────────────────────── -->
-    <section id="faq">
+      </section>
+      <section id="faq">
         <div class="section-header">
-            <p class="section-overline" data-t="faqOverline">FAQ</p>
-            <h2 class="section-title" data-t="faqTitle">Frequently Asked Questions</h2>
+          <p class="section-overline" data-t="faqOverline">FAQ</p>
+          <h2 class="section-title" data-t="faqTitle">
+            Frequently Asked Questions
+          </h2>
         </div>
         <div class="faq-list">
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span data-t="faqQ1">How do I transfer my server from another host?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner" data-t="faqA1">It's very simple. Once you purchase your plan, open a ticket on our Discord and our staff will help you migrate your worlds, plugins, and configurations completely free of charge.</div>
-                </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span data-t="faqQ1"
+                >How do I transfer my server from another host?</span
+              >
+              <svg
+                class="faq-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner" data-t="faqA1">
+                It's very simple. Once you purchase your plan, open a ticket on
+                our Discord and our staff will help you migrate your worlds,
+                plugins, and configurations completely free of charge.
+              </div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span data-t="faqQ2">Do you accept PayPal?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner" data-t="faqA2">Yes! We accept PayPal, credit cards, and debit cards through our secure payment platform. Use code <strong>SLC</strong> for 30% OFF on your first purchase.</div>
-                </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span data-t="faqQ2">Do you accept PayPal?</span>
+              <svg
+                class="faq-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner" data-t="faqA2">
+                Yes! We accept PayPal, credit cards, and debit cards through our
+                secure payment platform. Use code <strong>SLC</strong> for 30%
+                OFF on your first purchase.
+              </div>
             </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span data-t="faqQ3">What is Solar AI?</span>
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                </button>
-                <div class="faq-answer">
-                    <div class="faq-answer-inner" data-t="faqA3">Solar AI is our exclusive artificial intelligence assistant that analyzes your server console crashes and errors in real time, providing instant solutions in just 1 second. It's available 24/7 on our website.</div>
-                </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <span data-t="faqQ3">What is Solar AI?</span>
+              <svg
+                class="faq-chevron"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner" data-t="faqA3">
+                Solar AI is our exclusive artificial intelligence assistant that
+                analyzes your server console crashes and errors in real time,
+                providing instant solutions in just 1 second. It's available
+                24/7 on our website.
+              </div>
             </div>
+          </div>
         </div>
-    </section>
-
-    <!-- ── COMMUNITY BANNER ────────────────────────────────────── -->
-    <div class="community-banner">
+      </section>
+      <div class="community-banner">
         <h3 data-t="communityTitle">Join the Community</h3>
-        <p data-t="communityDesc">Connect with other server owners, get support, and stay updated.</p>
+        <p data-t="communityDesc">
+          Connect with other server owners, get support, and stay updated.
+        </p>
         <div class="community-links">
-            <a href="https://discord.gg/solarcloud" target="_blank" class="community-link discord">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.175 13.175 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"/></svg>
-                <span data-t="communityDiscord">Join Discord</span>
-            </a>
-            <a href="https://www.tiktok.com/@solarcloudrl" target="_blank" class="community-link tiktok">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.94a8.27 8.27 0 0 0 4.76 1.5V7a4.84 4.84 0 0 1-1-.31z"/></svg>
-                <span data-t="communityTiktok">Follow on TikTok</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- ── FOOTER ──────────────────────────────────────────────── -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="/" class="nav-logo">
-                    <div class="nav-logo-icon">☀️</div>
-                    <span class="nav-logo-text">Solar Cloud</span>
-                </a>
-                <p data-t="footerDesc">High-performance hosting for gamers and developers. Powered by Solar Cloud.</p>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerServices">Services</h5>
-                <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
-                <a href="/bots" data-t="navBots">Bots & Web</a>
-                <a href="/vps" data-t="navVPS">VPS</a>
-                <a href="/custom" data-t="navCustom">Custom Plans</a>
-            <a href="/status" data-t="navStatus">Status</a>
-                <a href="/status">Network Status</a>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerLegal">Legal</h5>
-                <a href="/terminos" data-t="navTerms">Terms of Service</a>
-                <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
-                <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerContact">Contact</h5>
-                <a href="mailto:solarhostingss@gmail.com">solarhostingss@gmail.com</a>
-                <span style="display:block; color:var(--text-muted); font-size:0.85rem; margin-top:12px;" data-t="footerHours">Hours: 10:00 - 22:00</span>
-                <span style="display:block; color:var(--accent); font-size:0.85rem; margin-top:4px; font-weight:600;" data-t="footerHoursAI">AI Support: 24/7</span>
-            </div>
-            <div class="footer-col">
-                <h5 data-t="footerCommunity">Community</h5>
-                <a href="https://discord.gg/solarcloud" target="_blank">Discord</a>
-                <a href="https://www.tiktok.com/@solarcloudrl" target="_blank">TikTok</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span data-t="footerCopy">© 2026 Solar Cloud. All rights reserved.</span>
-            <span>Made with ☀️ by Solar Cloud</span>
-        </div>
-    </footer>
-
-    <!-- ── LOCATION MODAL ─────────────────────────────────────── -->
-    <div class="modal-overlay" id="locationModal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeLocationModal()">✕</button>
-            <div class="modal-icon">🌍</div>
-            <h2 data-t="modalTitle">Choose Your Location</h2>
-            <p class="modal-sub" data-t="modalSub">Select the data center closest to your players for the best performance.</p>
-            <div class="modal-plan-info" id="modalPlanInfo"></div>
-            
-            <div class="checkout-notices" style="margin-bottom: 15px; font-size: 0.85rem; text-align: center; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                <div style="color: var(--primary); font-weight: bold; margin-bottom: 4px;">
-                    🎉 <span data-t="modalDiscount">Use code <strong>SLC</strong> for 30% OFF at checkout!</span>
-                </div>
-                <div style="color: var(--text-secondary);">
-                    💳 <span data-t="modalPaypal">Accepting PayPal, Credit & Debit Cards.</span>
-                </div>
-            </div>
-
-            <div class="terms-checkbox-container" style="margin: 0 0 20px 0; text-align: left; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
-                    <input type="checkbox" id="agreeTerms" style="width: 18px; height: 18px; accent-color: var(--primary);">
-                    <span style="font-size: 0.9rem; color: var(--text-secondary);" data-t="modalTermsText">He leído y acepto los <a href="/terminos" target="_blank" style="color: var(--primary);">Términos y Condiciones</a>.</span>
-                </label>
-            </div>
-            <div class="location-grid">
-
-                <button class="location-btn" onclick="selectLocation('canada')">
-                    <span class="location-flag">🇨🇦</span>
-                    <span class="location-name" data-t="modalCanada">Canada</span>
-                    <span class="location-city" data-t="modalCaCity">Montréal</span>
-                    <span class="location-price" style="color: #f59e0b;" data-t="modalLowStock">Low Stock</span>
-                </button>
-                <button class="location-btn" onclick="selectLocation('usa')">
-                    <span class="location-flag">🇺🇸</span>
-                    <span class="location-name" data-t="modalUSA">USA</span>
-                    <span class="location-city" data-t="modalUSCity">New York</span>
-                    <span class="location-price">+$1.00</span>
-                </button>
-                <button class="location-btn" onclick="selectLocation('colombia')">
-                    <span class="location-flag">🇨🇴</span>
-                    <span class="location-name" data-t="modalCol">Colombia</span>
-                    <span class="location-city" data-t="modalCoCity">Bogotá</span>
-                    <span class="location-price" style="color: #f59e0b;" data-t="modalLowStock">Low Stock</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ── VIP HELP MODAL ──────────────────────────────────────── -->
-    <div class="vip-modal-overlay" id="vipModal">
-        <div class="vip-modal">
-            <button class="vip-modal-close" onclick="closeVipModal()">✕</button>
-            <div class="vip-modal-header">
-                <div class="vip-modal-icon">🌟</div>
-                <h3 class="vip-modal-title" data-t="vipModalTitle">VIP Staff Setup Assistance</h3>
-                <p class="vip-modal-sub" data-t="vipModalSub">We don't just give you a server; our team helps you set it up from scratch.</p>
-            </div>
-            <ul class="vip-perks-list">
-                <li class="vip-perk-item">
-                    <div class="vip-perk-icon">📦</div>
-                    <div class="vip-perk-content">
-                        <h5 data-t="vipPerk1Title">Pre-configured Templates</h5>
-                        <p data-t="vipPerk1Desc">Get ready-to-play optimized configurations for Paper, Purpur, BoxPvP or Survival.</p>
-                    </div>
-                </li>
-                <li class="vip-perk-item">
-                    <div class="vip-perk-icon">📚</div>
-                    <div class="vip-perk-content">
-                        <h5 data-t="vipPerk2Title">Exclusive Step-by-Step Guides</h5>
-                        <p data-t="vipPerk2Desc">Easy tutorials for installing plugins, world generation, subdomain connection, and lag optimization.</p>
-                    </div>
-                </li>
-                <li class="vip-perk-item">
-                    <div class="vip-perk-icon">💬</div>
-                    <div class="vip-perk-content">
-                        <h5 data-t="vipPerk3Title">Priority 1-on-1 Discord Help</h5>
-                        <p data-t="vipPerk3Desc">Direct priority assistance from our Senior Staff team in Discord for first-time server owners.</p>
-                    </div>
-                </li>
-            </ul>
-            <a href="https://discord.gg/solarcloud" target="_blank" class="btn-primary" style="width: 100%; text-align: center; display: block; text-decoration: none;">Join Discord Community</a>
-        </div>
-    </div>
-
-        <!-- ── SOLAR CLOUD AI ASSISTANT CHATBOT ───────────────────── -->
-    <div id="solar-sc-assistant-container">
-        <div id="solar-sc-assistant-window">
-            <div class="sc-assistant-header">
-                <div class="sc-assistant-title-container">
-                    <div class="sc-assistant-avatar">☀️</div>
-                    <div>
-                        <h3 class="sc-assistant-title">Solar AI</h3>
-                        <div class="sc-assistant-status">Online</div>
-                    </div>
-                </div>
-                <button class="sc-assistant-close-btn" onclick="toggleAssistantChat()">&times;</button>
-            </div>
-            <div class="sc-assistant-messages" id="sc-assistant-messages">
-                <div class="sc-assistant-msg bot">
-                    <p>¡Hola! Soy Solar AI, tu asistente virtual. ¿En qué te puedo ayudar hoy? 🚀</p>
-                </div>
-            </div>
-            <div class="sc-assistant-typing" id="sc-assistant-typing">Solar AI está escribiendo...</div>
-            <div class="sc-assistant-input-area">
-                <input type="text" id="sc-assistant-input" class="sc-assistant-input" placeholder="Escribe tu mensaje..." autocomplete="off">
-                <button id="sc-assistant-send-btn" class="sc-assistant-send-btn" aria-label="Enviar">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <button id="solar-sc-assistant-btn" aria-label="Open Chat" onclick="toggleAssistantChat()">
-            <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
-                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+          <a
+            href="https://discord.gg/solarcloud"
+            target="_blank"
+            class="community-link discord"
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+              <path
+                d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 0 0-5.487 0 12.36 12.36 0 0 0-.617-1.23A.077.077 0 0 0 8.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 0 0-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 0 0 .031.055 20.03 20.03 0 0 0 5.993 2.98.078.078 0 0 0 .084-.026 13.83 13.83 0 0 0 1.226-1.963.074.074 0 0 0-.041-.104 13.175 13.175 0 0 1-1.872-.878.075.075 0 0 1-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 0 1 .078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 0 1 .079.009c.12.098.245.195.372.288a.075.075 0 0 1-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 0 0-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 0 0 .084.028 19.963 19.963 0 0 0 6.002-2.981.076.076 0 0 0 .032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 0 0-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"
+              />
             </svg>
-        </button>
+            <span data-t="communityDiscord">Join Discord</span>
+          </a>
+          <a
+            href="https://www.tiktok.com/@solarcloudrl"
+            target="_blank"
+            class="community-link tiktok"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path
+                d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.94a8.27 8.27 0 0 0 4.76 1.5V7a4.84 4.84 0 0 1-1-.31z"
+              />
+            </svg>
+            <span data-t="communityTiktok">Follow on TikTok</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo">
+            <div class="nav-logo-icon">☀️</div>
+            <span class="nav-logo-text">Solar Cloud</span>
+          </a>
+          <p data-t="footerDesc">
+            High-performance hosting for gamers and developers. Powered by Solar
+            Cloud.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerServices">Services</h5>
+          <a href="/minecraft" data-t="navMinecraft">Minecraft</a>
+          <a href="/bots" data-t="navBots">Bots & Web</a>
+          <a href="/vps" data-t="navVPS">VPS</a>
+          <a href="/custom" data-t="navCustom">Custom Plans</a>
+          <a href="/status" data-t="navStatus">Status</a>
+          <a href="/status">Network Status</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerLegal">Legal</h5>
+          <a href="/terminos" data-t="navTerms">Terms of Service</a>
+          <a href="/privacidad" data-t="navPrivacy">Privacy Policy</a>
+          <a href="/reembolsos" data-t="navRefunds">Refund Policy</a>
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerContact">Contact</h5>
+          <a href="mailto:solarhostingss@gmail.com">solarhostingss@gmail.com</a>
+          <span
+            style="
+              display: block;
+              color: var(--text-muted);
+              font-size: 0.85rem;
+              margin-top: 12px;
+            "
+            data-t="footerHours"
+            >Hours: 10:00 - 22:00</span
+          >
+          <span
+            style="
+              display: block;
+              color: var(--accent);
+              font-size: 0.85rem;
+              margin-top: 4px;
+              font-weight: 600;
+            "
+            data-t="footerHoursAI"
+            >AI Support: 24/7</span
+          >
+        </div>
+        <div class="footer-col">
+          <h5 data-t="footerCommunity">Community</h5>
+          <a href="https://discord.gg/solarcloud" target="_blank">Discord</a>
+          <a href="https://www.tiktok.com/@solarcloudrl" target="_blank"
+            >TikTok</a
+          >
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-t="footerCopy"
+          >© 2026 Solar Cloud. All rights reserved.</span
+        >
+        <span>Made with ☀️ by Solar Cloud</span>
+      </div>
+    </footer>
+    <div class="modal-overlay" id="locationModal">
+      <div class="modal">
+        <button class="modal-close" onclick="closeLocationModal()">✕</button>
+        <div class="modal-icon">🌍</div>
+        <h2 data-t="modalTitle">Choose Your Location</h2>
+        <p class="modal-sub" data-t="modalSub">
+          Select the data center closest to your players for the best
+          performance.
+        </p>
+        <div class="modal-plan-info" id="modalPlanInfo"></div>
+
+        <div
+          class="checkout-notices"
+          style="
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <div
+            style="color: var(--primary); font-weight: bold; margin-bottom: 4px"
+          >
+            🎉
+            <span data-t="modalDiscount"
+              >Use code <strong>SLC</strong> for 30% OFF at checkout!</span
+            >
+          </div>
+          <div style="color: var(--text-secondary)">
+            💳
+            <span data-t="modalPaypal"
+              >Accepting PayPal, Credit & Debit Cards.</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="terms-checkbox-container"
+          style="
+            margin: 0 0 20px 0;
+            text-align: left;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+          "
+        >
+          <label
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              cursor: pointer;
+            "
+          >
+            <input
+              type="checkbox"
+              id="agreeTerms"
+              style="width: 18px; height: 18px; accent-color: var(--primary)"
+            />
+            <span
+              style="font-size: 0.9rem; color: var(--text-secondary)"
+              data-t="modalTermsText"
+              >He leído y acepto los
+              <a href="/terminos" target="_blank" style="color: var(--primary)"
+                >Términos y Condiciones</a
+              >.</span
+            >
+          </label>
+        </div>
+        <div class="location-grid">
+          <button class="location-btn" onclick="selectLocation('canada')">
+            <span class="location-flag">🇨🇦</span>
+            <span class="location-name" data-t="modalCanada">Canada</span>
+            <span class="location-city" data-t="modalCaCity">Montréal</span>
+            <span
+              class="location-price"
+              style="color: #f59e0b"
+              data-t="modalLowStock"
+              >Low Stock</span
+            >
+          </button>
+          <button class="location-btn" onclick="selectLocation('usa')">
+            <span class="location-flag">🇺🇸</span>
+            <span class="location-name" data-t="modalUSA">USA</span>
+            <span class="location-city" data-t="modalUSCity">New York</span>
+            <span class="location-price">+$1.00</span>
+          </button>
+          <button class="location-btn" onclick="selectLocation('colombia')">
+            <span class="location-flag">🇨🇴</span>
+            <span class="location-name" data-t="modalCol">Colombia</span>
+            <span class="location-city" data-t="modalCoCity">Bogotá</span>
+            <span
+              class="location-price"
+              style="color: #f59e0b"
+              data-t="modalLowStock"
+              >Low Stock</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="vip-modal-overlay" id="vipModal">
+      <div class="vip-modal">
+        <button class="vip-modal-close" onclick="closeVipModal()">✕</button>
+        <div class="vip-modal-header">
+          <div class="vip-modal-icon">🌟</div>
+          <h3 class="vip-modal-title" data-t="vipModalTitle">
+            VIP Staff Setup Assistance
+          </h3>
+          <p class="vip-modal-sub" data-t="vipModalSub">
+            We don't just give you a server; our team helps you set it up from
+            scratch.
+          </p>
+        </div>
+        <ul class="vip-perks-list">
+          <li class="vip-perk-item">
+            <div class="vip-perk-icon">📦</div>
+            <div class="vip-perk-content">
+              <h5 data-t="vipPerk1Title">Pre-configured Templates</h5>
+              <p data-t="vipPerk1Desc">
+                Get ready-to-play optimized configurations for Paper, Purpur,
+                BoxPvP or Survival.
+              </p>
+            </div>
+          </li>
+          <li class="vip-perk-item">
+            <div class="vip-perk-icon">📚</div>
+            <div class="vip-perk-content">
+              <h5 data-t="vipPerk2Title">Exclusive Step-by-Step Guides</h5>
+              <p data-t="vipPerk2Desc">
+                Easy tutorials for installing plugins, world generation,
+                subdomain connection, and lag optimization.
+              </p>
+            </div>
+          </li>
+          <li class="vip-perk-item">
+            <div class="vip-perk-icon">💬</div>
+            <div class="vip-perk-content">
+              <h5 data-t="vipPerk3Title">Priority 1-on-1 Discord Help</h5>
+              <p data-t="vipPerk3Desc">
+                Direct priority assistance from our Senior Staff team in Discord
+                for first-time server owners.
+              </p>
+            </div>
+          </li>
+        </ul>
+        <a
+          href="https://discord.gg/solarcloud"
+          target="_blank"
+          class="btn-primary"
+          style="
+            width: 100%;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+          "
+          >Join Discord Community</a
+        >
+      </div>
+    </div>
+    <div id="solar-sc-assistant-container">
+      <div id="solar-sc-assistant-window">
+        <div class="sc-assistant-header">
+          <div class="sc-assistant-title-container">
+            <div class="sc-assistant-avatar">☀️</div>
+            <div>
+              <h3 class="sc-assistant-title">Solar AI</h3>
+              <div class="sc-assistant-status">Online</div>
+            </div>
+          </div>
+          <button
+            class="sc-assistant-close-btn"
+            onclick="toggleAssistantChat()"
+          >
+            &times;
+          </button>
+        </div>
+        <div class="sc-assistant-messages" id="sc-assistant-messages">
+          <div class="sc-assistant-msg bot">
+            <p>
+              ¡Hola! Soy Solar AI, tu asistente virtual. ¿En qué te puedo ayudar
+              hoy? 🚀
+            </p>
+          </div>
+        </div>
+        <div class="sc-assistant-typing" id="sc-assistant-typing">
+          Solar AI está escribiendo...
+        </div>
+        <div class="sc-assistant-input-area">
+          <input
+            type="text"
+            id="sc-assistant-input"
+            class="sc-assistant-input"
+            placeholder="Escribe tu mensaje..."
+            autocomplete="off"
+          />
+          <button
+            id="sc-assistant-send-btn"
+            class="sc-assistant-send-btn"
+            aria-label="Enviar"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <button
+        id="solar-sc-assistant-btn"
+        aria-label="Open Chat"
+        onclick="toggleAssistantChat()"
+      >
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+          <path
+            d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+          />
+        </svg>
+      </button>
     </div>
 
     <script src="config.js"></script>
     <script src="script.js?v=chat4"></script>
-</body>
+  </body>
 </html>
