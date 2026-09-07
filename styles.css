@@ -204,7 +204,7 @@ body {
     border-radius: 4px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    
     transition: transform 0.2s, border-color 0.2s;
 }
 .plan-card:hover {
@@ -217,7 +217,7 @@ body {
 }
 .premium-badge {
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: -10px; left: 50%; transform: translateX(-50%); width: max-content; border-radius: 4px;
     background: var(--naranja-energia);
     color: var(--texto-blanco);
     text-align: center;
@@ -228,8 +228,9 @@ body {
 }
 .plan-img {
     width: 100%;
-    height: 140px;
-    object-fit: cover;
+    height: 160px;
+    object-fit: contain;
+    padding: 1rem;
     filter: grayscale(100%);
     border-bottom: 1px solid var(--borde-tecnico);
     transition: filter 0.3s;
@@ -281,7 +282,7 @@ body {
     border: 1px solid var(--borde-tecnico);
     margin-bottom: 1rem;
     border-radius: 4px;
-    overflow: hidden;
+    
 }
 .faq-trigger {
     width: 100%;
