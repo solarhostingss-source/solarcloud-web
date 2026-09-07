@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <meta name="description" content="Solar Cloud - Hosting de Minecraft y Bots de Alto Rendimiento. Infraestructura física (bare-metal) con latencia ultra-baja en Colombia y USA. Protección Anti-DDoS y SSD NVMe.">
+    <meta name="keywords" content="hosting minecraft colombia, hosting minecraft usa, servidores de minecraft baratos, vps, bots hosting, nodejs, python">
+    <meta property="og:title" content="Solar Cloud | Data Center Infrastructure">
+    <meta property="og:description" content="Rendimiento brutal y latencia ultra-baja para servidores de Minecraft y Bots.">
+    <meta property="og:image" content="https://solarcloud.lat/og-image.png">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2309090b' /%3E%3Crect x='25' y='25' width='50' height='50' fill='%23FFB800' /%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -207,14 +212,41 @@
         </section>
         
         <!-- FOOTER -->
-                <footer class="footer">
-            <div style="display:flex; justify-content:center; gap:2rem; margin-bottom:1rem;">
-                <a href="https://discord.gg/solarcloud" target="_blank" style="color:var(--amarillo-solar); text-decoration:none; font-weight:bold;">ÚNETE AL DISCORD</a>
-                <a href="mailto:support@solarcloud.lat" style="color:var(--amarillo-solar); text-decoration:none; font-weight:bold;">SOPORTE TÉCNICO</a>
+        <footer class="footer">
+            <div class="footer-links" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+                <a href="terminos.html" class="nav-support">Términos de Servicio</a>
+                <a href="privacidad.html" class="nav-support">Política de Privacidad</a>
+                <a href="reembolsos.html" class="nav-support">Política de Reembolsos</a>
             </div>
-            <p>COPYRIGHT &copy; 2026 SOLAR CLOUD</p>
-            <p style="margin-top: 0.5rem; color: var(--texto-gris); font-size: 0.85rem;">HOSTING DE ALTO RENDIMIENTO</p>
+            <p>COPYRIGHT &copy; 2026 SOLAR CLOUD INFRASTRUCTURE</p>
+            <p style="margin-top: 0.5rem; color: var(--texto-gris); font-size: 0.85rem;">SOPORTE TÉCNICO: <a href="mailto:support@solarcloud.lat" style="color:var(--amarillo-solar); text-decoration:none;">support@solarcloud.lat</a></p>
         </footer>
+    </div>
+
+    <!-- COOKIE TERMINAL -->
+    <div id="cookie-banner" class="cookie-terminal">
+        <div class="cookie-header">
+            <span>root@solarcloud:~# ./load_cookies.sh</span>
+            <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background:transparent; border:none; color:var(--bg-base); cursor:pointer; font-weight:bold;">[X]</button>
+        </div>
+        <div class="cookie-body">
+            > ATENCIÓN: Este sistema utiliza cookies estrictamente necesarias para la sesión y telemetría de red. <br>
+            > ¿Confirmar escritura en el disco local?
+        </div>
+        <div class="cookie-actions">
+            <button class="btn-cookie accept" onclick="document.getElementById('cookie-banner').style.display='none'">[Y] ACCEPT</button>
+            <button class="btn-cookie reject" onclick="document.getElementById('cookie-banner').style.display='none'">[N] REJECT</button>
+        </div>
+    </div>
+
+    <!-- 3D CONTACT DOCK -->
+    <div class="contact-dock">
+        <a href="https://discord.gg/solarcloud" target="_blank" class="mech-key">
+            <span class="key-face">DSCRD</span>
+        </a>
+        <a href="mailto:support@solarcloud.lat" class="mech-key">
+            <span class="key-face">EMAIL</span>
+        </a>
     </div>
 
     <script src="script.js"></script>
