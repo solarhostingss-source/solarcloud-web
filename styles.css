@@ -20,7 +20,10 @@ body {
     background-color: var(--bg-base);
     color: var(--texto-blanco);
     font-family: 'Outfit', sans-serif;
-    background-image: radial-gradient(circle at top center, rgba(255, 184, 0, 0.08) 0%, transparent 40%);
+    background: 
+        radial-gradient(circle at top center, rgba(255, 184, 0, 0.15) 0%, rgba(9, 9, 11, 0.85) 60%, rgba(9, 9, 11, 1) 100%),
+        url('hero_bg.png') center top / cover no-repeat;
+    background-attachment: fixed;
     line-height: 1.6;
 }
 
