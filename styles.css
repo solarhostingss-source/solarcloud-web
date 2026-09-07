@@ -384,3 +384,22 @@ h1, h2, h3 {
   .navbar { flex-direction: column; gap: 1rem; padding: 1rem; }
   .ping-controls { flex-direction: column; }
 }
+
+/* Plan Images Brutalist Style */
+.plan-img {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 1rem;
+  filter: grayscale(80%) contrast(120%);
+  transition: filter 0.2s;
+}
+.plan-card:hover .plan-img {
+  filter: grayscale(0%) contrast(100%);
+  border-bottom-color: var(--solar-orange);
+}
+.plan-card.highlight:hover .plan-img {
+  border-bottom-color: var(--solar-yellow);
+}
