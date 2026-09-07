@@ -1,203 +1,152 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Solar Cloud | Data Center Infrastructure</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0b0e' /%3E%3Crect x='25' y='25' width='50' height='50' fill='%23facc15' /%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Cloud | Hosting de Alto Rendimiento</title>
+    <!-- Importamos fuentes premium: Outfit para títulos y JetBrains Mono para código -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  
-  <nav class="navbar">
-    <div class="nav-brand">SOLAR_CLOUD <span>v2.0</span></div>
-    <div class="nav-links">
-      <a href="#plans">/PLANES</a>
-      <a href="#ping">/NETWORK</a>
-      <a href="#faq">/FAQ</a>
-    </div>
-    <div class="nav-status">
-      <div class="status-indicator"></div>
-      <span>SYSTEM: ONLINE</span>
-    </div>
-  </nav>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="sys-status">[ ACCESS GRANTED // NODE: MAIN ]</div>
-        <h1>BARE-METAL<br>PERFORMANCE</h1>
-        <p>Infraestructura brutalista para servidores de alto rendimiento. Latencia ultra-baja en Bogotá y Miami. Cero adornos, puro poder de procesamiento.</p>
-        <div class="hero-actions">
-          <a href="#plans" class="btn-primary">INITIATE_DEPLOYMENT</a>
+    <nav class="navbar">
+        <div class="nav-brand">SOLAR_CLOUD</div>
+        <div class="nav-links">
+            <a href="#planes">/PLANES</a>
+            <a href="#ping">/NETWORK</a>
+            <a href="#faq">/FAQ</a>
         </div>
-      </div>
-    </section>
+        <a href="mailto:support@solarcloud.lat" class="nav-support">support@solarcloud.lat</a>
+    </nav>
 
-    <section id="ping" class="ping-section">
-      <div class="section-wrapper">
-        <div class="section-header">
-          <h2>> NETWORK_DIAGNOSTICS</h2>
-          <p>Verifique la latencia en tiempo real hacia nuestros nodos de procesamiento principales.</p>
-        </div>
+    <div class="container">
+        <!-- HEADER / HERO -->
+        <header class="hero">
+            <div class="network-status">
+                <div class="status-dot"></div>
+                SISTEMAS OPERACIONALES - BOGOTÁ Y USA
+            </div>
+            <h1>Potencia <span>Solar</span><br>Rendimiento Brutal</h1>
+            <p>Infraestructura de hosting físico para Minecraft. Menos de 15ms de latencia en Colombia. Sin intermediarios, sin excusas.</p>
+            <a href="#planes" class="btn-primary">Desplegar Servidor</a>
+        </header>
+
+        <!-- PING TEST -->
+        <section id="ping" class="ping-section">
+            <div class="console-header">
+                root@solarcloud:~# ./ping_test_nodes.sh
+                <div class="ping-controls">
+                    <button class="btn-ping" onclick="runPing('Colombia', 'node.solarcloud.lat')">PING [BOGOTÁ]</button>
+                    <button class="btn-ping" onclick="runPing('USA', 'node3.solarcloud.lat')">PING [MIAMI]</button>
+                </div>
+            </div>
+            <div id="terminal-output" class="console-body">> Iniciando diagnóstico de red...
+> Esperando comando...</div>
+        </section>
+
+        <!-- PLANES -->
+        <section id="planes" class="planes-section">
+            <h2 class="section-title">NUESTROS PLANES</h2>
+            
+            <div class="plans-grid">
+                <!-- Vanguard -->
+                <div class="plan-card">
+                    <img src="mc-plan1.png" alt="Vanguard" class="plan-img">
+                    <div class="plan-content">
+                        <h3>VANGUARD <span class="plan-tag">#01</span></h3>
+                        <div class="price">$5.50 <span>/mo</span></div>
+                        <ul class="plan-specs">
+                            <li>> CPU: 2 vCores</li>
+                            <li>> RAM: 4 GB DDR4</li>
+                            <li>> DISK: 10 GB NVMe</li>
+                        </ul>
+                        <a href="https://billing.solarcloud.lat/paquete-vanguard" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
+                    </div>
+                </div>
+
+                <!-- Invader -->
+                <div class="plan-card">
+                    <img src="mc-plan2.png" alt="Invader" class="plan-img">
+                    <div class="plan-content">
+                        <h3>INVADER <span class="plan-tag">#02</span></h3>
+                        <div class="price">$8.00 <span>/mo</span></div>
+                        <ul class="plan-specs">
+                            <li>> CPU: 4 vCores</li>
+                            <li>> RAM: 6 GB DDR4</li>
+                            <li>> DISK: 25 GB NVMe</li>
+                        </ul>
+                        <a href="https://billing.solarcloud.lat/paquete-invader" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
+                    </div>
+                </div>
+
+                <!-- Starter -->
+                <div class="plan-card premium-card">
+                    <div class="premium-badge">RECOMENDADO</div>
+                    <img src="mc-starter.png" alt="Starter" class="plan-img">
+                    <div class="plan-content">
+                        <h3>STARTER <span class="plan-tag">#03</span></h3>
+                        <div class="price">$10.00 <span>/mo</span></div>
+                        <ul class="plan-specs">
+                            <li>> CPU: 4 vCores</li>
+                            <li>> RAM: 8 GB DDR4</li>
+                            <li>> DISK: 35 GB NVMe</li>
+                        </ul>
+                        <a href="https://billing.solarcloud.lat/paquete-starter" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
+                    </div>
+                </div>
+
+                <!-- Astronaut -->
+                <div class="plan-card">
+                    <img src="mc-plan3.png" alt="Astronaut" class="plan-img">
+                    <div class="plan-content">
+                        <h3>ASTRONAUT <span class="plan-tag">#04</span></h3>
+                        <div class="price">$12.00 <span>/mo</span></div>
+                        <ul class="plan-specs">
+                            <li>> CPU: 5 vCores</li>
+                            <li>> RAM: 9 GB DDR4</li>
+                            <li>> DISK: 50 GB NVMe</li>
+                        </ul>
+                        <a href="https://billing.solarcloud.lat/paquete-astronaut" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="faq-section">
+            <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
+            <div class="accordion">
+                <div class="faq-item">
+                    <button class="faq-trigger">¿Dónde están ubicados los servidores?</button>
+                    <div class="faq-content">
+                        Tenemos nodos físicos en Bogotá (Colombia) asegurando menos de 15ms para toda Colombia, y en Miami (USA) para excelente conectividad en toda LATAM.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger">¿Tienen protección Anti-DDoS?</button>
+                    <div class="faq-content">
+                        Sí, todos los planes incluyen mitigación Layer 3/4 y Layer 7 en tiempo real sin costo adicional.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-trigger">¿Cuánto tarda la activación?</button>
+                    <div class="faq-content">
+                        Es totalmente automática. En cuanto realizas el pago en billing.solarcloud.lat, tu servidor se instala y puedes entrar a administrarlo.
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <div class="ping-container">
-          <div class="ping-controls">
-            <button class="btn-terminal" onclick="runPing('Colombia', 'node.solarcloud.lat')">EXEC: PING [BOGOTÁ]</button>
-            <button class="btn-terminal" onclick="runPing('USA', 'node3.solarcloud.lat')">EXEC: PING [MIAMI]</button>
-          </div>
-          
-          <div class="terminal">
-            <div class="terminal-bar">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-              <span class="terminal-title">bash - root@solarcloud</span>
-            </div>
-            <div id="terminal-output" class="terminal-body">
-              <span class="prompt">root@solarcloud:~#</span> Esperando comando...
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="plans" class="plans-section">
-      <div class="section-wrapper">
-        <div class="section-header">
-          <h2>> AVAILABLE_INSTANCES</h2>
-          <p>Seleccione su infraestructura. Despliegue automatizado en 60 segundos.</p>
-        </div>
-
-        <div class="plans-grid">
-          <!-- Vanguard -->
-          <div class="plan-card">
-            <div class="plan-img-container">
-              <img src="mc-plan1.png" alt="Vanguard Image" class="plan-img">
-              <div class="plan-overlay">#01-CO/US</div>
-            </div>
-            <div class="plan-content">
-              <h3>VANGUARD</h3>
-              <div class="price">$5.50 <span>/mo</span></div>
-              <ul class="plan-specs">
-                <li><span>CPU</span> 2 vCores AMD Ryzen</li>
-                <li><span>RAM</span> 4 GB DDR4</li>
-                <li><span>SSD</span> 10 GB NVMe Gen4</li>
-                <li><span>NET</span> 1 Gbps Port</li>
-              </ul>
-              <a href="https://billing.solarcloud.lat/paquete-vanguard" class="btn-deploy">DEPLOY INSTANCE</a>
-            </div>
-          </div>
-
-          <!-- Invader -->
-          <div class="plan-card">
-            <div class="plan-img-container">
-              <img src="mc-plan2.png" alt="Invader Image" class="plan-img">
-              <div class="plan-overlay">#02-CO/US</div>
-            </div>
-            <div class="plan-content">
-              <h3>INVADER</h3>
-              <div class="price">$8.00 <span>/mo</span></div>
-              <ul class="plan-specs">
-                <li><span>CPU</span> 4 vCores AMD Ryzen</li>
-                <li><span>RAM</span> 6 GB DDR4</li>
-                <li><span>SSD</span> 25 GB NVMe Gen4</li>
-                <li><span>NET</span> 1 Gbps Port</li>
-              </ul>
-              <a href="https://billing.solarcloud.lat/paquete-invader" class="btn-deploy">DEPLOY INSTANCE</a>
-            </div>
-          </div>
-
-          <!-- Starter -->
-          <div class="plan-card premium">
-            <div class="premium-badge">RECOMMENDED</div>
-            <div class="plan-img-container">
-              <img src="mc-starter.png" alt="Starter Image" class="plan-img">
-              <div class="plan-overlay">#03-PREMIUM</div>
-            </div>
-            <div class="plan-content">
-              <h3>STARTER</h3>
-              <div class="price">$10.00 <span>/mo</span></div>
-              <ul class="plan-specs">
-                <li><span>CPU</span> 4 vCores AMD Ryzen</li>
-                <li><span>RAM</span> 8 GB DDR4</li>
-                <li><span>SSD</span> 35 GB NVMe Gen4</li>
-                <li><span>NET</span> Anti-DDoS Avanzado</li>
-              </ul>
-              <a href="https://billing.solarcloud.lat/paquete-starter" class="btn-deploy">DEPLOY INSTANCE</a>
-            </div>
-          </div>
-
-          <!-- Astronaut -->
-          <div class="plan-card">
-            <div class="plan-img-container">
-              <img src="mc-plan3.png" alt="Astronaut Image" class="plan-img">
-              <div class="plan-overlay">#04-CO/US</div>
-            </div>
-            <div class="plan-content">
-              <h3>ASTRONAUT</h3>
-              <div class="price">$12.00 <span>/mo</span></div>
-              <ul class="plan-specs">
-                <li><span>CPU</span> 5 vCores AMD Ryzen</li>
-                <li><span>RAM</span> 9 GB DDR4</li>
-                <li><span>SSD</span> 50 GB NVMe Gen4</li>
-                <li><span>NET</span> 1 Gbps Port</li>
-              </ul>
-              <a href="https://billing.solarcloud.lat/paquete-astronaut" class="btn-deploy">DEPLOY INSTANCE</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="faq-section">
-      <div class="section-wrapper">
-        <div class="section-header">
-          <h2>> KNOWLEDGE_BASE</h2>
-        </div>
-        <div class="accordion">
-          <div class="faq-item">
-            <button class="faq-trigger">¿QUÉ PROCESADORES USAN PARA MINECRAFT?</button>
-            <div class="faq-content">
-              <p>> Operamos exclusivamente con procesadores AMD Ryzen 5 5600X y NVMe SSDs en todos nuestros nodos. Esto garantiza un rendimiento Single-Core masivo, manteniendo el TPS siempre clavado en 20.0.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-trigger">¿INCLUYE PROTECCIÓN ANTI-DDOS?</button>
-            <div class="faq-content">
-              <p>> Afirmativo. Contamos con mitigación de ataques L3/L4 y L7 automática. Tu servidor permanecerá en línea sin importar la magnitud del ataque, sin costos extra.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-trigger">¿CÓMO ACCEDO A MI SERVIDOR DESPUÉS DEL PAGO?</button>
-            <div class="faq-content">
-              <p>> El aprovisionamiento es instantáneo. En el checkout elegirás tu propio usuario y contraseña, y una vez confirmado el pago, podrás entrar directamente a <a href="https://panel.solarcloud.lat" style="color:var(--solar-yellow)">panel.solarcloud.lat</a>.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="section-wrapper">
-      <div class="footer-grid">
-        <div class="footer-brand">SOLAR_CLOUD</div>
-        <div class="footer-contact">
-          <p>> CONTACT: <a href="mailto:support@solarcloud.lat">support@solarcloud.lat</a></p>
-          <p>> LOCATION: BOGOTÁ (CO) / MIAMI (US)</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 SOLAR CLOUD INFRASTRUCTURE. ALL SYSTEMS OPERATIONAL.</p>
-      </div>
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>COPYRIGHT &copy; 2026 SOLAR CLOUD</p>
+            <p style="margin-top: 0.5rem; color: var(--texto-gris); font-size: 0.85rem;">HOSTING DE ALTO RENDIMIENTO</p>
+        </footer>
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
