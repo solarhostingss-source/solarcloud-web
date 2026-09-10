@@ -76,3 +76,62 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+
+// --- SOLAR AI CHATBOT LOGIC ---
+let chatHistory = [];
+
+function toggleAssistantChat() {
+    const assistWindow = document.getElementById('solar-sc-assistant-window');
+    const assistInput = document.getElementById('sc-assistant-input');
+    if (!assistWindow) return;
+    
+    assistWindow.classList.toggle('open');
+    if (assistWindow.classList.contains('open') && assistInput) {
+        setTimeout(() => assistInput.focus(), 100);
+    }
+}
+
+async function sendAssistantMessage() {
+    const input = document.getElementById('sc-assistant-input');
+    const messagesContainer = document.getElementById('sc-assistant-messages');
+    const typingIndicator = document.getElementById('sc-assistant-typing');
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    // Add user message
+    messagesContainer.innerHTML += `<div class="sc-assistant-msg user"><p>${message}</p></div>`;
+    input.value = '';
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Show typing
+    typingIndicator.style.display = 'block';
+    
+    chatHistory.push({ role: 'user', content: message });
+
+    try {
+        const response = await fetch('/api/chat', { // using billing for backend API if configured there, or change to actual backend URL
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: message, history: chatHistory.slice(0, -1) })
+        });
+
+        const data = await response.json();
+        typingIndicator.style.display = 'none';
+
+        if (data.reply) {
+            messagesContainer.innerHTML += `<div class="sc-assistant-msg bot"><p>${data.reply}</p></div>`;
+            chatHistory.push({ role: 'bot', content: data.reply });
+        } else {
+            messagesContainer.innerHTML += `<div class="sc-assistant-msg bot"><p>Error de conexión.</p></div>`;
+        }
+    } catch (error) {
+        typingIndicator.style.display = 'none';
+        messagesContainer.innerHTML += `<div class="sc-assistant-msg bot"><p>Error de red.</p></div>`;
+    }
+    
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
