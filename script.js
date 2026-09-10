@@ -122,9 +122,9 @@ async function sendAssistantMessage() {
         const data = await response.json();
         typingIndicator.style.display = 'none';
 
-        if (data.reply) {
-            messagesContainer.innerHTML += `<div class="sc-assistant-msg bot"><p>${data.reply}</p></div>`;
-            chatHistory.push({ role: 'bot', content: data.reply });
+        if (data.response) {
+            messagesContainer.innerHTML += `<div class="sc-assistant-msg bot"><p>${data.response}</p></div>`;
+            chatHistory.push({ role: 'bot', content: data.response });
         } else {
             messagesContainer.innerHTML += `<div class="sc-assistant-msg bot"><p>Error de conexión.</p></div>`;
         }
