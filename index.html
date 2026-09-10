@@ -3,265 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solar Cloud | Hosting de Alto Rendimiento</title>
-    <!-- Importamos fuentes premium: Outfit para títulos y JetBrains Mono para código -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-    <meta name="description" content="Solar Cloud - Hosting de Minecraft y Bots de Alto Rendimiento. Infraestructura física (bare-metal) con latencia ultra-baja en Colombia y USA. Protección Anti-DDoS y SSD NVMe.">
-    <meta name="keywords" content="hosting minecraft colombia, hosting minecraft usa, servidores de minecraft baratos, vps, bots hosting, nodejs, python">
-    <meta property="og:title" content="Solar Cloud | Data Center Infrastructure">
-    <meta property="og:description" content="Rendimiento brutal y latencia ultra-baja para servidores de Minecraft y Bots.">
-    <meta property="og:image" content="https://solarcloud.lat/og-image.png">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2309090b' /%3E%3Crect x='25' y='25' width='50' height='50' fill='%23FFB800' /%3E%3C/svg%3E">
-    <link rel="stylesheet" href="styles.css">
+    <title>Five Nights at Countryballs 3</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="game-container">
+        <!-- Efectos Visuales Overlay -->
+        <div class="vignette"></div>
+        <div class="crt"></div>
+        <div id="red-flash-overlay" class="hidden"></div>
+        <div id="fade-to-black" class="hidden"></div>
+        <div id="static-overlay" class="hidden"></div>
 
-    <nav class="navbar">
-        <div class="nav-brand">SOLAR CLOUD</div>
-        <div class="nav-links">
-            <a href="#planes">/PLANES</a>
-            <a href="#ping">/NETWORK</a>
-            <a href="#faq">/FAQ</a>
+        <!-- Vista de la Oficina Panorámica -->
+        <div id="office-view">
+            <div id="office-bg">
+                <!-- Background visual -->
+                <div class="desk"></div>
+                <div class="window"></div>
+                
+                <!-- Zonas de interacción -->
+                <div id="maintenance-trigger" class="side-trigger left-trigger" onclick="game.toggleMaintenance()"><p>◂ Maintenance</p></div>
+                <div id="camera-trigger" class="side-trigger right-trigger" onclick="game.toggleMonitor()"><p>Cameras ▸</p></div>
+                
+                <!-- Enemigos en Oficina -->
+                <div id="phantom-office" class="hidden">
+                    <!-- Placeholder para Argentina -->
+                    <div class="placeholder-ball argentina"></div>
+                </div>
+            </div>
         </div>
-        <div style="display:flex; gap:1rem;"><a href="https://discord.gg/solarcloud" target="_blank" class="nav-support">DISCORD</a><a href="mailto:support@solarcloud.lat" class="nav-support">SOPORTE</a></div>
-    </nav>
 
-    <div class="container">
-        <!-- HEADER / HERO -->
-        <header class="hero">
-            <div class="network-status">
-                <div class="status-dot"></div>
-                SISTEMAS OPERACIONALES - BOGOTÁ Y USA
+        <!-- HUD Principal -->
+        <div id="hud">
+            <div id="time-display">12:00 AM</div>
+            <div id="night-display">Night 1</div>
+        </div>
+
+        <!-- Panel de Mantenimiento (Izquierda) -->
+        <div id="maintenance-panel" class="panel hidden slide-in-left">
+            <h2>Maintenance Panel</h2>
+            
+            <div class="sys-row">
+                <span class="sys-name">Audio Devices</span>
+                <span id="audio-status" class="status online">Online</span>
+                <button onclick="game.maintenance.reboot('audio')">Reboot</button>
             </div>
-            <h1>Potencia <span>Solar</span><br>Rendimiento Brutal</h1>
-            <p>Infraestructura de hosting físico para Minecraft. Menos de 15ms de latencia en Colombia. Sin intermediarios, sin excusas.</p>
-            <a href="#planes" class="btn-primary">Desplegar Servidor</a>
-        </header>
-
-        <!-- PING TEST -->
-        <section id="ping" class="ping-section">
-            <div class="console-header">
-                root@solarcloud:~# ./ping_test_nodes.sh
-                <div class="ping-controls">
-                    <button class="btn-ping" onclick="runPing('Colombia', 'node.solarcloud.lat')">PING [BOGOTÁ]</button>
-                    <button class="btn-ping" onclick="runPing('USA', 'node3.solarcloud.lat')">PING [MIAMI]</button>
-                </div>
+            
+            <div class="sys-row">
+                <span class="sys-name">Camera System</span>
+                <span id="camera-status" class="status online">Online</span>
+                <button onclick="game.maintenance.reboot('camera')">Reboot</button>
             </div>
-            <div id="terminal-output" class="console-body">> Iniciando diagnóstico de red...
-> Esperando comando...</div>
-        </section>
+            
+            <div class="sys-row">
+                <span class="sys-name">Ventilation</span>
+                <span id="vent-status" class="status online">Online</span>
+                <button onclick="game.maintenance.reboot('vent')">Reboot</button>
+            </div>
 
-                <!-- PLANES MINECRAFT -->
-        <section id="planes" class="planes-section">
-            <h2 class="section-title">SERVIDORES MINECRAFT</h2>
-            <div class="plans-grid">
-                <!-- Vanguard -->
-                <div class="plan-card">
-                    <img src="mc-plan1.png" alt="Vanguard" class="plan-img">
-                    <div class="plan-content">
-                        <h3>VANGUARD <span class="plan-tag">#01</span></h3>
-                        <div class="price">$4.00 <span>/mo</span></div>
-                        <ul class="plan-specs">
-                            <li>> CPU: 2 vCores</li>
-                            <li>> RAM: 4 GB DDR4</li>
-                            <li>> DISK: 10 GB NVMe</li>
-                        </ul>
-                        <a href="https://billing.solarcloud.lat/paquete-vanguard" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
-                    </div>
-                </div>
+            <button id="reboot-all-btn" onclick="game.maintenance.rebootAll()">Reboot All</button>
+            
+            <div class="progress-container">
+                <div id="reboot-progress"></div>
+            </div>
 
-                <!-- Invader -->
-                <div class="plan-card">
-                    <img src="mc-plan2.png" alt="Invader" class="plan-img">
-                    <div class="plan-content">
-                        <h3>INVADER <span class="plan-tag">#02</span></h3>
-                        <div class="price">$6.00 <span>/mo</span></div>
-                        <ul class="plan-specs">
-                            <li>> CPU: 4 vCores</li>
-                            <li>> RAM: 6 GB DDR4</li>
-                            <li>> DISK: 25 GB NVMe</li>
-                        </ul>
-                        <a href="https://billing.solarcloud.lat/paquete-invader" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
-                    </div>
-                </div>
+            <div id="phantom-maintenance" class="hidden">
+                <!-- Placeholder para Italia -->
+                <div class="placeholder-ball italia"></div>
+            </div>
+            
+            <button class="close-btn" onclick="game.toggleMaintenance()">Close</button>
+        </div>
 
-                <!-- Starter -->
-                <div class="plan-card premium-card">
-                    <div class="premium-badge">RECOMENDADO</div>
-                    <img src="mc-starter.png" alt="Starter" class="plan-img">
-                    <div class="plan-content">
-                        <h3>STARTER <span class="plan-tag">#03</span></h3>
-                        <div class="price">$8.00 <span>/mo</span></div>
-                        <ul class="plan-specs">
-                            <li>> CPU: 4 vCores</li>
-                            <li>> RAM: 8 GB DDR4</li>
-                            <li>> DISK: 35 GB NVMe</li>
-                        </ul>
-                        <a href="https://billing.solarcloud.lat/paquete-starter" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
-                    </div>
-                </div>
-
-                <!-- Astronaut -->
-                <div class="plan-card">
-                    <img src="mc-plan3.png" alt="Astronaut" class="plan-img">
-                    <div class="plan-content">
-                        <h3>ASTRONAUT <span class="plan-tag">#04</span></h3>
-                        <div class="price">$9.00 <span>/mo</span></div>
-                        <ul class="plan-specs">
-                            <li>> CPU: 5 vCores</li>
-                            <li>> RAM: 9 GB DDR4</li>
-                            <li>> DISK: 50 GB NVMe</li>
-                        </ul>
-                        <a href="https://billing.solarcloud.lat/paquete-astronaut" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
-                    </div>
+        <!-- Panel de Cámaras (Derecha) -->
+        <div id="camera-panel" class="panel hidden slide-in-right">
+            <div id="camera-screen">
+                <div id="cam-static" class="hidden"></div>
+                <div id="cam-feed">CAM 1</div>
+                
+                <div id="springtrap-cam" class="hidden">
+                    <img src="assets/springtrap_venezuela.png" alt="Springtrap">
                 </div>
                 
-                <!-- Scientist -->
-                <div class="plan-card">
-                    <img src="mc-plan4.png" alt="Scientist" class="plan-img">
-                    <div class="plan-content">
-                        <h3>SCIENTIST <span class="plan-tag">#05</span></h3>
-                        <div class="price">$16.00 <span>/mo</span></div>
-                        <ul class="plan-specs">
-                            <li>> CPU: 8 vCores</li>
-                            <li>> RAM: 16 GB DDR4</li>
-                            <li>> DISK: 100 GB NVMe</li>
-                        </ul>
-                        <a href="https://billing.solarcloud.lat/paquete-scientist" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
-                    </div>
+                <div id="phantom-cam" class="hidden">
+                    <img src="assets/phantom_colombia.png" alt="Phantom">
                 </div>
             </div>
-        </section>
-
-        <!-- PLANES BOTS -->
-        <section id="bots" class="planes-section">
-            <h2 class="section-title">HOSTING DE BOTS (Node.js/Python)</h2>
-            <div class="plans-grid">
-                <!-- Spark -->
-                <div class="plan-card">
-                    <img src="bot-plan1.png" alt="Spark" class="plan-img">
-                    <div class="plan-content">
-                        <h3>SPARK <span class="plan-tag">#B1</span></h3>
-                        <div class="price">$1.00 <span>/mo</span></div>
-                        <ul class="plan-specs">
-                            <li>> CPU: 1 vCore</li>
-                            <li>> RAM: 1 GB DDR4</li>
-                            <li>> DISK: 5 GB NVMe</li>
-                        </ul>
-                        <a href="https://billing.solarcloud.lat/paquete-spark" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
-                    </div>
+            
+            <div id="camera-controls">
+                <div class="tabs">
+                    <button id="tab-cams" class="active" onclick="game.monitor.switchTab('cams')">Cams</button>
+                    <button id="tab-vents" onclick="game.monitor.switchTab('vents')">Vents</button>
                 </div>
-
-                <!-- Reactor -->
-                <div class="plan-card">
-                    <img src="bot-plan2.png" alt="Reactor" class="plan-img">
-                    <div class="plan-content">
-                        <h3>REACTOR <span class="plan-tag">#B2</span></h3>
-                        <div class="price">$2.00 <span>/mo</span></div>
-                        <ul class="plan-specs">
-                            <li>> CPU: 2 vCores</li>
-                            <li>> RAM: 2 GB DDR4</li>
-                            <li>> DISK: 10 GB NVMe</li>
-                        </ul>
-                        <a href="https://billing.solarcloud.lat/paquete-reactor" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
-                    </div>
+                
+                <div id="map-cams" class="map-view">
+                    <!-- Botones de cámara (se generan en JS) -->
                 </div>
-
-                <!-- Matrix -->
-                <div class="plan-card">
-                    <img src="bot-plan3.png" alt="Matrix" class="plan-img">
-                    <div class="plan-content">
-                        <h3>MATRIX <span class="plan-tag">#B3</span></h3>
-                        <div class="price">$4.00 <span>/mo</span></div>
-                        <ul class="plan-specs">
-                            <li>> CPU: 4 vCores</li>
-                            <li>> RAM: 4 GB DDR4</li>
-                            <li>> DISK: 20 GB NVMe</li>
-                        </ul>
-                        <a href="https://billing.solarcloud.lat/paquete-matrix" class="btn-primary" style="width: 100%; text-align: center; margin-top: 1rem;">COMPRAR AHORA</a>
-                    </div>
+                
+                <div id="map-vents" class="map-view hidden">
+                    <!-- Botones de ventilación (se generan en JS) -->
                 </div>
+                
+                <button id="play-audio-btn" onclick="game.monitor.playAudio()">Play Audio</button>
             </div>
-        </section>
+            
+            <button class="close-btn" onclick="game.toggleMonitor()">Close</button>
+        </div>
 
-        <!-- FAQ -->
-        <section id="faq" class="faq-section">
-            <h2 class="section-title">PREGUNTAS FRECUENTES</h2>
-            <div class="accordion">
-                <div class="faq-item">
-                    <button class="faq-trigger">¿Dónde están ubicados los servidores?</button>
-                    <div class="faq-content">
-                        Tenemos nodos físicos en Bogotá (Colombia) asegurando menos de 15ms para toda Colombia, y en Miami (USA) para excelente conectividad en toda LATAM.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-trigger">¿Tienen protección Anti-DDoS?</button>
-                    <div class="faq-content">
-                        Sí, todos los planes incluyen mitigación Layer 3/4 y Layer 7 en tiempo real sin costo adicional.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-trigger">¿Cuánto tarda la activación?</button>
-                    <div class="faq-content">
-                        Es totalmente automática. En cuanto realizas el pago en billing.solarcloud.lat, tu servidor se instala y puedes entrar a administrarlo.
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Pantallas de Fin de Juego -->
+        <div id="jumpscare-screen" class="hidden">
+            <img id="jumpscare-img" src="" alt="Jumpscare">
+        </div>
         
-        <!-- FOOTER -->
-        <footer class="footer">
-            <div class="footer-links" style="display:flex; justify-content:center; gap:2rem; margin-bottom:1.5rem; flex-wrap:wrap;">
-                <a href="terminos.html" class="nav-support">Términos de Servicio</a>
-                <a href="privacidad.html" class="nav-support">Política de Privacidad</a>
-                <a href="reembolsos.html" class="nav-support">Política de Reembolsos</a>
-            </div>
-            <p>COPYRIGHT &copy; 2026 SOLAR CLOUD INFRASTRUCTURE</p>
-            <p style="margin-top: 0.5rem; color: var(--texto-gris); font-size: 0.85rem;">SOPORTE TÉCNICO: <a href="mailto:support@solarcloud.lat" style="color:var(--amarillo-solar); text-decoration:none;">support@solarcloud.lat</a></p>
-        </footer>
-    </div>
-
-    <!-- COOKIE TERMINAL -->
-    <div id="cookie-banner" class="cookie-terminal">
-        <div class="cookie-header">
-            <span>root@solarcloud:~# ./load_cookies.sh</span>
-            <button onclick="document.getElementById('cookie-banner').style.display='none'" style="background:transparent; border:none; color:var(--bg-base); cursor:pointer; font-weight:bold;">[X]</button>
+        <div id="game-over-screen" class="screen hidden">
+            <h1>GAME OVER</h1>
+            <p>He got you.</p>
+            <button onclick="location.reload()">Try Again</button>
         </div>
-        <div class="cookie-body">
-            > ATENCIÓN: Este sistema utiliza cookies estrictamente necesarias para la sesión y telemetría de red. <br>
-            > ¿Confirmar escritura en el disco local?
-        </div>
-        <div class="cookie-actions">
-            <button class="btn-cookie accept" onclick="document.getElementById('cookie-banner').style.display='none'">[Y] ACCEPT</button>
-            <button class="btn-cookie reject" onclick="document.getElementById('cookie-banner').style.display='none'">[N] REJECT</button>
+        
+        <div id="win-screen" class="screen hidden">
+            <h1 class="flash">6:00 AM</h1>
+            <button onclick="location.reload()">Next Night</button>
         </div>
     </div>
-
     
-    <!-- 3D CONTACT DOCK -->
-    <div class="contact-dock">
-        <a href="https://discord.gg/solarcloud" target="_blank" class="mech-key">
-            <span class="key-face">
-                <svg class="key-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg>
-                <span class="key-text">DISCORD</span>
-            </span>
-        </a>
-        <a href="https://www.tiktok.com/@solarcloudrl" target="_blank" class="mech-key">
-            <span class="key-face">
-                <svg class="key-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74a2.89 2.89 0 0 1 2.31-4.64a2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
-                <span class="key-text">TIKTOK</span>
-            </span>
-        </a>
-        <a href="mailto:support@solarcloud.lat" class="mech-key">
-            <span class="key-face">
-                <svg class="key-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                <span class="key-text">EMAIL</span>
-            </span>
-        </a>
-    </div>
+    <script src="game.js"></script>
 
-    <script src="script.js"></script>
+  <script id="dynamic-year">document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>

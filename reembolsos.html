@@ -21,6 +21,7 @@
 <body>
     <nav class="navbar">
         <a href="index.html" class="nav-brand" style="text-decoration:none; color:var(--texto-blanco);">SOLAR CLOUD</a>
+        <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
         <div class="nav-links">
             <a href="index.html#planes">/PLANES</a>
             <a href="index.html#ping">/NETWORK</a>
@@ -104,9 +105,11 @@
                 <a href="privacidad.html" class="nav-support">Política de Privacidad</a>
                 <a href="reembolsos.html" class="nav-support">Política de Reembolsos</a>
             </div>
-            <p>COPYRIGHT &copy; 2026 SOLAR CLOUD INFRASTRUCTURE</p>
+            <p>COPYRIGHT &copy; <span id="year">2026</span> SOLAR CLOUD INFRASTRUCTURE</p>
             <p style="margin-top: 0.5rem; color: var(--texto-gris); font-size: 0.85rem;">SOPORTE TÉCNICO: <a href="mailto:support@solarcloud.lat" style="color:var(--amarillo-solar); text-decoration:none;">support@solarcloud.lat</a></p>
         </footer>
     </div>
+
+  <script id="dynamic-year">document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
